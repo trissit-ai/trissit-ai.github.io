@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
+<title>FDE 突然爆火 · 企业 AI ToB 如何破局</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+:root{
+--bg:#15151a;
+--card:rgba(255,255,255,.045);
+--line:rgba(255,255,255,.10);
+--w:#F4F2EF;
+--w2:#B9B5AE;
+--w3:#7E7A74;
+--bz:#C8913F;
+--bz2:#E8C89A;
+--bz3:#8A5E24;
+--bad:#B4584E;
+}
+html,body{height:100%;overflow:hidden;background:var(--bg)}
+body{
+font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Helvetica Neue",sans-serif;
+color:var(--w);-webkit-font-smoothing:antialiased;
+}
+.deck{
+height:100dvh;height:100vh;
+overflow-y:auto;overflow-x:hidden;
+scroll-snap-type:y mandatory;scroll-behavior:smooth;
+-webkit-overflow-scrolling:touch;
+}
+.page{
+height:100dvh;height:100vh;
+scroll-snap-align:start;scroll-snap-stop:always;
+position:relative;display:flex;flex-direction:column;
+padding:calc(env(safe-area-inset-top) + 30px) 22px calc(env(safe-area-inset-bottom) + 34px);
+overflow:hidden;
+}
+.page::before{
+content:"";position:absolute;inset:0;pointer-events:none;
+background:
+radial-gradient(120% 55% at 88% 4%, rgba(200,145,63,.16), transparent 62%),
+radial-gradient(90% 45% at 4% 96%, rgba(200,145,63,.09), transparent 60%);
+}
+.page > *{position:relative;z-index:1}
+.pnum{
+font-size:11px;letter-spacing:.28em;color:var(--bz);font-weight:600;
+margin-bottom:12px;display:flex;align-items:center;gap:8px;flex:0 0 auto;
+}
+.pnum::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,rgba(200,145,63,.5),transparent)}
+h2{font-size:23px;line-height:1.3;font-weight:700;letter-spacing:-.3px;flex:0 0 auto}
+h2 .bz{color:var(--bz2)}
+.sub{font-size:13.5px;line-height:1.75;color:var(--w2);flex:0 0 auto}
+.rise{opacity:0;transform:translateY(22px);transition:opacity .62s cubic-bezier(.2,.7,.3,1),transform .62s cubic-bezier(.2,.7,.3,1)}
+.in .rise{opacity:1;transform:none}
+.in .d1{transition-delay:.06s}.in .d2{transition-delay:.14s}.in .d3{transition-delay:.22s}
+.in .d4{transition-delay:.30s}.in .d5{transition-delay:.38s}.in .d6{transition-delay:.46s}
+.in .d7{transition-delay:.54s}.in .d8{transition-delay:.62s}
+/* ===== P1 ===== */
+.p1 .body{flex:1;display:flex;flex-direction:column;justify-content:center;min-height:0}
+.tag{
+display:inline-block;font-size:10.5px;letter-spacing:.18em;color:var(--bz);
+border:1px solid rgba(200,145,63,.4);border-radius:20px;padding:5px 11px;
+align-self:flex-start;margin-bottom:13px;
+}
+.htitle{font-size:26px;line-height:1.26;font-weight:800;letter-spacing:-.8px;margin-bottom:6px}
+.htitle em{
+font-style:normal;
+background:linear-gradient(100deg,var(--bz2),var(--bz) 55%,#9a6a28);
+-webkit-background-clip:text;background-clip:text;color:transparent;
+}
+.hsub{font-size:10.5px;letter-spacing:.09em;color:var(--bz);font-weight:600;margin-bottom:8px}
+.hsub2{font-size:11.5px;color:var(--w3);line-height:1.7;margin-bottom:10px}
+/* 剪刀差图 */
+.chart{width:calc(100% + 44px);margin:0 -22px 9px;display:block}
+.chart .grid{stroke:rgba(255,255,255,.075);stroke-width:1}
+.chart .axis{fill:none;stroke:rgba(255,255,255,.24);stroke-width:1}
+.gapfill{fill:url(#gapg);opacity:0;transition:opacity 1s ease .5s}
+.in .gapfill{opacity:1}
+.ln{fill:none;stroke-width:2.6;stroke-linecap:round;stroke-linejoin:round}
+.ln.ai{stroke:#F4F2EF}
+.ln.co{stroke:var(--bad)}
+.draw{transition:stroke-dashoffset 1.3s cubic-bezier(.3,.7,.3,1)}
+.ln.ai.draw{stroke-dasharray:400;stroke-dashoffset:400}
+.ln.co.draw{stroke-dasharray:385;stroke-dashoffset:385}
+.in .draw{stroke-dashoffset:0}
+.in .ln.co{transition-delay:.28s}
+.pt{opacity:0;transition:opacity .45s ease}
+.in .pt.ai{opacity:1;transition-delay:1.15s}
+.in .pt.co{opacity:1;transition-delay:1.35s}
+.clab{font-size:9px;font-weight:700;letter-spacing:.03em}
+.clab.ai{fill:#F4F2EF}
+.clab.co{fill:#C9705F}
+.clab.gap{fill:var(--bz2);font-size:9.5px;letter-spacing:.06em}
+.clab.gsub{fill:var(--w3);font-size:7.5px;letter-spacing:.02em}
+.clab.ax{fill:var(--w3);font-size:8px;font-weight:600}
+.legend{display:flex;gap:15px;margin-bottom:11px}
+.lg{display:flex;align-items:center;gap:6px;font-size:10.5px;color:var(--w2)}
+.lgi{width:15px;height:2.5px;border-radius:2px;flex:0 0 auto}
+.lgi.ai{background:#F4F2EF}
+.lgi.co{background:var(--bad)}
+.lgi.gp{background:var(--bz);height:9px;width:4px}
+.kpis{display:grid;grid-template-columns:1fr 1fr;gap:7px;margin-bottom:11px}
+.kpi{background:var(--card);border:1px solid var(--line);border-radius:11px;padding:8px 10px}
+.kpi b{display:block;font-size:18px;font-weight:800;color:var(--bz2);letter-spacing:-.5px;line-height:1.15}
+.kpi span{display:block;font-size:9px;color:var(--w3);margin-top:3px;line-height:1.5}
+.kpi.warn b{color:#D98B80}
+.punch{
+font-size:12.5px;line-height:1.8;color:var(--w);
+border-left:2px solid var(--bz);padding-left:11px;
+}
+.punch b{color:var(--bz2)}
+.hint{flex:0 0 auto;text-align:center;font-size:10.5px;color:var(--w3);letter-spacing:.16em;animation:bob 2.1s ease-in-out infinite}
+@keyframes bob{0%,100%{transform:translateY(0);opacity:.5}50%{transform:translateY(5px);opacity:1}}
+/* ===== P2 ===== */
+.vs{display:flex;flex-direction:column;gap:10px;margin:18px 0 16px;flex:0 0 auto}
+.vsbox{border-radius:13px;padding:12px 14px;border:1px solid var(--line);background:var(--card)}
+.vsbox.no{opacity:.72}
+.vshead{font-size:10.5px;letter-spacing:.16em;margin-bottom:8px;font-weight:600}
+.vsbox.no .vshead{color:var(--w3)}
+.vsbox.yes .vshead{color:var(--bz)}
+.vsbox.yes{border-color:rgba(200,145,63,.32);background:linear-gradient(150deg,rgba(200,145,63,.12),rgba(255,255,255,.02))}
+.vsitem{font-size:13px;line-height:1.7;color:var(--w2)}
+.vsbox.no .vsitem{text-decoration:line-through;text-decoration-color:rgba(255,255,255,.3)}
+.vsbox.yes .vsitem{color:var(--w);font-weight:600}
+.flows{display:flex;flex-wrap:wrap;gap:7px;margin-top:12px;flex:0 0 auto}
+.flow{
+font-size:12px;padding:7px 13px;border-radius:9px;
+background:rgba(200,145,63,.10);border:1px solid rgba(200,145,63,.3);color:var(--bz2);
+}
+.kicker{
+margin-top:16px;font-size:12.5px;line-height:1.8;color:var(--w2);
+border-left:2px solid var(--bz);padding-left:11px;flex:0 0 auto;
+}
+.kicker b{color:var(--bz2)}
+/* ===== P3 ===== */
+.qs{flex:1;display:flex;flex-direction:column;justify-content:center;gap:9px;min-height:0}
+.q{
+background:var(--card);border:1px solid var(--line);border-radius:13px;
+padding:13px 15px;display:flex;gap:12px;align-items:flex-start;
+border-left:2px solid rgba(200,145,63,.45);
+}
+.qn{
+font-size:15px;font-weight:800;color:var(--bz);flex:0 0 auto;
+width:22px;line-height:1.35;
+}
+.qt{font-size:15px;font-weight:700;line-height:1.45;color:var(--w);margin-bottom:4px}
+.qd{font-size:11.5px;line-height:1.6;color:var(--w3)}
+.qcap{flex:0 0 auto;font-size:11.5px;color:var(--w3);line-height:1.75;margin-top:4px;text-align:center}
+/* ===== P4 ===== */
+.p4body{flex:1;display:flex;flex-direction:column;justify-content:center;min-height:0}
+.arrowrow{display:flex;align-items:stretch;gap:6px;margin:16px 0 6px}
+.anode{
+flex:1;background:var(--card);border:1px solid var(--line);border-radius:11px;
+padding:11px 8px;text-align:center;
+}
+.anode b{display:block;font-size:12.5px;color:var(--bz2);font-weight:700;margin-bottom:4px}
+.anode span{display:block;font-size:10px;color:var(--w3);line-height:1.5}
+.anode.hi{border-color:rgba(200,145,63,.35);background:linear-gradient(150deg,rgba(200,145,63,.13),rgba(255,255,255,.02))}
+.asep{display:flex;align-items:center;color:var(--bz);font-size:13px;flex:0 0 auto;padding:0 1px}
+.cold{
+margin-top:14px;border-radius:13px;padding:12px 14px;
+border:1px solid rgba(180,88,78,.28);
+background:linear-gradient(150deg,rgba(180,88,78,.09),rgba(255,255,255,.02));
+}
+.chead{display:flex;align-items:center;gap:7px;margin-bottom:8px}
+.cdot{width:6px;height:6px;border-radius:50%;background:var(--bad);box-shadow:0 0 8px var(--bad);flex:0 0 auto}
+.ctitle{font-size:12.5px;font-weight:700;color:#D98B80}
+.li{display:flex;gap:8px;font-size:11.5px;line-height:1.62;color:var(--w2);margin-bottom:5px}
+.li:last-child{margin-bottom:0}
+.li i{font-style:normal;color:var(--bad);flex:0 0 auto;font-size:10px;margin-top:2px}
+.li b{color:var(--w);font-weight:600}
+.quote{
+flex:0 0 auto;margin-top:14px;text-align:center;padding:13px 12px;
+border-top:1px solid rgba(200,145,63,.22);
+}
+.quote p{font-size:13.5px;line-height:1.85;font-weight:600;color:var(--bz2)}
+.quote span{display:block;font-size:10.5px;color:var(--w3);margin-top:7px;letter-spacing:.08em}
+.dots{position:fixed;right:9px;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:8px;z-index:20}
+.dot{width:5px;height:5px;border-radius:50%;background:rgba(255,255,255,.22);transition:all .35s ease}
+.dot.on{background:var(--bz);height:16px;border-radius:3px;box-shadow:0 0 8px rgba(200,145,63,.7)}
+.pbar{position:fixed;top:0;left:0;height:2px;z-index:21;background:linear-gradient(90deg,var(--bz3),var(--bz2));width:0;transition:width .3s ease}
+</style>
+</head>
+<body>
+<div class="pbar" id="pbar"></div>
+<div class="dots" id="dots"></div>
+<div class="deck" id="deck">
+<!-- ===== P1 ===== -->
+<section class="page p1">
+<div class="pnum">01 &nbsp;/&nbsp; 04</div>
+<div class="body">
+<div class="tag rise d1">THE SCISSORS GAP</div>
+<div class="htitle rise d2">剪刀差：<em>AI 能做</em> ≠ 企业用上</div>
+<div class="hsub rise d3">AI Capability ≠ AI Adoption</div>
+<div class="hsub2 rise d3">模型能力一路陡升，企业的采纳能力却爬得平缓——中间越张越开的口子，就是部署缺口。</div>
+<svg class="chart rise d4" viewBox="0 0 340 240" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="AI能力与企业能力的剪刀差图">
+<defs>
+<linearGradient id="gapg" x1="0" y1="1" x2="0" y2="0">
+<stop offset="0%" stop-color="#C8913F" stop-opacity="0.04"/>
+<stop offset="100%" stop-color="#C8913F" stop-opacity="0.32"/>
+</linearGradient>
+</defs>
+<g class="grid">
+<path d="M0,30 L0,210 M68,30 L68,210 M136,30 L136,210 M204,30 L204,210 M272,30 L272,210 M340,30 L340,210"/>
+<path d="M0,30 L340,30 M0,66 L340,66 M0,102 L340,102 M0,138 L340,138 M0,174 L340,174 M0,210 L340,210"/>
+</g>
+<path class="axis" d="M0,210 L340,210"/>
+<path class="gapfill" d="M0,204 L340,32 L340,120 Q175,140 0,206 Z"/>
+<path class="ln ai draw" d="M0,204 L340,32"/>
+<path class="ln co draw" d="M0,206 Q175,140 340,120"/>
+<circle class="pt ai" cx="337" cy="35" r="3.4" fill="#F4F2EF"/>
+<circle class="pt co" cx="337" cy="120" r="3.4" fill="#B4584E"/>
+<text class="clab ai" x="334" y="22" text-anchor="end">AI 能力 · AI Capability</text>
+<text class="clab gap" x="236" y="106" text-anchor="middle">部署缺口 GAP</text>
+<text class="clab gsub" x="236" y="120" text-anchor="middle">70% 试点未进生产 · 39% 见到 EBIT</text>
+<text class="clab co" x="334" y="154" text-anchor="end">企业能力 · Company Capability</text>
+<text class="clab ax" x="4" y="228">2023</text>
+<text class="clab ax" x="336" y="228" text-anchor="end">今天 Today</text>
+</svg>
+<div class="legend rise d5">
+<div class="lg"><i class="lgi ai"></i>AI 能力</div>
+<div class="lg"><i class="lgi co"></i>企业采纳能力</div>
+<div class="lg"><i class="lgi gp"></i>待填补的缺口</div>
+</div>
+<div class="kpis">
+<div class="kpi rise d5"><b>88%</b><span>组织已定期使用 AI<br>McKinsey State of AI 2025</span></div>
+<div class="kpi rise d6"><b>≈1/3</b><span>真正进入规模化扩展<br>多数仍停在试点</span></div>
+</div>
+<div class="punch rise d7">
+瓶颈不在模型能力，在<b>部署</b>。这道越张越开的口子，就是 <b>FDE</b> 站的位置。
+</div>
+</div>
+<div class="hint">上滑翻页 &nbsp;↑</div>
+</section>
+<!-- ===== P2 ===== -->
+<section class="page p2">
+<div class="pnum">02 &nbsp;/&nbsp; 04</div>
+<h2 class="rise d1">企业现在缺的<br><span class="bz">不是另一个 Demo</span></h2>
+<div class="sub rise d2" style="margin-top:9px">缺的是有人真正走进业务现场，把流程跑通。</div>
+<div class="vs">
+<div class="vsbox no rise d3">
+<div class="vshead">× 企业已经不缺的</div>
+<div class="vsitem">一个 demo</div>
+<div class="vsitem">一个 Agent</div>
+<div class="vsitem">一个聊天框</div>
+</div>
+<div class="vsbox yes rise d4">
+<div class="vshead">✓ 企业真正缺的</div>
+<div class="vsitem">有人走进业务现场，把这些流程跑通</div>
+</div>
+</div>
+<div class="flows">
+<div class="flow rise d5">客服</div>
+<div class="flow rise d6">合同审核</div>
+<div class="flow rise d7">财务对账</div>
+<div class="flow rise d8">外贸报价</div>
+</div>
+<div class="kicker rise d8">
+FDE 火，是因为它<b>离客户的真实痛苦最近</b>。企业 AI ToB 的新机会，也藏在这件很苦的事里。
+</div>
+</section>
+<!-- ===== P3 ===== -->
+<section class="page p3">
+<div class="pnum">03 &nbsp;/&nbsp; 04</div>
+<h2 class="rise d1">企业真正关心的<br>是这<span class="bz">四个问题</span></h2>
+<div class="sub rise d2" style="margin-top:8px">Demo 跑通只是开始，这四问过不了，项目就停在 POC。</div>
+<div class="qs">
+<div class="q rise d3">
+<div class="qn">01</div>
+<div>
+<div class="qt">AI 能不能接进旧系统？</div>
+<div class="qd">老 ERP、本地部署、没接口、数据散在各处</div>
+</div>
+</div>
+<div class="q rise d4">
+<div class="qn">02</div>
+<div>
+<div class="qt">效果怎么验收？</div>
+<div class="qd">没有可量化的业务指标，项目就无法结案</div>
+</div>
+</div>
+<div class="q rise d5">
+<div class="qn">03</div>
+<div>
+<div class="qt">员工愿不愿意用？</div>
+<div class="qd">多一个入口就多一道摩擦，用不起来等于没做</div>
+</div>
+</div>
+<div class="q rise d6">
+<div class="qn">04</div>
+<div>
+<div class="qt">出了错谁负责？</div>
+<div class="qd">责任边界与容错机制，比模型精度更常被追问</div>
+</div>
+</div>
+<div class="qcap rise d7">—— 这四问，才是企业 AI ToB 落地真正的门槛</div>
+</div>
+</section>
+<!-- ===== P4 ===== -->
+<section class="page p4">
+<div class="pnum">04 &nbsp;/&nbsp; 04</div>
+<h2 class="rise d1">破局：把说不清的<br>变成<span class="bz">能复用的能力</span></h2>
+<div class="p4body">
+<div class="arrowrow rise d3">
+<div class="anode">
+<b>说不清</b>
+<span>客户只给一句<br>模糊的抱怨</span>
+</div>
+<div class="asep">→</div>
+<div class="anode hi">
+<b>能落地</b>
+<span>跑得通<br>接得进旧系统</span>
+</div>
+<div class="asep">→</div>
+<div class="anode hi">
+<b>能验收</b>
+<span>业务指标<br>算得清账</span>
+</div>
+<div class="asep">→</div>
+<div class="anode">
+<b>能复用</b>
+<span>沉淀成<br>产品能力</span>
+</div>
+</div>
+<div class="cold rise d5">
+<div class="chead"><div class="cdot"></div><div class="ctitle">但别上头：这活儿没那么好干</div></div>
+<div class="li"><i>▲</i><div><b>很难靠培训速成</b> — 真正的能力长在项目里，不是刷课刷出来的</div></div>
+<div class="li"><i>▲</i><div><b>本质常是数据治理</b> — 大量时间在干脏活：理数据、对口径、清历史包袱</div></div>
+<div class="li"><i>▲</i><div><b>Demo 到生产还有几道关</b> — 效果、稳定性、权限、审计，每一关都能卡住</div></div>
+<div class="li"><i>▲</i><div><b>高薪对应高压</b> — 离客户痛苦最近，也意味着离问责最近</div></div>
+</div>
+<div class="quote rise d7">
+<p>把客户说不清的问题，<br>变成能落地、能验收、能复用的产品能力。</p>
+<span>@所罗门同学 · 视频简介原话</span>
+</div>
+</div>
+</section>
+</div>
+<script>
+(function(){
+var deck = document.getElementById('deck');
+var pages = Array.prototype.slice.call(document.querySelectorAll('.page'));
+var pbar = document.getElementById('pbar');
+var dotsW = document.getElementById('dots');
+pages.forEach(function(_, i){
+var d = document.createElement('div');
+d.className = 'dot' + (i === 0 ? ' on' : '');
+dotsW.appendChild(d);
+});
+var dots = Array.prototype.slice.call(dotsW.children);
+var io = new IntersectionObserver(function(entries){
+entries.forEach(function(e){ if (e.isIntersecting) e.target.classList.add('in'); });
+}, { root: deck, threshold: 0.28 });
+pages.forEach(function(p){ io.observe(p); });
+var cur = -1;
+deck.addEventListener('scroll', function(){
+var max = deck.scrollHeight - deck.clientHeight;
+pbar.style.width = (max > 0 ? (deck.scrollTop / max) * 100 : 0) + '%';
+var idx = Math.round(deck.scrollTop / deck.clientHeight);
+if (idx !== cur && idx >= 0 && idx < pages.length){
+cur = idx;
+dots.forEach(function(d, i){ d.classList.toggle('on', i === idx); });
+}
+}, { passive: true });
+function fixH(){
+var h = window.innerHeight;
+pages.forEach(function(p){ p.style.height = h + 'px'; });
+deck.style.height = h + 'px';
+}
+fixH();
+window.addEventListener('resize', fixH);
+window.addEventListener('orientationchange', function(){ setTimeout(fixH, 260); });
+})();
+</script>
+</body>
+</html>
