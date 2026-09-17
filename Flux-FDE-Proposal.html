@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
+<title>Flux · AI Adaption Proposal</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+:root{
+  --bg:#15151a;
+  --card:rgba(255,255,255,.045);
+  --line:rgba(255,255,255,.10);
+  --w:#F4F2EF;
+  --w2:#B9B5AE;
+  --w3:#7E7A74;
+  --bz:#C8913F;
+  --bz2:#E8C89A;
+  --bz3:#8A5E24;
+  --bad:#B4584E;
+}
+html,body{height:100%;overflow:hidden;background:var(--bg)}
+body{
+  font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Helvetica Neue",sans-serif;
+  color:var(--w);-webkit-font-smoothing:antialiased;
+}
+.deck{
+  height:100dvh;height:100vh;
+  overflow-y:auto;overflow-x:hidden;
+  scroll-snap-type:y mandatory;scroll-behavior:smooth;
+  -webkit-overflow-scrolling:touch;
+}
+.page{
+  height:100dvh;height:100vh;
+  scroll-snap-align:start;scroll-snap-stop:always;
+  position:relative;display:flex;flex-direction:column;
+  padding:calc(env(safe-area-inset-top) + 20px) 20px calc(env(safe-area-inset-bottom) + 22px);
+  overflow:hidden;
+}
+.page::before{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  background:
+    radial-gradient(120% 55% at 88% 4%, rgba(200,145,63,.16), transparent 62%),
+    radial-gradient(90% 45% at 4% 96%, rgba(200,145,63,.09), transparent 60%);
+}
+.page > *{position:relative;z-index:1}
+
+.pnum{
+  font-size:16.5px;letter-spacing:.28em;color:var(--bz);font-weight:600;
+  margin-bottom:8px;display:flex;align-items:center;gap:8px;flex:0 0 auto;
+}
+.pnum::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,rgba(200,145,63,.5),transparent)}
+h2{
+  font-size:clamp(24px,7.4vw,31px);line-height:1.28;font-weight:800;
+  letter-spacing:-.5px;flex:0 0 auto;
+}
+h2 .bz{color:var(--bz2)}
+h2 .bad{color:var(--bad)}
+.sub{font-size:clamp(18.75px,5.4vw,21.75px);line-height:1.7;color:var(--w2);flex:0 0 auto}
+
+.rise{opacity:0;transform:translateY(22px);transition:opacity .62s cubic-bezier(.2,.7,.3,1),transform .62s cubic-bezier(.2,.7,.3,1)}
+.in .rise{opacity:1;transform:none}
+.in .d1{transition-delay:.06s}.in .d2{transition-delay:.14s}.in .d3{transition-delay:.22s}
+.in .d4{transition-delay:.30s}.in .d5{transition-delay:.38s}.in .d6{transition-delay:.46s}
+.in .d7{transition-delay:.54s}.in .d8{transition-delay:.62s}
+
+/* ============ 封面 ============ */
+.p0{align-items:center;text-align:center;justify-content:center}
+.flowbg{position:absolute;inset:0;overflow:hidden;z-index:0;pointer-events:none}
+.band{
+  position:absolute;left:-45%;width:190%;height:14%;border-radius:50%;
+  background:linear-gradient(90deg,transparent,rgba(200,145,63,.16) 42%,rgba(232,200,154,.09) 62%,transparent);
+  filter:blur(30px);
+}
+.b1{top:20%;animation:sweep 11s ease-in-out infinite}
+.b2{top:47%;animation:sweep 14.5s ease-in-out infinite -4.5s;opacity:.72}
+.b3{top:72%;animation:sweep 9.5s ease-in-out infinite -7s;opacity:.55;height:11%}
+@keyframes sweep{
+  0%  {transform:translateX(-16%) scaleY(1)}
+  50% {transform:translateX(9%) scaleY(1.55)}
+  100%{transform:translateX(-16%) scaleY(1)}
+}
+.streaks{
+  position:absolute;inset:-12% -22%;
+  background:repeating-linear-gradient(180deg,rgba(255,255,255,.035) 0 1px,transparent 1px 9px);
+  filter:blur(3px);opacity:.55;animation:slide 17s linear infinite;
+}
+@keyframes slide{0%{transform:translateX(0)}100%{transform:translateX(9px)}}
+
+.cover{flex:1;display:flex;flex-direction:column;justify-content:center;align-items:center;min-height:0}
+.flowword{
+  font-size:clamp(66px,22vw,92px);font-weight:800;letter-spacing:-3px;line-height:1;color:#FFF;
+  margin-bottom:14px;
+  animation:glow 3.8s ease-in-out infinite;
+}
+@keyframes glow{
+  0%,100%{text-shadow:0 0 22px rgba(255,255,255,.34),0 0 56px rgba(232,200,154,.24)}
+  50%    {text-shadow:0 0 34px rgba(255,255,255,.62),0 0 82px rgba(232,200,154,.46)}
+}
+.cv1{
+  font-size:clamp(18.75px,5.55vw,22.5px);font-weight:600;letter-spacing:.3em;
+  color:var(--bz2);margin-bottom:22px;
+}
+.stages{display:flex;align-items:stretch;gap:4px;width:100%}
+.stg{
+  flex:1;background:var(--card);border:1px solid var(--line);border-radius:12px;
+  padding:11px 4px;text-align:center;
+}
+.stg b{display:block;font-size:clamp(15px,4.6vw,19px);font-weight:800;color:var(--w);letter-spacing:-.2px}
+.stg span{display:block;font-size:clamp(14.25px,4.35vw,16.5px);color:var(--w3);margin-top:5px;line-height:1.4}
+.stg.hi{border-color:rgba(200,145,63,.42);background:rgba(200,145,63,.11)}
+.stg.hi b{color:var(--bz2)}
+.stg.hi span{color:rgba(232,200,154,.75)}
+.sarw{display:flex;align-items:center;color:var(--bz);font-size:14px;font-weight:700;flex:0 0 auto}
+.cvhint{
+  flex:0 0 auto;font-size:15.75px;letter-spacing:.2em;color:var(--w3);
+  padding-top:20px;animation:bob 2.1s ease-in-out infinite;
+}
+@keyframes bob{0%,100%{transform:translateY(0);opacity:.5}50%{transform:translateY(5px);opacity:1}}
+
+/* ============ 通用块 ============ */
+.chart{width:calc(100% + 40px);margin:0 -20px 6px;display:block}
+.chart .grid{stroke:rgba(255,255,255,.075);stroke-width:1}
+.chart .axis{fill:none;stroke:rgba(255,255,255,.24);stroke-width:1}
+.gapfill{fill:url(#gapg);opacity:0;transition:opacity 1s ease .5s}
+.in .gapfill{opacity:1}
+.ln{fill:none;stroke-width:2.8;stroke-linecap:round;stroke-linejoin:round}
+.ln.ai{stroke:#F4F2EF;--len:366}
+.ln.co{stroke:var(--w3);--len:348}
+.draw{
+  stroke-dasharray:var(--len);stroke-dashoffset:var(--len);
+  transition:stroke-dashoffset 1.3s cubic-bezier(.3,.7,.3,1);
+}
+.in .draw{stroke-dashoffset:0}
+.pt{opacity:0;transition:opacity .45s ease}
+.in .pt.ai{opacity:1;transition-delay:1.15s}
+.in .pt.co{opacity:1;transition-delay:1.35s}
+.clab{font-size:14.25px;font-weight:700;letter-spacing:.03em}
+.clab.ai{fill:#F4F2EF}
+.clab.co{fill:var(--w2)}
+.clab.gap{fill:var(--bz2);font-size:19.5px;letter-spacing:.02em}
+.clab.ax{fill:var(--w3);font-size:12.75px;font-weight:600}
+
+.pair{display:flex;gap:9px;flex:0 0 auto}
+.pbox{
+  flex:1;background:var(--card);border:1px solid var(--line);border-radius:14px;
+  padding:11px 9px;text-align:center;
+}
+.pbox b{
+  display:block;font-size:clamp(30px,9.4vw,42px);font-weight:800;
+  line-height:1.05;letter-spacing:-1px;color:var(--bz2);
+}
+.pbox.warn b{color:var(--bad)}
+.pbox span{
+  display:block;font-size:clamp(16.5px,4.8vw,19.5px);color:var(--w2);margin-top:6px;line-height:1.4;
+}
+.pbox i{
+  display:block;font-style:normal;font-size:13.5px;letter-spacing:.08em;color:var(--w3);margin-top:4px;
+}
+.kicker{
+  font-size:clamp(18.75px,5.55vw,21.75px);line-height:1.75;color:var(--w2);
+  border-left:2px solid var(--bz);padding-left:11px;flex:0 0 auto;
+}
+.kicker b{color:var(--bz2)}
+
+/* ============ P2 巨头 ============ */
+.date{
+  font-size:clamp(18px,5.25vw,21px);font-weight:700;letter-spacing:.14em;
+  color:var(--bz);margin-bottom:8px;
+}
+.cols2{display:flex;gap:9px;flex:0 0 auto}
+.c2{
+  flex:1;border-radius:14px;padding:11px 11px;
+  border:1px solid rgba(200,145,63,.3);
+  background:linear-gradient(150deg,rgba(200,145,63,.11),rgba(255,255,255,.02));
+}
+.c2 b{display:block;font-size:clamp(15px,4.5vw,18px);font-weight:800;letter-spacing:-.2px;margin-bottom:3px}
+.c2 i{
+  display:block;font-style:normal;font-size:13.5px;letter-spacing:.12em;
+  color:var(--bz);margin-bottom:9px;text-transform:uppercase;
+}
+.c2 em{
+  display:block;font-style:normal;font-size:clamp(19px,6vw,25px);font-weight:800;
+  color:var(--w);line-height:1.25;letter-spacing:-.5px;
+}
+.c2 span{display:block;font-size:15.75px;color:var(--w3);margin-top:3px}
+.c2 em+em{margin-top:7px}
+.boom{
+  flex:0 0 auto;text-align:center;padding:11px 0 10px;
+  border-top:1px solid rgba(180,88,78,.3);margin-top:6px;
+}
+.boom b{
+  display:block;font-size:clamp(38px,12vw,54px);font-weight:800;color:var(--bad);
+  line-height:1;letter-spacing:-2px;
+}
+.boom span{
+  display:block;font-size:clamp(18.75px,5.55vw,21.75px);color:var(--w2);margin-top:9px;line-height:1.6;
+}
+.boom span b{color:var(--bz2)}
+
+/* ============ P3 四问 ============ */
+.qs{flex:1;display:flex;flex-direction:column;justify-content:center;gap:7px;min-height:0}
+.q{
+  background:var(--card);border:1px solid var(--line);border-radius:13px;
+  padding:11px 13px;display:flex;gap:11px;align-items:flex-start;
+  border-left:2px solid rgba(200,145,63,.45);
+}
+.qn{font-size:17px;font-weight:800;color:var(--bz);flex:0 0 auto;width:24px;line-height:1.3}
+.qt{font-size:clamp(14.5px,4.4vw,17px);font-weight:700;line-height:1.4;color:var(--w)}
+.qd{font-size:clamp(16.5px,4.8vw,18.75px);line-height:1.55;color:var(--w3);margin-top:4px}
+.qcap{flex:0 0 auto;font-size:17.25px;color:var(--w3);margin-top:8px;text-align:center}
+
+/* ============ P4 四步 ============ */
+.steps4{flex:0 0 auto;display:flex;flex-direction:column;gap:5px;margin:9px 0 9px}
+.s4{
+  display:flex;align-items:center;gap:12px;
+  background:var(--card);border:1px solid var(--line);border-radius:12px;padding:10px 13px;
+}
+.s4n{
+  font-size:clamp(17px,5.2vw,21px);font-weight:800;color:var(--bz);
+  flex:0 0 auto;line-height:1;
+}
+.s4t{font-size:clamp(15px,4.6vw,18px);font-weight:700;color:var(--w);letter-spacing:-.2px}
+.s4.hi{
+  border-color:rgba(200,145,63,.42);
+  background:linear-gradient(150deg,rgba(200,145,63,.15),rgba(255,255,255,.02));
+}
+.s4.hi .s4t{color:var(--bz2)}
+.win{
+  flex:0 0 auto;font-size:clamp(15px,4.6vw,18px);font-weight:800;color:var(--bz2);
+  line-height:1.6;text-align:center;padding:9px 8px;
+  border-top:1px solid rgba(200,145,63,.25);border-bottom:1px solid rgba(200,145,63,.25);
+}
+.notes{display:flex;flex-direction:column;gap:4px;flex:0 0 auto;margin-top:8px}
+.note{
+  display:flex;gap:9px;font-size:clamp(17.25px,5.1vw,19.5px);line-height:1.6;color:var(--w2);
+}
+.note i{font-style:normal;color:var(--bz);flex:0 0 auto;font-size:15px;margin-top:3px}
+.note b{color:var(--w);font-weight:600}
+
+.dots{position:fixed;right:9px;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:8px;z-index:20}
+.dot{width:5px;height:5px;border-radius:50%;background:rgba(255,255,255,.22);transition:all .35s ease}
+.dot.on{background:var(--bz);height:16px;border-radius:3px;box-shadow:0 0 8px rgba(200,145,63,.7)}
+.pbar{position:fixed;top:0;left:0;height:2px;z-index:21;background:linear-gradient(90deg,var(--bz3),var(--bz2));width:0;transition:width .3s ease}
+</style>
+</head>
+<body>
+
+<div class="pbar" id="pbar"></div>
+<div class="dots" id="dots"></div>
+
+<div class="deck" id="deck">
+
+  <!-- ========== 封面 ========== -->
+  <section class="page p0">
+    <div class="flowbg">
+      <span class="band b1"></span>
+      <span class="band b2"></span>
+      <span class="band b3"></span>
+      <span class="streaks"></span>
+    </div>
+    <div class="cover">
+      <div class="flowword rise d1">Flux</div>
+      <div class="cv1 rise d2">AI ADAPTION PROPOSAL</div>
+      <div class="stages rise d3">
+        <div class="stg">
+          <b>Floe</b>
+          <span>浮冰 · 现状</span>
+        </div>
+        <div class="sarw">→</div>
+        <div class="stg">
+          <b>Flood</b>
+          <span>洪水 · 破局</span>
+        </div>
+        <div class="sarw">→</div>
+        <div class="stg hi">
+          <b>Flux</b>
+          <span>渗透 · 未来</span>
+        </div>
+      </div>
+    </div>
+    <div class="cvhint">上滑翻页 &nbsp;↑</div>
+  </section>
+
+  <!-- ========== P1 ========== -->
+  <section class="page p1">
+    <div class="pnum">01 &nbsp;/&nbsp; 04</div>
+    <h2 class="rise d1">AI 普及史上最快<br>一半员工还<span class="bz">站在岸上</span></h2>
+    <div class="sub rise d2" style="margin-top:8px">AI 能力按季度翻倍，企业采用却几乎走平。</div>
+
+    <svg class="chart rise d3" viewBox="0 0 340 186" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="AI能力与企业采用的缺口曲线">
+      <defs>
+        <linearGradient id="gapg" x1="0" y1="1" x2="0" y2="0">
+          <stop offset="0%" stop-color="#C8913F" stop-opacity="0.04"/>
+          <stop offset="100%" stop-color="#C8913F" stop-opacity="0.34"/>
+        </linearGradient>
+      </defs>
+      <g class="grid">
+        <path d="M0,24 L0,156 M68,24 L68,156 M136,24 L136,156 M204,24 L204,156 M272,24 L272,156 M340,24 L340,156"/>
+        <path d="M0,24 L340,24 M0,50 L340,50 M0,76 L340,76 M0,103 L340,103 M0,129 L340,129 M0,156 L340,156"/>
+      </g>
+      <path class="axis" d="M0,156 L340,156"/>
+
+      <path class="gapfill" d="M0,152 L340,26 L340,100 Q175,120 0,153 Z"/>
+      <path class="ln ai draw" d="M0,152 L340,26"/>
+      <path class="ln co draw" d="M0,153 Q175,120 340,100"/>
+
+      <circle class="pt ai" cx="337" cy="29" r="3.4" fill="#F4F2EF"/>
+      <circle class="pt co" cx="337" cy="100" r="3.4" fill="#7E7A74"/>
+
+      <text class="clab ai" x="333" y="18" text-anchor="end">AI 能力 · AI Capability</text>
+      <text class="clab gap" x="252" y="96" text-anchor="middle">8× 缺口</text>
+      <text class="clab co" x="333" y="134" text-anchor="end">企业采用 · Company Adoption</text>
+      <text class="clab ax" x="4" y="172">TIME</text>
+    </svg>
+
+    <div class="pair rise d4">
+      <div class="pbox">
+        <b>40%</b>
+        <span>通用 AI 工具 · 已部署</span>
+      </div>
+      <div class="pbox warn">
+        <b>5%</b>
+        <span>企业级定制 AI · 进入生产</span>
+      </div>
+    </div>
+
+    <div class="kicker rise d5" style="margin-top:12px">
+      差距不在技术，<b>而在是否有人接入流程</b>。
+    </div>
+  </section>
+
+  <!-- ========== P2 ========== -->
+  <section class="page p2">
+    <div class="pnum">02 &nbsp;/&nbsp; 04</div>
+    <div class="date rise d1">2026 年 5 月 4 日</div>
+    <h2 class="rise d1">两大巨头同一天<br><span class="bz">押注同一件事</span></h2>
+    <div class="sub rise d2" style="margin-top:9px">
+      帮 AI 进入企业：从「能用」走向<span style="color:var(--w)">上岗</span>，从<span style="color:var(--w)">展示能力</span>走向<span style="color:var(--w)">交付结果</span>。
+    </div>
+
+    <div class="cols2 rise d3" style="margin:16px 0 0">
+      <div class="c2">
+        <b>OpenAI</b>
+        <i>The Deployment Company</i>
+        <em>40 亿</em><span>募资 · 美元</span>
+        <em>100 亿</em><span>估值 · 美元</span>
+      </div>
+      <div class="c2">
+        <b>Anthropic</b>
+        <i>Enterprise AI JV</i>
+        <em>15 亿</em><span>合资公司总规模 · 美元</span>
+      </div>
+    </div>
+
+    <div class="boom rise d4">
+      <b>+800%</b>
+      <span>共同模式只有一种：<b>FDE 前置部署工程师</b><br>Palantir 的 Ontology 本体论方法论 · 岗位招聘量暴涨</span>
+    </div>
+  </section>
+
+  <!-- ========== P3 ========== -->
+  <section class="page p3">
+    <div class="pnum">03 &nbsp;/&nbsp; 04</div>
+    <h2 class="rise d1">企业真正关心的<br>是这<span class="bz">四个问题</span></h2>
+    <div class="sub rise d2" style="margin-top:8px">Demo 跑通只是开始，这四问过不了，项目就停在 POC。</div>
+
+    <div class="qs">
+      <div class="q rise d3">
+        <div class="qn">01</div>
+        <div>
+          <div class="qt">AI 能不能接进旧系统？</div>
+          <div class="qd">老 ERP、本地部署、没接口、数据散在各处</div>
+        </div>
+      </div>
+      <div class="q rise d4">
+        <div class="qn">02</div>
+        <div>
+          <div class="qt">效果怎么验收？</div>
+          <div class="qd">没有可量化的业务指标，项目就无法结案</div>
+        </div>
+      </div>
+      <div class="q rise d5">
+        <div class="qn">03</div>
+        <div>
+          <div class="qt">员工愿不愿意用？</div>
+          <div class="qd">多一个入口就多一道摩擦，用不起来等于没做</div>
+        </div>
+      </div>
+      <div class="q rise d6">
+        <div class="qn">04</div>
+        <div>
+          <div class="qt">出了错谁负责？</div>
+          <div class="qd">责任边界与容错机制，比模型精度更常被追问</div>
+        </div>
+      </div>
+      <div class="qcap rise d7">—— 这四问，才是企业 AI ToB 落地真正的门槛</div>
+    </div>
+  </section>
+
+  <!-- ========== P4 ========== -->
+  <section class="page p4">
+    <div class="pnum">04 &nbsp;/&nbsp; 04</div>
+    <h2 class="rise d1">不需要宏大计划：<br>一个小板块做成功<br><span class="bz">覆盖率就自然扩大</span></h2>
+
+    <div class="steps4">
+      <div class="s4 rise d3"><div class="s4n">01</div><div class="s4t">选一个小板块</div></div>
+      <div class="s4 rise d4"><div class="s4n">02</div><div class="s4t">做深做成功</div></div>
+      <div class="s4 rise d5"><div class="s4n">03</div><div class="s4t">提炼方法论</div></div>
+      <div class="s4 hi rise d6"><div class="s4n">04</div><div class="s4t">复制到其他板块</div></div>
+    </div>
+
+    <div class="win rise d7">先赢一场小的，再谈赢所有。</div>
+
+    <div class="notes">
+      <div class="note rise d8"><i>◆</i><div>宏大计划<b>死于启动</b>——越完整的蓝图，越难迈出第一步</div></div>
+      <div class="note rise d8"><i>◆</i><div>这是 <b>FDE 打法的缩小版</b>：小切口破冰，用结果换信任，再横向复制</div></div>
+    </div>
+  </section>
+
+</div>
+
+<script>
+(function(){
+  var deck = document.getElementById('deck');
+  var pages = Array.prototype.slice.call(document.querySelectorAll('.page'));
+  var pbar  = document.getElementById('pbar');
+  var dotsW = document.getElementById('dots');
+
+  pages.forEach(function(_, i){
+    var d = document.createElement('div');
+    d.className = 'dot' + (i === 0 ? ' on' : '');
+    dotsW.appendChild(d);
+  });
+  var dots = Array.prototype.slice.call(dotsW.children);
+
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){ if (e.isIntersecting) e.target.classList.add('in'); });
+  }, { root: deck, threshold: 0.28 });
+  pages.forEach(function(p){ io.observe(p); });
+
+  var cur = -1;
+  deck.addEventListener('scroll', function(){
+    var max = deck.scrollHeight - deck.clientHeight;
+    pbar.style.width = (max > 0 ? (deck.scrollTop / max) * 100 : 0) + '%';
+    var idx = Math.round(deck.scrollTop / deck.clientHeight);
+    if (idx !== cur && idx >= 0 && idx < pages.length){
+      cur = idx;
+      dots.forEach(function(d, i){ d.classList.toggle('on', i === idx); });
+    }
+  }, { passive: true });
+
+  // 兜底：小屏上内容超高时轻微缩放，保证不被裁切
+  function fitPages(){
+    pages.forEach(function(p){
+      p.style.transform = '';
+      var over = p.scrollHeight - p.clientHeight;
+      if (over > 2){
+        var sc = Math.max(0.82, p.clientHeight / p.scrollHeight);
+        p.style.transformOrigin = 'center center';
+        p.style.transform = 'scale(' + sc + ')';
+      }
+    });
+  }
+
+  function fixH(){
+    var h = window.innerHeight;
+    pages.forEach(function(p){
+      p.style.height = h + 'px';
+      p.style.transform = '';
+    });
+    deck.style.height = h + 'px';
+    fitPages();
+  }
+  fixH();
+  window.addEventListener('resize', fixH);
+  window.addEventListener('orientationchange', function(){ setTimeout(fixH, 260); });
+})();
+</script>
+</body>
+</html>
