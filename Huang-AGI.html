@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
+<title>黄仁勋官宣 AGI 落地 · 口播演示</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+:root{
+  --bg:#0e1012;
+  --bg2:#15171a;
+  --card:rgba(212,201,138,.05);
+  --line:rgba(212,201,138,.16);
+  --text:#f5f1e6;
+  --text2:#a8a49a;
+  --gold:#d4c98a;
+  --gold2:#b3a976;
+}
+html,body{height:100%;overflow:hidden;background:var(--bg)}
+body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;color:var(--text);-webkit-font-smoothing:antialiased}
+
+/* 粒子背景 */
+#particles{position:fixed;inset:0;z-index:0;pointer-events:none}
+.particle{position:absolute;border-radius:50%;background:var(--gold);opacity:0;animation:float linear infinite}
+
+/* 顶部进度条 */
+#pbar{position:fixed;top:0;left:0;height:3px;z-index:30;width:0;background:linear-gradient(90deg,var(--gold2),var(--gold));box-shadow:0 0 12px rgba(212,201,138,.7);transition:width .2s ease}
+
+/* 侧边导航点 */
+#dots{position:fixed;right:14px;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:9px;z-index:25}
+.dot{width:6px;height:6px;border-radius:50%;background:rgba(245,241,230,.22);transition:all .35s ease;cursor:pointer}
+.dot.on{background:var(--gold);height:20px;border-radius:3px;box-shadow:0 0 10px rgba(212,201,138,.8)}
+
+/* 滚动容器 */
+.deck{height:100dvh;overflow-y:auto;overflow-x:hidden;scroll-snap-type:y mandatory;scroll-behavior:smooth;-webkit-overflow-scrolling:touch;position:relative;z-index:1}
+
+.page{
+  height:100dvh;scroll-snap-align:start;scroll-snap-stop:always;
+  position:relative;display:flex;flex-direction:column;justify-content:center;
+  padding:calc(env(safe-area-inset-top) + 24px) 28px calc(env(safe-area-inset-bottom) + 24px);
+  overflow:hidden;
+}
+.page::before{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  background:
+    radial-gradient(120% 60% at 88% 6%, rgba(212,201,138,.14), transparent 60%),
+    radial-gradient(90% 50% at 6% 96%, rgba(179,169,118,.10), transparent 58%);
+}
+.page > *{position:relative;z-index:1}
+
+.pnum{font-size:14px;letter-spacing:.25em;color:var(--gold);font-weight:600;margin-bottom:6px;display:flex;align-items:center;gap:8px}
+.pnum .slash{color:var(--text2);opacity:.5}
+.ptime{font-size:13px;letter-spacing:.18em;color:var(--text2);margin-bottom:14px}
+
+h2{
+  font-size:clamp(22px,5.4vw,32px);line-height:1.3;font-weight:800;letter-spacing:-.5px;
+  margin-bottom:18px;border-left:3px solid var(--gold);padding-left:14px;
+}
+
+.body{
+  font-size:clamp(15px,3.8vw,17.5px);line-height:1.85;color:var(--text2);
+  max-height:58dvh;overflow-y:auto;padding-right:6px;text-align:justify;
+}
+.body::-webkit-scrollbar{width:3px}
+.body::-webkit-scrollbar-thumb{background:rgba(212,201,138,.3);border-radius:2px}
+.hl{color:var(--gold);font-weight:700}
+
+.player{margin-top:20px;display:flex;align-items:center;gap:14px}
+.playbtn{
+  background:linear-gradient(135deg,var(--gold),var(--gold2));color:#1a1a14;border:none;
+  padding:12px 22px;border-radius:30px;font-size:15px;font-weight:700;cursor:pointer;
+  letter-spacing:.05em;transition:all .25s ease;box-shadow:0 4px 18px rgba(212,201,138,.35);
+}
+.playbtn:hover{transform:translateY(-2px);box-shadow:0 8px 26px rgba(212,201,138,.5)}
+.playbtn.playing{background:#f5f1e6}
+.seglen{font-size:12px;color:var(--text2);letter-spacing:.08em}
+
+/* 入场动画 */
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .7s cubic-bezier(.2,.7,.3,1),transform .7s cubic-bezier(.2,.7,.3,1)}
+.in .reveal{opacity:1;transform:none}
+.in .d1{transition-delay:.08s}.in .d2{transition-delay:.18s}.in .d3{transition-delay:.28s}.in .d4{transition-delay:.38s}
+
+@keyframes float{0%{transform:translateY(110vh) scale(1);opacity:0}10%{opacity:.6}90%{opacity:.4}100%{transform:translateY(-10vh) scale(.4);opacity:0}}
+
+/* 封面页 */
+.cover{align-items:center;text-align:center}
+.cover h1{font-size:clamp(34px,9vw,56px);font-weight:900;letter-spacing:-1px;line-height:1.2;margin-bottom:16px;
+  background:linear-gradient(120deg,#fff,var(--gold),#fff);-webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  animation:shine 4s ease-in-out infinite}
+@keyframes shine{0%,100%{filter:brightness(1)}50%{filter:brightness(1.4)}}
+.cover .sub{font-size:clamp(15px,4vw,19px);color:var(--text2);letter-spacing:.2em;margin-bottom:30px}
+.cover .arrow{font-size:22px;color:var(--gold);animation:bob 2s ease-in-out infinite}
+@keyframes bob{0%,100%{transform:translateY(0);opacity:.4}50%{transform:translateY(8px);opacity:1}}
+</style>
+</head>
+<body>
+
+<div id="pbar"></div>
+<div id="dots"></div>
+<div id="particles"></div>
+
+<div class="deck" id="deck">
+  <!-- 封面 -->
+  <section class="page cover" data-page="0">
+    <h1 class="reveal d1">黄仁勋官宣 AGI 落地</h1>
+    <div class="sub reveal d2">AI 时代彻底到来 · 口播演示</div>
+    <div class="sub reveal d3" style="font-size:13px;letter-spacing:.3em;opacity:.6">AI00柒 · B站 · 22分42秒</div>
+    <div class="arrow reveal d4">↓ 下滑开始</div>
+  </section>
+
+    <section class="page" data-page="1">
+      <div class="pnum">第 01 页 <span class="slash">/</span> 11</div>
+      <div class="ptime">00:00–02:00</div>
+      <h2>黄仁勋官宣 AGI：面对 20 国部长</h2>
+      <div class="body">就在昨天全球市值最高公司的老板 当著20个国家部长的面 说了一句让整个硅谷连夜开会的话 <span class="hl">AGI</span>通用人工智能、人类级别的智能 实际上已经实现了 不是10年后 不是5年后是现在此刻你正在刷手机的这一秒 说这话的人叫<span class="hl">黄仁勋</span> <span class="hl">英伟达</span>创始人 市值刚刚突破5万亿美元 相当于3个多A股创业版加起来的体谅 全球所有大模型的背后 烧的都是<span class="hl">英伟达</span>的芯片 而且注意 它不是在什么科技大会上跟圈内人吹牛 它是在<span class="hl">G20</span> 全球最大20个经济体的创新部长 不过上后部长同台面对面讲出来的 这就相当于什么 相当于全世界的市长们开大会 请来了修录的人、发电的人、冻水的人 而这些人告诉他们 你们的城市正在被一场新的基建革命 重新洗牌谁不参与谁就被提出牌座 这期视频 我把这场33分钟的对话 一个字一个字给你拆开 你会看到三层东西 第一层是它嘴上说的 AI经济学<span class="hl">五层蛋糕</span>100万一级的投资 第二层是它没明说 但每个字都在暗示的 为什么被甩在后面 别AI出事更可怕 第三层 是我看完整个访谈之后 替你扣出来的 这个男人画属背后的商业算盘 以及对咱们普通人来说 真正之前的那一条伙路 先别急著滑走 我保证看完这期 你在刷到任何AI新闻 都能一眼看穿它在地底层 好 我们开始 先说一个细节 看过华人熏岩奖的人都知道 这个男人有30年没换过造型 黑皮衣、黑裤子、黑T许 媒体管他叫皮衣刀客 去年GTC大会 全世界媒体拍的还是他那间标志性皮假课 但这一次在北卡罗莱纳州教堂山的<span class="hl">G20</span>会场 他拖下了皮衣 为什么 因为这一次 他不是来给开发者不到的 他是来给官员们讲课的 还下作的不是程序员 是全球二十个最大经济体的创新部长 商务系统的官员 他要讲的不是技术 是一套完整的国家生存序势 跟他对话的主持人来头也很大 美国商务部长霍华德·<span class="hl">卢特尼克</span> 这个人管著美国的芯片出口管制 一句话就能决定哪家公司 能买因为他的顶级芯片 两人在台上聊了33分钟 <span class="hl">卢特尼克</span>全程几乎零质疑 甚至反复称称<span class="hl">黄仁勋</span>是美国国保 你频频这个画面 一个国家的商务部长 公开成一家公司的CEO是国保 这不是普通的访谈 这是一场联合演出 一个负责讲未来 一个负责讲政策</div>
+      <div class="player">
+        <button class="playbtn" data-seg="1" onclick="playSeg(1)">▶ 播放本段口播</button>
+        <span class="seglen"></span>
+      </div>
+    </section>
+
+    <section class="page" data-page="2">
+      <div class="pnum">第 02 页 <span class="slash">/</span> 11</div>
+      <div class="ptime">02:00–04:00</div>
+      <h2>AI 经济学：英伟达股价涨 3%</h2>
+      <div class="body">还下的各国部长 就是他们共同的观众 也是他们共同的客户 而这场演出的主题 <span class="hl">黄仁勋</span>用一个词就概括了AI经济学 当天<span class="hl">英伟达</span>股价英生长超3% 你看话还没讲完 前已经开始投票了 那这套AI经济学到底讲了什么 我们一层层接开 先说他抛出的最大那颗炸弹 也是这条视频标题的来源 差一句 还有观众钢上车 Ike到底是个啥 你平时用的切GPT豆包 叫专用AI 你问他 他打你 他不会主动赶火 换个领域就抓下 而AI也同用人工智能 只的是一个在几乎所有领域 都能达到甚至超过人类顶尖水平的智能 能自己提出问题 自己制定计划 自己跨领域 调用知识 自己完成一整套负责工作 说白了 就是一个数字版的通财人类 这个东西 十年前还是科幻小说的苏财 五年前连AI圈内部都觉得 起码还得等半个世纪 而现在主持人问他AI的发展进度 <span class="hl">黄仁勋</span>的回答 直接把话题拉满 这个世纪实际上已经处于AI台了 然后他自己捕了一句特别有意思的话 他说AI这个词要没意义重大 要么毫无意义什么意思 他的解释是 如果你定义AI的一个能通过 所有人类考试的智能 那某种意义上他已经在这了 如果你定义AI的一个能独立进一家公司 全能智能 那还没有 所以这个四本身就看你怎么理解 注意这个说法 跟五年前的<span class="hl">黄仁勋</span>完全是两个人 我给你铝鱼条时间线 你自己感受一下这个变化 2024年3月 <span class="hl">黄仁勋</span>公开预测 AI在五年内到来 也就是2029年左右 2025年11月 他在Lex Fridman的柏克里盖口 我认为我们已经实现了AI 2026年9月 也就是这一次 他升级成了 世界实际上已经在AI状态 未来几年将完全实现 两年半的时间 从还有五年 I see到其实已经到了 目标为什么会不断提前 是技术真的突飞猛进到这个程度了吗 还是说讲AI已经到了 对讲这句话的人有好处 这个问题我先按下不表 等会第八章 我们回来算这笔章 现在你只需要记住这个数字游戏的节奏 每次他提前AI到来时间 市场对算力的需求预期 就再往上抬一个 但<span class="hl">黄仁勋</span>在这段话里 其实也破了一盆非常冷静的冷水 而这盆冷水恰恰是对普通人最有用的部分 他说就随AI真的到来了 也不意味著企业接入一个大模型 业务就自动升级了 为什么 因为再从名的AI 也需要你为给他三样东西 你业务的上下文 你的目标</div>
+      <div class="player">
+        <button class="playbtn" data-seg="2" onclick="playSeg(2)">▶ 播放本段口播</button>
+        <span class="seglen"></span>
+      </div>
+    </section>
+
+    <section class="page" data-page="3">
+      <div class="pnum">第 03 页 <span class="slash">/</span> 11</div>
+      <div class="ptime">04:00–06:00</div>
+      <h2>AI 是超级发动机</h2>
+      <div class="body">你的知识和权限 AI是台超级发动机 但<span class="hl">方向</span>盘 地图和目的地还得你自己改 所以他说了一句 我个人认为是全场最实在的话 每个国家每一家公司 你不能把所有的智慧都外包给别人 这句话你可以截图 这就是AI世代的第一生存法则 AI可以放大你的能力 但替代不了你的<span class="hl">判断</span> 好 炸弹放完了 接下来才是这场对话真正的主材 如果你只从这场访摊里带走一个概念 我希望是这个<span class="hl">Token</span><span class="hl">Token</span> 中文叫斯元听起来很技术 其实简单到不能再简单 一个in chat gpt说的每一句话 大回给你的每一个字 都会被切成一小段 这一小端就叫一个<span class="hl">Token</span> 一个<span class="hl">Token</span>大位等于0.7个汉字 或者半个英文单词 这个<span class="hl">Token</span>跟华人熏的AI竞技学有什么关系 关系大了 华人熏的原话是怎么说的 <span class="hl">Token</span>是大量计算产生的一个数学结果 妹她代表的就是智能本身 然后她打了一个比方 这个比方是正常访摊的灵魂 大约200年前工业是会发明了能量这个概念 然后给她订了价 按千瓦十卖电看不见摸不著 但从那天起 她成了可以计量 可以交易可以创造巨大财富的上品 而今天智能正在走完全相同的路 按百万<span class="hl">Token</span>计价 朋友们你们意识到这句话的分量了吗 人类历史上智能从来是不能批量生产的 你想要智能只有一条路 生个孩子养大教育二十年 还不一定成才 一个博士国家要投入二十多年 智能是这个星球上最稀缺 最昂贵最没法量产的东西 所以过去的社会结构 本质上就是围绕智能的分配建立的 名校学力大公司大城市 全都是在政度和分发有限的聪明大胆 而现在华人熏告诉你 智能第一次可以被工厂化生产了 产品从另一套出来 一串一串的<span class="hl">Token</span>也就是智能 这就是他反复讲的那个词 AI工厂 你以前开工厂 产出的是袜子 是汽车是手机 现在开的工厂 产出的是思考本身 也就是为什么他说 AI不再是你买的一个软件 而是一种经济技术设施 跟两百年前的电一百年前的公路 二十年前的互联网 是同一个机别的东西 而且他说 这是他入行四十年建国的 人类历史上最大的技术平台前一 因为这是有史以来第一次 所有人都在用计算机技术 但你买的不是一台设备 这话听著抽象 我给你翻译成人化</div>
+      <div class="player">
+        <button class="playbtn" data-seg="3" onclick="playSeg(3)">▶ 播放本段口播</button>
+        <span class="seglen"></span>
+      </div>
+    </section>
+
+    <section class="page" data-page="4">
+      <div class="pnum">第 04 页 <span class="slash">/</span> 11</div>
+      <div class="ptime">06:00–08:00</div>
+      <h2>电脑 vs 电网：基础设施逻辑</h2>
+      <div class="body">过去四十年电脑是饮桌上的工具 坏了在买一台就行 错过一代产品没什么大不了 但电网不一样 一个城市如果电网没跟上 这座城市就没有工业 就没有未来 就没有话语权 错过电网的城市 就是错过了整个二十世纪 而AI算例就是二十一世纪的电网 吴福祺的话 我们翻译一段历史 19世纪末 美国爆发过著名的电流之战 艾迪生亚之流电 威斯厅豪斯和特斯拉加教流电 当时那些压错了 或者干脆没接电的城市的工厂 后来怎么样了 没有后来 他们连名字都没能留在工业版的地图上 而笑到最后的 从来不是发明电的人 而是那批最早把电用金每一个车件的人 电灯场电车公司 电梯场流水线长出了一个展新的美国 100多年后同样的剧本 正在充演这次电流的名字叫<span class="hl">Token</span> 既然是键电网 那就要问一个最俗 但最真实的问题 多少钱 这场访谈里 <span class="hl">黄仁勋</span>甩出了一组数字 我把他们摆出来 你感受一下量级 第一个数字 一剂瓦 五百一到六百亿美元 剂瓦是什么概念 一剂瓦等于十一瓦 相当于一座大型核电机组的功率 而今天 你要建议套功率 一剂瓦的AI技术设施 数据中心 芯片供电散热网路全套下来 需要五百到六百亿美元 <span class="hl">黄仁勋</span>自己给了一个参照舞 过去人们觉得 建议做先进竞员厂 花两百五十亿美元 已经算是天文数字了 而今天 一剂瓦AI技术设施的投资 是这个数字的两倍 一座金圆厂的钱 在AI机界面前 只能算零花钱 第二个数字 一百剂瓦 他说从现在到2030年 也就是本十年末 为了满足全球对智能的需求 AI技术设施建设规模 将达到约一百剂瓦 将做个简单粗暴的算数 一百剂瓦成成每五百到六百亿美元 一剂瓦A5到六万亿美元 这还是他给的保守口径 一些机构 按项目结构算出来的数 只会更高 第三个数字 一万亿美元一年 他说光是今年这一年 整个行业投向美国AI技术设施的资金 就接近一万亿美元 一年一万亿什么概念 这相当于一个中冷国家全年的GDP 一年炸进季方 芯片和电线领 而且明年只会更多 第四个数字 也是最魔幻的一个五万亿美元 就在这场对话前后 <span class="hl">英伟达</span>自己的市值 突破了五万亿美元 人类历史上第一家 当天股价在涨超百分之三 一家卖产子的公司 比几乎所有瓦禁子的公司 架起来还之前 而矿还在越瓦越大</div>
+      <div class="player">
+        <button class="playbtn" data-seg="4" onclick="playSeg(4)">▶ 播放本段口播</button>
+        <span class="seglen"></span>
+      </div>
+    </section>
+
+    <section class="page" data-page="5">
+      <div class="pnum">第 05 页 <span class="slash">/</span> 11</div>
+      <div class="ptime">08:00–10:00</div>
+      <h2>数据中心用电量</h2>
+      <div class="body">再给你补一个电力策的视角 这是我额外查的数据 帮你理解这是有多物理国际能源所谓测算 全球数据中心的用电量 将从2025年的约485台瓦时 涨到2030年的约950台瓦时 几乎翻倍 其中AI专用数据中心的用电量 会涨到原来的三倍 485台瓦时是什么概念 大约相当于法国全国一整年的用电量 也就是说 全世界的季房现在已经吃掉了一个法国 把2030年 他们要吃掉接近一个日本 这就是为什么同一场<span class="hl">G20</span>会议上 马斯克在第一天就警告 电力短缺可能成为AI扩张最近的填化版 为什么美国老百姓已经开始 抗议家门口的数据中心 噪音用水长架的电费 你以为你在跟AI聊天 实际上是几座发电站 在替你的每一次提问稍微稍起 听到这样你可能有一个疑问 这么离谱的钱咋下去 风那么华人勋在访谈里 其实回答了这个问题 他说了一句大实话 正因为投资如此之贵 你才必须确保这些基础车 是不能太专门化 因为AI模型和基础变得太快了 你今天为某一种专门算法定制的季房 可能两年后基础一环带 就变成一对昂贵的废体 所以注意推销来了 你需要一种通用的可流通的耐用的 架构翻译一下买因为搭 最保险 他甚至直接说了 因为搭的增长正在加速 就是因为人们开始意识到 我们是最安全的投资架构 全球最贵的推销 就是这么若无细无声 对了 这组数字还有一个隐藏剧情 同一天台上的另一位主角 商务部长<span class="hl">卢特尼克</span> 放出了另一个信号 美国正在考虑新一轮半导体进口关税 目前已经对部分先进芯片 针收25%的关税 下一步可能扩大到寒晶片的产品 服务器电子设备都跑不掉 他的逻辑简单粗暴 在美国建厂关税减免 不在美国生产还想进美国市场 那就加价 你把两个人的话拼在一起 就看懂这数双黄了 <span class="hl">黄仁勋</span>负责告诉全世界 AI是水电梅 不见不行 <span class="hl">卢特尼克</span>负责告诉全世界 要见最好见在美国 秒一个画饼 一个射炸门 这场<span class="hl">G20</span> 本质上是一场国家级的照上路 好钱的部分讲完了 但光砸钱不行 各国部长最关心的问题是 这跟我国家有什么关系 我们该干嘛 <span class="hl">黄仁勋</span>端出了他那个著名的模型 <span class="hl">五层蛋糕</span> 他把整个AI产业切成了一块五层的大蛋糕 最底层能源没有电 一切免贪 第二层晶片 GPU AI加速器先进存储 第三层</div>
+      <div class="player">
+        <button class="playbtn" data-seg="5" onclick="playSeg(5)">▶ 播放本段口播</button>
+        <span class="seglen"></span>
+      </div>
+    </section>
+
+    <section class="page" data-page="6">
+      <div class="pnum">第 06 页 <span class="slash">/</span> 11</div>
+      <div class="ptime">10:00–12:00</div>
+      <h2>AI 工厂五层架构</h2>
+      <div class="body">技术设施数据中心 AI工厂本身第四层 AI模型大语言模型多模太模型 最底层数据应用 AI最终产生价值的地方 然后他给了一个非常重要的<span class="hl">判断</span> 这个<span class="hl">判断</span>对所有国家 所有公司甚至对屏幕前的你都成立 你不必在每一层都获胜 也不必发展所有领域 他说没有一个国家 能在五层全部成王 有的国家可以专注半导体制造 有的专注能源 有的做数据中心 有的做模型 有的做应用 每个国家要根据自己的资源 资本 人才和数据条件 选择自己要吃哪几层蛋糕 但是转折来了 有一层是所有国家都必须用保的AI的普及 把AI用起你的每一个产业 教育 医疗制造课研 一个都不能辣响 他甚至说 一个国家可以不生产 一颗晶片 但如果你的医院 学小工厂实验室里没有AI 你就等于站在这场革命的门外 为什么他这么强调用而不是造 这里其实藏著一个特别深刻的动茶 我自己看完访谈总结的 你听听有没有道理 AI时代造智能的能力在集中 担用智能的门槛在摊他 过去五十年 <span class="hl">黄仁勋</span>说 计算计算虽然改变了世界 但真正能直接给计算计编程的人 全球只有一两千万 绝大多数人想用计算器 都得掀学机器的语言 学英语学代码学软件 现在规则彻底反过来了 是机器在学系理解人类的语言 你会说话 你就会编程 所以<span class="hl">黄仁勋</span>说 AI是伟大的<span class="hl">均衡器</span> 你不需要出身名校 不需要会写代码 用大白话就能指挥 才价值几十亿的算力系统 给你写程序做分析化图纸 查文献 他说AI能给你每样东西的博士学位 一个非洲的乡村教师 和一个规谷的工程师 钓用的可能是同一个级别的智能 这是什么 这是历史上第一次 聪明本身开始暗顿疲罚 过去规则垄断了多数十字 工业是在温平垄断了专业能力 而这一次AI把专家能力 直接摆上了活价 而且价格还在跌 从几十美元每百万投肯 卷到几毛钱 这就是为什么用AI这一层 是唯一不可跳过的一层 芯片可以买模型可以租 但把智能用在自己产业 领的能力外包不出去 讲完蛋糕 <span class="hl">黄仁勋</span>还花了一条路线图 AI接下来往哪走 这条路线图分三步 每一步都对应著 一批即将被改写的行业 第一步从聊天到干活 <span class="hl">黄仁勋</span>说现在的大语言模型 说白了只是个基础能力 他很聪明 但他只是躺在那等你提问 真正让AI产生生产力的</div>
+      <div class="player">
+        <button class="playbtn" data-seg="6" onclick="playSeg(6)">▶ 播放本段口播</button>
+        <span class="seglen"></span>
+      </div>
+    </section>
+
+    <section class="page" data-page="7">
+      <div class="pnum">第 07 页 <span class="slash">/</span> 11</div>
+      <div class="ptime">12:00–13:30</div>
+      <h2>智能体系统：知识库、记忆、工具</h2>
+      <div class="body">是为了他掌出来的<span class="hl">智能体</span>系统 给他接上知识库 他有了长期记忆 给他接上工具 他掌了手脚 让他写了一组邪童干活 他有了团队 一个能自己查资料 自己写代码 自己测试 自己改错的<span class="hl">智能体</span>是什么 是数字员工 不请家不摸鱼 不闹情绪 凌晨三年你睡觉的时候 他还在改方案 第二步 从数字世界走进物理世界 这是他反复强调的词 <span class="hl">物理AI</span> 把<span class="hl">智能体</span>装进机械壁 他就成了工厂里的工业机器人 装进配送车 他就是物流机器人 装进汽车 他就是自动驾驶 装进手术室 他就是能做惊喜操作手术机器人 注意这个逻辑的可怕 支出AI第一次掌出的身体 过去20年 互联网革命 改写的是信息行业 而<span class="hl">物理AI</span>要改写的 是制造业、物流业、建筑业、医疗 这些占了全球经济大头 但一直没被互联网 真正肯东的救经济 而训练这些<span class="hl">物理AI</span>靠什么 <span class="hl">黄仁勋</span>在同期演讲的很细 在一个完全遵循物理定律的虚拟世界里 机器人现在数字世界里失措一万次 学购了再放到争急身上 他管制到东西叫Omdiverse 你看 连教会机器人干活 这件事本身都在疯狂吞势算礼 每多一个<span class="hl">物理AI</span>落地 就多一座AI工厂在背后轰鸣 第三步也是最反制决的一步 超算正在消失 <span class="hl">黄仁勋</span>说 未来最重要的变化 可能是全世界最强的计算机 你这样再也看不见他 你看到的是什么 是一段对话 你跟AI说 帮我设计一块更安全的电视 他在后台自己查文献 自己声称后选材料 自己跑分子模拟 自己评估结果 自己提出下一段方案 设计飞机的让AI自动跑上万次流替访针 做科研的让AI自己设计实验 你这边一句话 那边是一篇数据中心的算礼在燃烧 见面越简单 说明底下越复杂 水龙头一凝就出水 是因为背后有水库 水长 官网 未来你随手一问就出答案 是因为背后有发电站 芯片工厂和百万卡进群 而这就是他追著那个新世界的样子 算礼买进图里 智能附上表面像水电一样无感 但一刻都离不开 好听完篮图我们聊点诈训的 好讲到这儿 我知道屏幕前的你 心里那个最大的格的还没解开 这么大动灵的AI到底会不会让我失业 这个问题主持人也问了 而黄仁熊的回答 是我全场印象第二生的一段 他的原话很冲 他说AI会消灭所有工作这种说法 纯述呼扯 然后他给出了他的逻辑 这个逻辑我认为值得每一个大功能 用笔记下来</div>
+      <div class="player">
+        <button class="playbtn" data-seg="7" onclick="playSeg(7)">▶ 播放本段口播</button>
+        <span class="seglen"></span>
+      </div>
+    </section>
+
+    <section class="page" data-page="8">
+      <div class="pnum">第 08 页 <span class="slash">/</span> 11</div>
+      <div class="ptime">13:30–15:00</div>
+      <h2>未来的样子：发电站、芯片工厂、百万卡</h2>
+      <div class="body">AI替代的是任务习不是工作 什么意思 拆开看 一份工作是什么 是一堆任务的集合 但远远不值任务的集合 一生不只是独检查单 还要面对活生生的人做<span class="hl">判断</span> 但责任 老实不只是奖客 还要看懂一个孩子今天为什么地震头 管理者不只是写报告 报告背后是写条 是博弈 是信任 AI能替你独骗 能替你背课 能替你写周报 这些任务会被一条一条自动化掉 但工作的目的上下文 意义和责任 黄仁熊说 不会消失 我给你举个特别具体的例子 我一个做外贸的朋友 公司去年踩了三个跟单门员 订单录入单证核对 邮件回复 这些活而AI全包了 带你猜怎么针 公司同时高兴 挖了一个AI留跟单主管 月薪是原来三个人的总合还多 这个人干嘛的 就是订著AI干活 审核AI的输出 处理AI搞不定的异常维护客户关系 你看明白了吗 录录的任务死了 对订单负责这件事还活著 而且更值钱了 死掉的是动作 活下来的是责任 谁抱著就动作不放 谁就跟著动作一起被优化 谁把动作交给激起 自己扛起责任 谁就原地升级 其实这个规律 历史上发生过无数次 ATM机出现的时候 所有人都说银行贵人要实验了 结果呢 贵人确实不在数钱了 但转型成了卖理财 做资群的客户经理 银行的往点数量 在ATM普及之后反而增加了 X要干掉了机长员 却催省了整整一代数据分析师 每次任务被自动化的历史 同时也是新公种 批量出生的历史 唯一的问题 只是新公种出生的速度 和你转型的速度 哪个快 所以他用的词是超级负能 他描绘的未来是这样 过去要干10年的时 未来可能一年干完 过去一年的活一个月搞定 不是10%的效率提升 是数量级的压缩 听起来很美好 对吧 但我提醒你 别只听上漫剧 效率被数量级压缩之后 真正被重新定价的 不是工作而是人品 一想一个场景 你的同行 用AI把出方案的速度 从3天压到了3小时 他一个人盯你一个部门 请问3个月后老板留谁 这就是我在标题里买的那句话 未来真正可怕的 不是AI强奢你的工作 而是别人已经用AI 把效率拉高了10倍 而你还停在原地 黄仁迅正常访探里 说过的最重的一句话 我认为不是AJ 对一个国家来说 这场技术工业 革命最坏的结果是什么 最坏的结果 就是你没有利用它 被甩在后面</div>
+      <div class="player">
+        <button class="playbtn" data-seg="8" onclick="playSeg(8)">▶ 播放本段口播</button>
+        <span class="seglen"></span>
+      </div>
+    </section>
+
+    <section class="page" data-page="9">
+      <div class="pnum">第 09 页 <span class="slash">/</span> 11</div>
+      <div class="ptime">15:00–16:30</div>
+      <h2>银行柜员转型案例</h2>
+      <div class="body">这就是唯一的最坏结果 唯一的最坏结果 不是AI觉醒 不是机器人造反 不是科幻片里的天网 是你没上车 而且他特别点了一句 这种被甩下是怎么发生的 就是当整个社会 用恐惧和不确定的语气 谈论这项技术的时候 恐惧让人观望 观望让人钓对 钓对让人更恐惧 对国家如此 对个人合场不适 如果我只讲到这里 这些视频就是黄仁迅的免费宣传广告 作为你的信息支捡员 我必须把这场对话 没被讲出来的另一半 也翻给你看 这半边 同样是事实 第一这是一场几乎零对抗的对话 美国商务部长 <span class="hl">卢特尼克</span>全程没有提出 一个坚瑞问题 反复称在 黄仁迅是美国国保当一万亿美元的数字 就业的数字被随口爆出的时候 没有任何成本 回报率风险的追问 事后不少外媒的评论 就一句话 这是一场政策录演 不是法坛 第二 这是一场有明确政策目标的举毁 同一天同一场合 OPEN AI的automan说 采用AI是不容商量的 美方立推特成员国签署 一份被成为卡罗莱纳原则的文件 核心诉求就一个 对AI监管放手 而黄仁迅的主张翻译过来就是 监管机构应该关于已经实际发生的伤害 别管理论上的价钱的伤害 他还说让NAPP跑得更快 他反而更安全 今天的汽车和飞机 就是比100年前的安全 这个类比有没有道理 有一点 但他有完美符合一家 考算力扩张吃饭的公司的利益 跑得越快 产子卖得越多 把贝甩在后面设定为唯一最坏结果 本质上就是把所有财煞车的动作 都定你为危险动作 这是一套逻辑自洽的话 但你要知道他是谁在说 为什么说 第三 AG这个词本身就是个移动吧 前面时间线 你看到了从五年后到其实已经到了 而且他自己都说这词 要么意义重大 要么毫无意义 太积无法被证委的话 你就要小心了 他的意义不再描述现实 而在塑造预期 当部长们 投资人 企业家都相信 AG一到 部头就出局 还钱就会远远不断如今算理 而算理 正是因为大卖的东西 第四 现实的摩擦 一个都没被提及 电网的物理机线 美国社区对数据中心的抗议 AMD和各家自言晶片的竞争 地缘政治对新片出口的封锁 这些真实存在的不确定性 在33分钟的对话里 一次都没有出现 整场对话的世界 是一个没有摩擦力的世界 我不是说<span class="hl">黄仁勋</span>在撒谎</div>
+      <div class="player">
+        <button class="playbtn" data-seg="9" onclick="playSeg(9)">▶ 播放本段口播</button>
+        <span class="seglen"></span>
+      </div>
+    </section>
+
+    <section class="page" data-page="10">
+      <div class="pnum">第 10 页 <span class="slash">/</span> 11</div>
+      <div class="ptime">16:30–18:00</div>
+      <h2>美国商务部长表态</h2>
+      <div class="body">他讲的每一个数字大概率都是真的 我是想让你明白一件事 当你听一个卖产人 讲金矿的时候 他嘴里的每一句话都可能是真的 他讲哪些不讲哪些 是经过精确选择的 看懂这一层 你才算真正看懂了这场<span class="hl">G20</span>演出 好 铺电完了 接下来是我自己的东西 看完这33分钟的每一秒之后 我沉淀下来四个洞查 我认为比仿探本身更值钱 洞查一 智能的千瓦 试试刻还别一概 试刻更值得你记住 所有人都盯著一概什么时候来 但其实那个具体的事点根本不重要 重要的是 智能这个人类历史上最稀缺的资源 刚刚完成了从天赋到商品的身份转换 200年前当能量被千瓦石顶价 人类得到的不是更量的东西 而是整个电汽画文 明电车、电报、冰箱、流水线 所有当时的人完全想不到的东西 今天当智能被百万偷跟定价 我们同样没有能力预测 他会长出什么 但历史给的规律是 每当一个顶级稀缺品 变成廉价大宗商品 紧跟著的 从来不是那个行业的死亡 而是三十个新行业的诞生 煤炭便宜了 蔡有蒸汽火车、电便宜了 蔡有电影和空调 算了一便宜了 蔡有互联网 现在思考便宜了 你的孩子未来从事的职业 大概率今天还没被发明出来 这句话被人说烂了 但这一次 支撑他的是一条真实的成本曲线 而不是激汤动茶二 这轮革命的真正分水领 不在国语国之间 而在用的人 和没用的人之间 黄人群讲了很多国家层面的竞争 但那些离我们太远 我看完访谈反复著魔的是另一句话 AI是伟大的军衡器 军衡器的意思是 它拉平的是起点 不是终点 同一个AI再会提问的人手里 是研究助理 是战为顾问 是二十四小时不免不休的合伙人 再不会提问的人手里 是个写周报的玩具 工具的门槛摊他之后 剩下唯一吸趣的能力是什么 是我在第二章里说的那句 你不能外包的<span class="hl">判断</span>力 知道问什么问题 知道答案可不可信 知道往哪个<span class="hl">方向</span>走 AI把执行的价格打到了地板 于是<span class="hl">方向</span>成了唯一的设置品 所以如果你问我 普通人现在该干嘛的 答案跑速得让人失望 从今天起 每天用AI干一件征活 不是让他讲笑 是让他帮你改检例 算账查资料写方案 又买一百天 你何不用的人之间 会裂开一道 你今天无法想像的够 动查三 警惕唯一最坏结果这句话 但也要听懂 他里面的真被摔在后面 是唯一最坏结果 这话从卖产人最厉害说出来 是营销</div>
+      <div class="player">
+        <button class="playbtn" data-seg="10" onclick="playSeg(10)">▶ 播放本段口播</button>
+        <span class="seglen"></span>
+      </div>
+    </section>
+
+    <section class="page" data-page="11">
+      <div class="pnum">第 11 页 <span class="slash">/</span> 11</div>
+      <div class="ptime">18:00–22:42</div>
+      <h2>总结：AI 时代彻底到来</h2>
+      <div class="body">但放监历史里看 又是血淋淋的真话 100多年前 电灯出现的时候 拉出新会的人也才担心失业 后来呢 拉出师傅确实少了 但他们的子孙 成了电工接线员 电机工程师 电源放益员 活在了一个他们组备 无法想像的经济体力 技术革命从不淘汰人 他淘汰的是拒绝换成的人 救车道站 你还坐在车上你不肯下来 那才是真正的风险 但同时 也请保持我第七张 给你的那份清醒 当有人把上车说的 比安全更重要是 先看看他是谁 他是修铁路的 你可以承认铁路是未来 同时依然有权追问 票价谁定 陷入谁规划 手已规谁 拥抱他 但不必规著拥抱他 这是一个现代人面对技术革命 应该有的体面姿势 动茶四 是能在民主化 算立在寡头化 这两件是同时发生 才是最大的时代真相 最后一个动茶 也是最容易被换互淹没的一个 <span class="hl">黄仁勋</span>说 AI是伟大的<span class="hl">均衡器</span> 每个人都能用自然语言 只会超级算计 这是真的 但他没有说的是 你指挥的每一句智能 都是从他那几座AI工厂里生产出来的 也就是说使用智能的门砍在消失 但生产智能的门砍在垂直把高 200年前电厂普及的时候 家家户户都用上了点 但发电的最终只剩下几家电的一句头 智能这么生意 正在走同一条路 下游千滋百泰 上游万流灰宗 对个人来说 这意味著什么 意味著你要分清楚两件事 会用智能是你的权利 拥有智能 不是 你不需要存算力 就像你不需要在家里存一个发电站 但你越早成为重独用电户 就越早享受支波廉价智能的红利 而对社会来说 这道题还没结完 当智能的生产 集中在少数几张桌子上 电价 包括偷坑价的定价权在谁手里 黄仁萱没讲部长们没问 但10年后回看 这可能是2026年这个秋田 最该被问出来的一个问题 最后会到屏幕前的你 这场<span class="hl">G20</span>的33分钟 20个国家的部长听到的 是万一即简和国家命运烫 但这些红大叙事落到你我的生活里 其实特别具体 它可能是你隔壁工位那个 悄悄用AI感或者同时 明年成了你的领导 可能是你老家那个开小店的亲戚 用AI管库存做图 回消息一个人 感触了三个人的营业额 也可能是你家孩子未来的第一任家教 是一个永远不累 永远不厚他的AI 我小时候长辈们总说 我们那时候苦 你们改善好时候了 每一代人都以为自己 错过了上一班车 又看不懂下一班车 但这一次不太一样 这一次的车就停在每个人脚边 车门开著上车不验票 唯一的问题是你愿不愿意 抬脚黄仁萱脱下皮衣 站在20国面前说 智能已经可以被生产了 被定价了 被卖钱了 国家之间的排具怎么洗 我们说了不算 但我们每个人手里 都真的发到了一张信牌 这张牌怎么打说了算的 只有你自己 如果你今天只记住一句话 那就记住黄仁萱的盆冷水 也是我认为全场最诚实的一句话 你不能把所有的智慧 都外包给别人 AI可以是你的发动机 但<span class="hl">方向</span>盘 永远我在你自己手里 觉得有用的话点个赞 这期如果数据好 下一期我把同一天 灯灿的奥特曼的发言 也给你差一遍 那位的说法跟黄仁萱有一个非常微妙 但机器关键的不同 我们下期见</div>
+      <div class="player">
+        <button class="playbtn" data-seg="11" onclick="playSeg(11)">▶ 播放本段口播</button>
+        <span class="seglen"></span>
+      </div>
+    </section>
+</div>
+
+<audio id="audio" style="display:none"></audio>
+
+<script>
+(function(){
+  var deck = document.getElementById('deck');
+  var pages = Array.prototype.slice.call(document.querySelectorAll('.page'));
+  var pbar = document.getElementById('pbar');
+  var dotsW = document.getElementById('dots');
+  var audio = document.getElementById('audio');
+
+  // 粒子背景
+  var pc = document.getElementById('particles');
+  for (var i=0;i<26;i++){
+    var p = document.createElement('div');
+    p.className = 'particle';
+    p.style.left = (Math.random()*100) + '%';
+    p.style.width = p.style.height = (Math.random()*4+1) + 'px';
+    p.style.animationDuration = (Math.random()*18+10) + 's';
+    p.style.animationDelay = (Math.random()*18) + 's';
+    pc.appendChild(p);
+  }
+
+  // 侧边导航点
+  pages.forEach(function(_, i){
+    var d = document.createElement('div');
+    d.className = 'dot' + (i===0 ? ' on' : '');
+    d.onclick = function(){ deck.scrollTo({top: i * deck.clientHeight, behavior:'smooth'}); };
+    dotsW.appendChild(d);
+  });
+  var dots = Array.prototype.slice.call(dotsW.children);
+
+  // 入场动画 + 进度
+  var io = new IntersectionObserver(function(es){
+    es.forEach(function(e){ if (e.isIntersecting) e.target.classList.add('in'); });
+  }, { root: deck, threshold: 0.3 });
+  pages.forEach(function(p){ io.observe(p); });
+
+  var cur = -1;
+  deck.addEventListener('scroll', function(){
+    var max = deck.scrollHeight - deck.clientHeight;
+    pbar.style.width = (max > 0 ? (deck.scrollTop / max) * 100 : 0) + '%';
+    var idx = Math.round(deck.scrollTop / deck.clientHeight);
+    if (idx !== cur && idx >= 0 && idx < pages.length){
+      cur = idx;
+      dots.forEach(function(d, i){ d.classList.toggle('on', i === idx); });
+    }
+  }, { passive: true });
+})();
+
+// 播放本段音频
+function playSeg(n){
+  var audio = document.getElementById('audio');
+  var btn = document.querySelector('[data-seg="'+n+'"]');
+  if (btn.classList.contains('playing')){
+    audio.pause(); btn.classList.remove('playing'); btn.innerHTML = '▶ 播放本段口播'; return;
+  }
+  document.querySelectorAll('.playbtn').forEach(function(b){ b.classList.remove('playing'); b.innerHTML='▶ 播放本段口播'; });
+  var src = 'audio/seg_' + String(n).padStart(2,'0') + '.mp3';
+  audio.src = src;
+  audio.play();
+  btn.classList.add('playing');
+  btn.innerHTML = '■ 暂停';
+  audio.onended = function(){ btn.classList.remove('playing'); btn.innerHTML='▶ 播放本段口播'; };
+}
+</script>
+</body>
+</html>
