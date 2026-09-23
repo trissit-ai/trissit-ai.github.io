@@ -21,28 +21,28 @@ html,body{height:100%;background:#0B1118;font-family:"PingFang SC","Microsoft Ya
 .scrim-light{background:linear-gradient(to top,rgba(247,249,251,.94) 0%,rgba(247,249,251,.55) 55%,transparent 100%)}
 /* 章节/封面：文字居中压到构图下方，且避开底部字幕 */
 .chapter-text{position:absolute;left:0;right:0;bottom:15.5%;text-align:center;padding:0 8%;z-index:3}
-.chapter-text .kick{font-size:clamp(10px,1.1vw,15px);letter-spacing:.42em;color:var(--bronze2);text-transform:uppercase;margin-bottom:1.1em;font-weight:600}
-.chapter-text h1{font-size:clamp(26px,3.4vw,52px);font-weight:700;letter-spacing:.06em;line-height:1.25}
-.chapter-text .sub{margin-top:1em;font-size:clamp(12px,1.25vw,18px);letter-spacing:.12em;opacity:.85}
+.chapter-text .kick{font-size:clamp(13.5px,1.46vw,20px);letter-spacing:.42em;color:var(--bronze2);text-transform:uppercase;margin-bottom:1.1em;font-weight:600}
+.chapter-text h1{font-size:clamp(28.5px,3.71vw,56.5px);font-weight:700;letter-spacing:.06em;line-height:1.25}
+.chapter-text .sub{margin-top:1em;font-size:clamp(15px,1.55vw,22.5px);letter-spacing:.12em;opacity:.85}
 .on-dark{color:#F4F7FA}.on-dark .sub{color:#C7D2DC}
 .on-light{color:var(--ink)}.on-light .sub{color:var(--ink2)}
 .on-light .kick{color:var(--bronze)}
 /* 内容页通用 */
 .content{position:absolute;inset:0;padding:4.2% 5.2% 9.5%;display:flex;flex-direction:column}
 .p-head{display:flex;align-items:baseline;gap:1.2em;border-bottom:1px solid var(--line);padding-bottom:1.6%;margin-bottom:2.2%}
-.p-num{font-size:clamp(11px,1vw,14px);letter-spacing:.3em;color:var(--bronze);font-weight:700;white-space:nowrap}
-.p-title{font-size:clamp(18px,2vw,30px);font-weight:700;letter-spacing:.02em}
-.p-sub{font-size:clamp(11px,1.05vw,15px);color:var(--mut);margin-left:auto;text-align:right;max-width:40%}
-.src{position:absolute;bottom:4.6%;left:5.2%;right:5.2%;font-size:clamp(8px,.75vw,11px);color:var(--mut);letter-spacing:.02em}
+.p-num{font-size:clamp(14.5px,1.33vw,18.5px);letter-spacing:.3em;color:var(--bronze);font-weight:700;white-space:nowrap}
+.p-title{font-size:clamp(21px,2.34vw,35px);font-weight:700;letter-spacing:.02em}
+.p-sub{font-size:clamp(14.5px,1.4vw,20px);color:var(--mut);margin-left:auto;text-align:right;max-width:40%}
+.src{position:absolute;bottom:4.6%;left:5.2%;right:5.2%;font-size:clamp(11.5px,1.09vw,16px);color:var(--mut);letter-spacing:.02em}
 .cards{display:flex;gap:2%;flex:1;min-height:0}
 .card{background:var(--panel);border:1px solid var(--line);border-radius:1.2vh;padding:3% 2.6%;flex:1;display:flex;flex-direction:column;box-shadow:0 6px 24px rgba(6,31,50,.05)}
-.card .tag{font-size:clamp(9px,.85vw,12px);letter-spacing:.28em;color:var(--bronze);font-weight:700;margin-bottom:.9em}
-.card h3{font-size:clamp(15px,1.5vw,22px);font-weight:700;margin-bottom:.6em}
-.card p{font-size:clamp(10px,1vw,15px);line-height:1.75;color:var(--ink2)}
-.card .en{font-size:clamp(8px,.75vw,11px);letter-spacing:.22em;color:var(--mut);margin-bottom:.4em}
-.bignum{font-size:clamp(40px,5.4vw,84px);font-weight:800;letter-spacing:-.02em;line-height:1;color:var(--ink)}
+.card .tag{font-size:clamp(12.5px,1.19vw,17px);letter-spacing:.28em;color:var(--bronze);font-weight:700;margin-bottom:.9em}
+.card h3{font-size:clamp(18px,1.8vw,26.5px);font-weight:700;margin-bottom:.6em}
+.card p{font-size:clamp(13.5px,1.33vw,20px);line-height:1.75;color:var(--ink2)}
+.card .en{font-size:clamp(11.5px,1.09vw,16px);letter-spacing:.22em;color:var(--mut);margin-bottom:.4em}
+.bignum{font-size:clamp(42.5px,5.72vw,89px);font-weight:800;letter-spacing:-.02em;line-height:1;color:var(--ink)}
 .bignum.bronze{color:var(--bronze)}
-.foot-note{margin-top:auto;padding-top:2%;border-top:1px dashed var(--line);font-size:clamp(10px,1vw,15px);color:var(--ink2);line-height:1.7}
+.foot-note{margin-top:auto;padding-top:2%;border-top:1px dashed var(--line);font-size:clamp(13.5px,1.33vw,20px);color:var(--ink2);line-height:1.7}
 .hl{color:var(--bronze);font-weight:700}
 /* ===== 黑底 · 白字 · 绿高亮（P7-P9） ===== */
 .sec-g{background:#05090D;color:#F2F6F3}
@@ -116,9 +116,9 @@ html,body{height:100%;background:#0B1118;font-family:"PingFang SC","Microsoft Ya
 .p2-grid{display:flex;gap:3%;flex:1;min-height:0}
 .p2-left{display:flex;flex-direction:column;gap:3%;width:44%}
 .stat-card{background:var(--panel);border:1px solid var(--line);border-radius:1.2vh;padding:5% 6%;flex:1;display:flex;flex-direction:column;justify-content:center}
-.stat-card .lab{font-size:clamp(10px,1vw,15px);color:var(--ink2);margin-top:.8em;line-height:1.5}
+.stat-card .lab{font-size:clamp(13.5px,1.33vw,20px);color:var(--ink2);margin-top:.8em;line-height:1.5}
 .p2-chart{flex:1;background:var(--panel);border:1px solid var(--line);border-radius:1.2vh;padding:3.5%;display:flex;flex-direction:column}
-.p2-chart .cap{font-size:clamp(10px,1vw,14px);color:var(--ink2);margin-bottom:2%}
+.p2-chart .cap{font-size:clamp(13.5px,1.33vw,18.5px);color:var(--ink2);margin-bottom:2%}
 .bridge-wrap{flex:1;display:flex;align-items:center;justify-content:center;min-height:0}
 /* P7 案例 */
 .case-card{display:flex;flex-direction:column}
@@ -127,86 +127,86 @@ html,body{height:100%;background:#0B1118;font-family:"PingFang SC","Microsoft Ya
 .case-logo img.contain{object-fit:contain;max-height:82%;max-width:80%}
 .case-metrics{display:flex;gap:4%;margin-top:auto;padding-top:3%;border-top:1px solid var(--line)}
 .case-metrics div{flex:1;text-align:center}
-.case-metrics b{display:block;font-size:clamp(15px,1.7vw,26px);color:var(--bronze);font-weight:800}
-.case-metrics span{font-size:clamp(8px,.8vw,11px);color:var(--mut)}
-.ai-tag{display:inline-block;font-size:clamp(8px,.75vw,11px);letter-spacing:.2em;padding:.2em .8em;border-radius:2em;margin-bottom:.5em}
+.case-metrics b{display:block;font-size:clamp(17.5px,1.99vw,30.5px);color:var(--bronze);font-weight:800}
+.case-metrics span{font-size:clamp(11.5px,1.16vw,16px);color:var(--mut)}
+.ai-tag{display:inline-block;font-size:clamp(11.5px,1.09vw,16px);letter-spacing:.2em;padding:.2em .8em;border-radius:2em;margin-bottom:.5em}
 .ai-before{background:#F2F4F7;color:var(--mut)}
 .ai-after{background:rgba(201,154,91,.15);color:var(--bronze);font-weight:700}
 /* P12 人才结构（按 PPT 横向流式） */
 .org-flow{flex:1;display:flex;align-items:stretch;gap:1.5%;min-height:0}
 .org-col{flex:1.15;display:flex;flex-direction:column;gap:1.4vh}
 .org-col.mid{flex:1.5}
-.org-pill{text-align:center;font-size:clamp(10px,1vw,15px);font-weight:700;letter-spacing:.18em;color:#F5A95C;border:1px solid #2C2214;background:#120F0B;border-radius:2em;padding:2.2% 0}
-.org-box{flex:1;display:flex;align-items:center;justify-content:center;text-align:center;background:#120F0B;border:1px solid #2C2214;border-radius:1.2vh;font-size:clamp(14px,1.6vw,24px);font-weight:700;color:#FAF6F0;letter-spacing:.06em;padding:4% 6%}
+.org-pill{text-align:center;font-size:clamp(13.5px,1.33vw,20px);font-weight:700;letter-spacing:.18em;color:#F5A95C;border:1px solid #2C2214;background:#120F0B;border-radius:2em;padding:2.2% 0}
+.org-box{flex:1;display:flex;align-items:center;justify-content:center;text-align:center;background:#120F0B;border:1px solid #2C2214;border-radius:1.2vh;font-size:clamp(17px,1.92vw,29px);font-weight:700;color:#FAF6F0;letter-spacing:.06em;padding:4% 6%}
 .org-box.keep{border-color:#F08C2E;color:#F5A95C}
 .org-arrow{flex:.5;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1.2vh}
 .org-arrow .ln{width:100%;border-top:2px solid #4A3A22;position:relative}
 .org-arrow .ln::after{content:"";position:absolute;right:-1px;top:-6px;border:5px solid transparent;border-left:8px solid #4A3A22}
-.org-arrow .zh{width:clamp(26px,2.6vw,40px);height:clamp(26px,2.6vw,40px);border-radius:50%;border:1.5px solid #F08C2E;color:#F5A95C;display:flex;align-items:center;justify-content:center;font-size:clamp(10px,1vw,15px);font-weight:700;background:#0A0908}
+.org-arrow .zh{width:clamp(26px,2.6vw,40px);height:clamp(26px,2.6vw,40px);border-radius:50%;border:1.5px solid #F08C2E;color:#F5A95C;display:flex;align-items:center;justify-content:center;font-size:clamp(13.5px,1.33vw,20px);font-weight:700;background:#0A0908}
 /* P15 流程 */
 .flow3{display:flex;align-items:center;gap:1.5%;margin-bottom:3%}
-.flow3 .fnode{flex:1;text-align:center;padding:1.6% 0;border:1px solid var(--line);border-radius:1vh;background:var(--panel);font-size:clamp(13px,1.4vw,21px);font-weight:700;letter-spacing:.15em}
+.flow3 .fnode{flex:1;text-align:center;padding:1.6% 0;border:1px solid var(--line);border-radius:1vh;background:var(--panel);font-size:clamp(15.5px,1.68vw,25px);font-weight:700;letter-spacing:.15em}
 .flow3 .fnode.hot{border-color:var(--bronze);color:var(--bronze)}
-.flow3 .arr{color:var(--mut);font-size:clamp(14px,1.6vw,24px)}
+.flow3 .arr{color:var(--mut);font-size:clamp(17px,1.92vw,29px)}
 /* P19 双链 */
 .chain{display:flex;align-items:center;gap:1.2%;margin:2.2% 0}
 .chain .cnode{flex:1;text-align:center;background:var(--panel);border:1px solid var(--line);border-radius:1vh;padding:2.2% 1%}
-.chain .cnode b{display:block;font-size:clamp(14px,1.5vw,23px);margin-bottom:.3em}
-.chain .cnode span{font-size:clamp(8px,.8vw,12px);color:var(--mut);line-height:1.5;display:block}
-.chain .carr{color:var(--bronze);font-size:clamp(12px,1.3vw,20px)}
-.chain .crow-title{width:7%;font-size:clamp(10px,1vw,15px);font-weight:700;color:var(--ink2);letter-spacing:.1em}
+.chain .cnode b{display:block;font-size:clamp(17px,1.8vw,27.5px);margin-bottom:.3em}
+.chain .cnode span{font-size:clamp(11px,1.12vw,17px);color:var(--mut);line-height:1.5;display:block}
+.chain .carr{color:var(--bronze);font-size:clamp(15px,1.61vw,25px)}
+.chain .crow-title{width:7%;font-size:clamp(13.5px,1.33vw,20px);font-weight:700;color:var(--ink2);letter-spacing:.1em}
 /* P20 履历 */
 .career{position:absolute;top:0;bottom:calc(4.84% + 4px);right:0;width:46%;padding:4.2% 4% 0 3%;display:flex;flex-direction:column;z-index:3}
 .career .inner{background:rgba(29,35,43,.82);backdrop-filter:blur(10px);border:1px solid rgba(227,184,124,.3);border-radius:1.4vh;padding:3.6% 5%;flex:1;display:flex;flex-direction:column;overflow:hidden}
-.career h2{color:#F4F7FA;font-size:clamp(15px,1.6vw,24px);margin-bottom:.4em}
-.career .cap{color:var(--bronze2);font-size:clamp(9px,.9vw,13px);letter-spacing:.1em;margin-bottom:1em}
+.career h2{color:#F4F7FA;font-size:clamp(18px,1.92vw,29px);margin-bottom:.4em}
+.career .cap{color:var(--bronze2);font-size:clamp(12.5px,1.26vw,18px);letter-spacing:.1em;margin-bottom:1em}
 .job{border-left:2px solid rgba(227,184,124,.4);padding:0 0 0 4%;margin-bottom:3%}
-.job b{display:block;color:#F4F7FA;font-size:clamp(11px,1.15vw,17px)}
-.job i{display:block;color:var(--bronze2);font-style:normal;font-size:clamp(8px,.8vw,12px);margin:.3em 0}
-.job span{color:#AEB9C6;font-size:clamp(8px,.85vw,12.5px);line-height:1.6}
+.job b{display:block;color:#F4F7FA;font-size:clamp(14px,1.46vw,21.5px)}
+.job i{display:block;color:var(--bronze2);font-style:normal;font-size:clamp(11px,1.12vw,17px);margin:.3em 0}
+.job span{color:#AEB9C6;font-size:clamp(11px,1.19vw,17.5px);line-height:1.6}
 /* P21 项目（无图重排） */
-.proj-num{font-size:clamp(34px,4vw,62px);font-weight:800;color:rgba(227,184,124,.28);line-height:1;margin-bottom:.2em}
+.proj-num{font-size:clamp(37px,4.36vw,67.5px);font-weight:800;color:rgba(227,184,124,.28);line-height:1;margin-bottom:.2em}
 /* P22 地图 */
 .mapbg{position:absolute;inset:0;background:#050B12}
 .mapbg img{width:100%;height:100%;object-fit:cover;opacity:.9;filter:brightness(.5) contrast(1.05)}
 .map-chips{position:absolute;left:0;right:0;bottom:16%;display:flex;justify-content:center;gap:2%;z-index:3;padding:0 6%}
 .map-chip{background:rgba(29,35,43,.85);border:1px solid rgba(227,184,124,.35);backdrop-filter:blur(8px);border-radius:1.2vh;padding:2.2% 3%;flex:1;text-align:center}
-.map-chip b{display:block;color:var(--bronze2);font-size:clamp(13px,1.4vw,21px);margin-bottom:.4em;letter-spacing:.1em}
-.map-chip span{color:#C7D2DC;font-size:clamp(9px,.9vw,13px);line-height:1.6}
+.map-chip b{display:block;color:var(--bronze2);font-size:clamp(15.5px,1.68vw,25px);margin-bottom:.4em;letter-spacing:.1em}
+.map-chip span{color:#C7D2DC;font-size:clamp(12.5px,1.26vw,18px);line-height:1.6}
 .map-head{position:absolute;top:7%;left:0;right:0;text-align:center;z-index:3}
-.map-head h2{color:#F4F7FA;font-size:clamp(20px,2.4vw,36px);letter-spacing:.05em}
-.map-head p{color:#AEB9C6;font-size:clamp(10px,1.05vw,15px);margin-top:.8em;letter-spacing:.08em}
+.map-head h2{color:#F4F7FA;font-size:clamp(22.5px,2.71vw,40.5px);letter-spacing:.05em}
+.map-head p{color:#AEB9C6;font-size:clamp(13.5px,1.4vw,20px);margin-top:.8em;letter-spacing:.08em}
 /* P17 引言 */
 .quote-page{position:absolute;inset:0;background:#0B1118}
 .quote-page img.qbg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.85}
 .quote-block{position:absolute;right:6%;bottom:16%;text-align:right;z-index:3;max-width:52%}
-.quote-block .en{color:var(--bronze2);font-size:clamp(11px,1.15vw,17px);letter-spacing:.14em;margin-bottom:1em;font-style:italic}
-.quote-block .cn{color:#F4F7FA;font-size:clamp(18px,2.2vw,34px);font-weight:700;line-height:1.5;letter-spacing:.04em}
-.quote-block .role{position:absolute;right:0;top:-5.5em;color:rgba(244,247,250,.4);font-size:clamp(10px,1vw,14px);letter-spacing:.4em}
+.quote-block .en{color:var(--bronze2);font-size:clamp(14px,1.46vw,21.5px);letter-spacing:.14em;margin-bottom:1em;font-style:italic}
+.quote-block .cn{color:#F4F7FA;font-size:clamp(20.5px,2.49vw,38.5px);font-weight:700;line-height:1.5;letter-spacing:.04em}
+.quote-block .role{position:absolute;right:0;top:-5.5em;color:rgba(244,247,250,.4);font-size:clamp(13.5px,1.33vw,18.5px);letter-spacing:.4em}
 /* P18 长引言 */
 .longquote{flex:1;display:flex;flex-direction:column;justify-content:center;background:var(--panel);border:1px solid var(--line);border-radius:1.4vh;padding:3.5% 4.5%}
-.longquote .who{font-size:clamp(11px,1.1vw,16px);color:var(--bronze);font-weight:700;margin-bottom:1.2em;letter-spacing:.05em}
-.longquote p{font-size:clamp(12px,1.35vw,20px);line-height:2;color:var(--ink2)}
+.longquote .who{font-size:clamp(14px,1.4vw,20.5px);color:var(--bronze);font-weight:700;margin-bottom:1.2em;letter-spacing:.05em}
+.longquote p{font-size:clamp(15px,1.67vw,25px);line-height:2;color:var(--ink2)}
 /* Q&A */
 .qa{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;background:linear-gradient(160deg,#1D232B 0%,#161C23 100%)}
-.qa .big{font-size:clamp(60px,9vw,150px);font-weight:800;letter-spacing:.04em;color:#F4F7FA;line-height:1}
+.qa .big{font-size:clamp(63.5px,9.54vw,159px);font-weight:800;letter-spacing:.04em;color:#F4F7FA;line-height:1}
 .qa .line{width:8%;height:3px;background:var(--bronze2);margin:3% 0}
-.qa .en{font-size:clamp(13px,1.5vw,23px);letter-spacing:.34em;color:#E3B87C;text-transform:uppercase}
-.qa .cn{margin-top:1.4em;font-size:clamp(11px,1.15vw,17px);color:#8B99A8;letter-spacing:.2em}
+.qa .en{font-size:clamp(15.5px,1.8vw,27.5px);letter-spacing:.34em;color:#E3B87C;text-transform:uppercase}
+.qa .cn{margin-top:1.4em;font-size:clamp(14px,1.46vw,21.5px);color:#8B99A8;letter-spacing:.2em}
 /* 底部控制条 */
-#hud{position:absolute;left:0;right:0;bottom:0;height:4.84%;min-height:38px;background:rgba(8,14,21,.88);backdrop-filter:blur(10px);display:flex;align-items:center;padding:0 1.2%;gap:1%;z-index:20;color:#C7D2DC;font-size:clamp(10px,.94vw,13.5px)}
+#hud{position:absolute;left:0;right:0;bottom:0;height:4.84%;min-height:38px;background:rgba(8,14,21,.88);backdrop-filter:blur(10px);display:flex;align-items:center;padding:0 1.2%;gap:1%;z-index:20;color:#C7D2DC;font-size:clamp(13.5px,1.25vw,18px)}
 #hud button{background:none;border:1px solid rgba(199,210,220,.3);color:#C7D2DC;border-radius:.6vh;padding:.3em 1em;font-size:inherit;cursor:pointer;letter-spacing:.08em;display:inline-flex;align-items:center;gap:.5em}
 #hud button:hover{border-color:var(--bronze2);color:var(--bronze2)}
 #subtitle{position:absolute;left:8%;right:8%;bottom:7%;text-align:center;z-index:15;pointer-events:none}
-#subtitle span{display:inline-block;background:rgba(8,14,21,.45);color:#F4F7FA;padding:.5em 1.2em;border-radius:2em;font-size:clamp(12px,1.3vw,20px);letter-spacing:.04em;line-height:1.5;opacity:0;transition:opacity .25s}
+#subtitle span{display:inline-block;background:rgba(8,14,21,.45);color:#F4F7FA;padding:.5em 1.2em;border-radius:2em;font-size:clamp(15px,1.61vw,25px);letter-spacing:.04em;line-height:1.5;opacity:0;transition:opacity .12s}
 #subtitle.on span{opacity:1}
 #progress{position:absolute;top:0;left:0;height:3px;background:linear-gradient(90deg,var(--bronze),var(--bronze2));width:0%;z-index:21;transition:width .3s linear}
 #pageind{margin-left:auto;letter-spacing:.15em;color:var(--mut)}
 #ptitle{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:44%;color:#8A96A3}
 #menu{position:absolute;top:0;right:0;bottom:0;width:26%;background:rgba(8,14,21,.96);z-index:30;transform:translateX(102%);transition:transform .35s ease;overflow-y:auto;padding:3% 3.5%}
 #menu.open{transform:translateX(0)}
-#menu h4{color:var(--bronze2);letter-spacing:.3em;font-size:12px;margin-bottom:1.2em}
-#menu .mi{color:#C7D2DC;padding:.7em .4em;border-bottom:1px solid rgba(199,210,220,.12);cursor:pointer;font-size:clamp(10px,.95vw,13px);display:flex;gap:.8em}
+#menu h4{color:var(--bronze2);letter-spacing:.3em;font-size:17px;margin-bottom:1.2em}
+#menu .mi{color:#C7D2DC;padding:.7em .4em;border-bottom:1px solid rgba(199,210,220,.12);cursor:pointer;font-size:clamp(14px,1.33vw,18px);display:flex;gap:.8em}
 #menu .mi:hover{color:var(--bronze2)}
 #menu .mi b{color:var(--mut);font-weight:400;min-width:2.2em}
 
@@ -217,7 +217,7 @@ html,body{height:100%;background:#0B1118;font-family:"PingFang SC","Microsoft Ya
   .content>*{flex:none}
   .p-head{flex-wrap:wrap}
   .p-sub{display:none}
-  .p-title{font-size:19px}
+  .p-title{font-size:23.5px}
   .cards{flex-direction:column!important;gap:14px}
   .card{padding:5% 4.5%}
   .p2-grid{flex-direction:column;gap:14px}
@@ -226,13 +226,13 @@ html,body{height:100%;background:#0B1118;font-family:"PingFang SC","Microsoft Ya
   .bridge-wrap{min-height:330px}
   .bridge-h{display:none!important}
   .bridge-v{display:block!important;margin:0 auto}
-  .flow3 .fnode{font-size:13px;padding:3% 0}
+  .flow3 .fnode{font-size:18px;padding:3% 0}
   .org-flow{flex-direction:column;gap:10px}
   .org-col{gap:8px}
-  .org-box{min-height:58px;padding:12px 6%;font-size:16px}
+  .org-box{min-height:58px;padding:12px 6%;font-size:20.5px}
   .org-arrow{flex-direction:row;padding:0}
   .org-arrow .ln{display:none}
-  .org-arrow::after{content:"↓";color:#4A3A22;font-size:16px}
+  .org-arrow::after{content:"↓";color:#4A3A22;font-size:20.5px}
   .chain{flex-direction:column;align-items:stretch;gap:8px;margin:2% 0}
   .chain .carr{display:none}
   .chain .crow-title{width:auto;letter-spacing:.2em}
@@ -251,7 +251,7 @@ html,body{height:100%;background:#0B1118;font-family:"PingFang SC","Microsoft Ya
   .longquote{overflow-y:auto}
   .foot-note{margin-top:14px}
   .src{position:static;margin-top:12px}
-  .proj-num{font-size:34px}
+  .proj-num{font-size:38.5px}
   #subtitle{bottom:9%;left:4%;right:4%}
   #hud{flex-wrap:wrap;height:auto;min-height:46px;padding:6px 2%;row-gap:6px}
   #ptitle{display:none}
@@ -298,7 +298,7 @@ html,body{height:100%;background:#0B1118;font-family:"PingFang SC","Microsoft Ya
 
 /* 底部安全区 + 图标化播放栏（2026-09-23） */
 .content{padding-bottom:13%!important}
-.src{bottom:calc(4.84% + 10px)!important}
+.src{bottom:calc(4.84% + 30px)!important}
 .chapter-text{bottom:17%!important}
 .map-chips{bottom:18%!important}
 .quote-block{bottom:18%!important}
@@ -313,28 +313,104 @@ html,body{height:100%;background:#0B1118;font-family:"PingFang SC","Microsoft Ya
   .chapter-text{bottom:120px!important}
   .quote-block{bottom:140px!important}
 }
+
+/* 悬浮式播放器 + 播放/浏览脱勾（2026-09-23 v3） */
+#hud{left:50%!important;right:auto!important;bottom:8px!important;transform:translateX(-50%);width:auto;height:auto!important;min-height:0!important;border-radius:10px;padding:.5em 1.2em!important;gap:.7em!important;box-shadow:0 8px 28px rgba(0,0,0,.5);flex-wrap:nowrap!important}
+#subtitle{bottom:64px!important}
+#pageind{margin-left:0!important;white-space:nowrap}
+#playind{color:var(--bronze2);letter-spacing:.1em;white-space:nowrap}
+@media (max-aspect-ratio: 3/4){
+  #subtitle{bottom:70px!important}
+  #hud{font-size:16px!important;gap:.5em!important;padding:.45em .9em!important}
+  #pageind{display:none!important}
+}
+
+/* P12 左箭头指向左 + 进度条加粗（2026-09-23 v4） */
+.org-arrow.rev .ln::after{left:-1px;right:auto;border-left:5px solid transparent;border-right:8px solid #4A3A22}
+#progress{height:8px!important;opacity:.85;overflow:hidden}
+#progress::before{content:"";position:absolute;top:0;bottom:0;left:-40%;width:38%;background:linear-gradient(100deg,transparent 15%,rgba(255,246,225,.95) 50%,transparent 85%);opacity:0;pointer-events:none}
+#progress.playing{filter:drop-shadow(0 0 5px rgba(255,214,140,.85))}
+#progress.playing::before{opacity:1;animation:charge 1.6s linear infinite}
+@keyframes charge{from{left:-40%}to{left:105%}}
+
+/* ===== v5 竖屏密排：大字号 + 一屏适配 ===== */
+@media (max-aspect-ratio: 3/4){
+  .content{padding:3.5% 4% 130px!important}
+  .p-head{padding-bottom:1.2%;margin-bottom:2%;gap:.8em}
+  .cards{gap:10px}
+  .cards>.card{flex:none}
+  .card{padding:2.5% 3.5%}
+  .card p{line-height:1.5}
+  .card .tag{margin-bottom:.5em}
+  .card h3{margin-bottom:.4em}
+  .foot-note{line-height:1.5}
+  [data-p="4"] .bignum{font-size:46px}
+  [data-p="4"] .card p{line-height:1.42}
+  [data-p="4"] .foot-note{margin-top:10px}
+  [data-p="7"] .card{position:relative}
+  [data-p="7"] .case-logo{position:absolute;top:10px;right:10px;height:30px;width:92px;min-height:0;margin:0}
+  [data-p="7"] .card h3{padding-right:100px}
+  [data-p="7"] .card p{line-height:1.38}
+  [data-p="7"] .case-metrics{margin-top:4px;padding-top:4px}
+  [data-p="7"] .case-metrics b{font-size:18px}
+  [data-p="7"] .ai-tag{margin-bottom:.2em}
+  [data-p="9"] .card .foot-note{padding-top:3%!important;border:none}
+  [data-p="9"] .foot-note{line-height:1.42}
+  [data-p="11"] .card svg{height:88px!important;flex:none!important;margin-top:1%}
+  [data-p="11"] .card p{line-height:1.38}
+  [data-p="18"] .chain{gap:6px;margin:1% 0}
+  [data-p="18"] .chain .cnode{padding:2% 3%;display:flex;align-items:baseline;gap:.7em;text-align:left}
+  [data-p="18"] .chain .cnode b{margin-bottom:0;white-space:nowrap}
+  [data-p="18"] .chain .cnode span{line-height:1.4}
+  [data-p="18"] .foot-note{margin-top:10px}
+  [data-p="20"] .proj-num{font-size:22px;margin-bottom:0}
+  [data-p="20"] .card p{line-height:1.36}
+}
+
+/* ===== v6：进度条可点 + P11 图放大 + P20/P21 低层级字号收敛 ===== */
+#progtrack{position:absolute;top:0;left:0;right:0;height:18px;z-index:22;cursor:pointer}
+#svgzoom{position:absolute;inset:0;background:rgba(3,6,10,.93);display:none;align-items:center;justify-content:center;z-index:30;cursor:zoom-out;backdrop-filter:blur(6px)}
+#svgzoom.on{display:flex}
+#svgzoom svg{max-width:88%;max-height:84%;background:#0A0908;border:1px solid #2C2214;border-radius:12px;box-shadow:0 24px 80px rgba(0,0,0,.6)}
+[data-p="11"] .card svg{cursor:zoom-in}
+[data-p="20"] .card .tag{font-size:clamp(10.5px,1vw,14px);letter-spacing:.16em;margin-bottom:.5em}
+[data-p="20"] .card p{line-height:1.6}
+[data-p="20"] .card p:last-child{font-size:clamp(11.5px,1.1vw,15.5px)}
+.map-chip span{font-size:clamp(10px,.95vw,14px)!important}
+
+/* ===== v7：P11 图扩大 + P4 引用字缩小 + 播放器框形调整 ===== */
+/* P11：无来源行，收底部预留高度给三张图（图随卡片高度等比放大） */
+[data-p="11"] .content{padding-bottom:4.5%!important}
+@media (min-aspect-ratio: 4/3){ [data-p="11"] .card p{line-height:1.6} }
+/* P4 卡片内浅灰引用行缩小 */
+.quote-s{font-size:clamp(10.5px,1vw,14px)!important;line-height:1.55!important}
+/* 播放器外框稍方 */
+#hud button .ic{display:inline-flex;align-items:center;line-height:0}
+#hud button .ic svg{display:block}
 </style>
 </head>
 <body>
 <div id="viewport">
   <div id="stage">
     <div id="progress"></div>
+    <div id="progtrack" title="点击跳转进度"></div>
     <div id="pages"></div>
     <div id="subtitle"><span></span></div>
+    <div id="svgzoom"></div>
     <div id="hud">
-      <button id="btn-play"><span class="ic"><svg width="9" height="10" viewBox="0 0 9 10"><path d="M0,0 L9,5 L0,10 Z" fill="currentColor"/></svg></span><span class="tx">Paused</span></button>
+      <button id="btn-play"><span class="ic"><svg width="9" height="10" viewBox="0 0 9 10"><rect x="0" y="0" width="3" height="10" fill="currentColor"/><rect x="6" y="0" width="3" height="10" fill="currentColor"/></svg></span><span class="tx">Paused</span></button>
       <button id="btn-prev" aria-label="Previous"><svg width="14" height="14" viewBox="0 0 14 14"><path d="M9,2 L4,7 L9,12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
       <button id="btn-next" aria-label="Next"><svg width="14" height="14" viewBox="0 0 14 14"><path d="M5,2 L10,7 L5,12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
       <button id="btn-sub" aria-label="Subtitles"><svg width="16" height="14" viewBox="0 0 16 14"><rect x="1" y="1.5" width="14" height="11" rx="2.5" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M6.8,5.1 C5.2,5.1 4.2,6 4.2,7 C4.2,8 5.2,8.9 6.8,8.9 M12.4,5.1 C10.8,5.1 9.8,6 9.8,7 C9.8,8 10.8,8.9 12.4,8.9" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg></button>
       <button id="btn-menu" aria-label="Menu"><svg width="14" height="14" viewBox="0 0 14 14"><path d="M2,3.5 L12,3.5 M2,7 L12,7 M2,10.5 L12,10.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button>
       <span id="ptitle"></span>
-      <span id="pageind"></span>
+      <span id="pageind"></span><span id="playind">▶ P1</span>
     </div>
     <div id="menu"><h4>目录 · CONTENTS</h4></div>
   </div>
 </div>
 <audio id="vo" src="audio/full.mp3" preload="auto"></audio>
-<script id="cuedata" type="application/json">{"pages": [{"n": 1, "title": "封面：Flux", "start": 0.0, "dur": 20.516, "cues": [{"t": 0.0, "s": "各位好。", "e": 1.368}, {"t": 2.188, "s": "今天我要讲的，不是又一个AI概念，", "e": 5.644}, {"t": 6.014, "s": "而是一个落地计划——Flux企业AI落地计划。", "e": 9.854}, {"t": 10.224, "s": "Flux，就是渗透的意思。", "e": 12.816}, {"t": 13.186, "s": "这个计划只做一件事：让AI从演示厅里走出来，", "e": 17.578}, {"t": 17.948, "s": "渗进企业的真实业务里。", "e": 20.396}]}, {"n": 2, "title": "危机：一半企业还站在岸上", "start": 20.966, "dur": 33.732, "cues": [{"t": 0.0, "s": "先看一组扎心的数据。", "e": 2.256}, {"t": 2.626, "s": "MIT的调研显示：已经有近40%的组织部署了通用大模型工具；", "e": 8.146}, {"t": 8.516, "s": "但真正进入生产阶段的企业级定制AI系统，", "e": 12.5}, {"t": 12.87, "s": "只有5%。", "e": 14.67}, {"t": 15.49, "s": "通用工具人人都在用，", "e": 17.938}, {"t": 18.308, "s": "可一碰到企业自己的业务，", "e": 20.948}, {"t": 21.318, "s": "几乎全军覆没。", "e": 23.334}, {"t": 23.704, "s": "更要命的是，AI的能力按季度翻倍，", "e": 27.208}, {"t": 27.578, "s": "企业的采用曲线却几乎走平。", "e": 30.482}, {"t": 30.852, "s": "这个缺口，不会自己合上。", "e": 33.612}]}, {"n": 3, "title": "趋势：跑通的大厂都有同一个角色", "start": 55.148, "dur": 31.682, "cues": [{"t": 0.0, "s": "那跑通AI的大厂，做对了什么？", "e": 3.048}, {"t": 3.418, "s": "答案出奇一致：它们都设了同一个角色。", "e": 6.97}, {"t": 7.34, "s": "这个角色在大厂AI化组织里已是标配，", "e": 11.036}, {"t": 11.406, "s": "近一年还在持续扩张。", "e": 13.83}, {"t": 14.2, "s": "因为当AI已经能替代大量开发工作时，", "e": 17.536}, {"t": 17.906, "s": "企业缺的不是技术，", "e": 19.922}, {"t": 20.292, "s": "而是一个帮企业完成AI化改造的人。", "e": 23.7}, {"t": 24.52, "s": "竞对在跑、大厂在跑——这已经不是要不要做的问题，", "e": 28.936}, {"t": 29.306, "s": "而是多快做对的问题。", "e": 31.562}]}, {"n": 4, "title": "信号：两大巨头同一天押注", "start": 87.28, "dur": 36.862, "cues": [{"t": 0.0, "s": "二零二六年五月四日，", "e": 2.208}, {"t": 2.578, "s": "发生了标志性的一幕：", "e": 4.882}, {"t": 5.252, "s": "OpenAI和Anthropic，", "e": 7.412}, {"t": 7.782, "s": "在同一天，押注了同一件事——帮AI进入企业。", "e": 11.886}, {"t": 12.256, "s": "OpenAI成立DeploymentCompany，募资四十亿、估值一百亿美元；", "e": 16.528}, {"t": 16.898, "s": "Anthropic联合黑石、高盛，做了十五亿美元的企业AI合资公司。", "e": 22.034}, {"t": 22.404, "s": "而支撑这套打法的驻场工程师岗位，", "e": 25.668}, {"t": 26.038, "s": "去年前九个月招聘量暴涨超过800%。", "e": 29.854}, {"t": 30.674, "s": "资本已经投票了：", "e": 32.666}, {"t": 33.036, "s": "AI的下半场，", "e": 34.764}, {"t": 35.134, "s": "拼的是落地。", "e": 36.742}]}, {"n": 5, "title": "跛局：两条腿走路，需要一座桥", "start": 124.592, "dur": 33.228, "cues": [{"t": 0.0, "s": "那企业自己要怎么落地？", "e": 2.448}, {"t": 2.818, "s": "目前被验证最有效的，是两条腿：", "e": 6.034}, {"t": 6.404, "s": "第一，定制出合用的AI工具——不是采购现成品，", "e": 10.364}, {"t": 10.734, "s": "而是贴着业务定制工作流；", "e": 13.182}, {"t": 13.552, "s": "第二，推行全员使用——不是发账号就完事，", "e": 17.176}, {"t": 17.546, "s": "而是排除障碍、教会全员、用数据度量。", "e": 21.338}, {"t": 22.158, "s": "但这两条腿之间，", "e": 24.27}, {"t": 24.64, "s": "隔着一条沟。", "e": 26.296}, {"t": 26.666, "s": "沟的两岸，是懂业务的人，和AI的能力。", "e": 30.338}, {"t": 30.708, "s": "这中间，需要一座桥。", "e": 33.108}]}, {"n": 6, "title": "章节：Flood 浪潮", "start": 158.27, "dur": 20.358, "cues": [{"t": 0.0, "s": "这座桥一旦架起来，", "e": 2.16}, {"t": 2.53, "s": "接下来的就不是细水长流，", "e": 5.266}, {"t": 5.636, "s": "而是一场浪潮。", "e": 7.364}, {"t": 8.184, "s": "全球大厂在一年半前已经开始布局AI化。", "e": 11.88}, {"t": 12.25, "s": "这股洪水正在冲向每一家企业。", "e": 15.298}, {"t": 15.668, "s": "问题只剩下一个：", "e": 17.708}, {"t": 18.078, "s": "我们，要怎么准备？", "e": 20.238}]}, {"n": 7, "title": "验证：三个行业已经跑通", "start": 179.078, "dur": 43.352, "cues": [{"t": 0.0, "s": "先看别人已经跑通的样子。", "e": 2.64}, {"t": 3.01, "s": "营销端，三星把单向广告变成AI对话推荐，", "e": 7.378}, {"t": 7.748, "s": "互动成本降了54%，获客成本降了73%，广告回报翻了三倍。", "e": 13.508}, {"t": 13.878, "s": "零售端，Zara用RFID加AI实时调度库存，", "e": 18.198}, {"t": 18.568, "s": "季末库存压到0.6%，", "e": 21.376}, {"t": 21.746, "s": "而行业还在百分之十到二十。", "e": 24.578}, {"t": 24.948, "s": "售后端，Target给店员配了AI助手，", "e": 28.428}, {"t": 28.798, "s": "上线三周，被问了五万多次。", "e": 31.75}, {"t": 32.57, "s": "三个行业，三个模块，", "e": 35.09}, {"t": 35.46, "s": "全是先跑通一个种子案例，", "e": 37.932}, {"t": 38.302, "s": "再复制。", "e": 39.694}, {"t": 40.064, "s": "这，就是浪潮已经上岸的证据。", "e": 43.232}]}, {"n": 8, "title": "回扣：桥，就是落地方法论", "start": 222.88, "dur": 27.344, "cues": [{"t": 0.0, "s": "看完案例再回头看这张图，", "e": 2.808}, {"t": 3.178, "s": "逻辑就非常清楚了。", "e": 5.338}, {"t": 5.708, "s": "三星、Zara、Target，", "e": 8.204}, {"t": 8.574, "s": "没有一家是靠买工具买出来的，", "e": 11.478}, {"t": 11.848, "s": "全都是定制工具加全员推行，两条腿一起走。", "e": 15.952}, {"t": 16.322, "s": "而连接这两条腿的桥，", "e": 18.602}, {"t": 18.972, "s": "就是一套落地的操作方法。", "e": 21.516}, {"t": 21.886, "s": "这套方法，", "e": 23.446}, {"t": 23.816, "s": "就是我们今天要讲的Flux计划的内核。", "e": 27.224}]}, {"n": 9, "title": "回扣：巨头的钱流向同一个方向", "start": 250.674, "dur": 56.284, "cues": [{"t": 0.0, "s": "再回头看巨头的动作。", "e": 2.424}, {"t": 2.794, "s": "四十亿美元和十五亿美元，", "e": 5.602}, {"t": 5.972, "s": "买的不是模型，", "e": 7.748}, {"t": 8.118, "s": "而是把AI送进企业的能力。", "e": 10.758}, {"t": 11.128, "s": "OpenAI一次收购就引入约一百五十名落地工程师。", "e": 15.016}, {"t": 15.386, "s": "这说明什么？", "e": 17.066}, {"t": 17.436, "s": "说明这套「驻场、贴业务、交付结果」的打法，", "e": 21.372}, {"t": 21.742, "s": "已经被最顶级的玩家用钱验证过了。", "e": 25.126}, {"t": 25.496, "s": "我们要做的，", "e": 27.272}, {"t": 27.642, "s": "是把它变成自己的计划。", "e": 30.042}, {"t": 30.612, "s": "所以这三张标签，", "e": 32.82}, {"t": 33.19, "s": "现在可以读得更直白：", "e": 35.59}, {"t": 35.96, "s": "已被验证，是大厂组织架构里的标配；", "e": 39.56}, {"t": 39.93, "s": "正在扩张，是招聘数据里的八百个百分点；", "e": 43.602}, {"t": 43.972, "s": "时代共识，是两大巨头同一天的下注。", "e": 47.62}, {"t": 48.44, "s": "桥的价值已经被证明。", "e": 50.888}, {"t": 51.258, "s": "接下来的问题变成了：", "e": 53.514}, {"t": 53.884, "s": "这座桥，我们怎么造？", "e": 56.164}]}, {"n": 11, "title": "章节：Flux 定制级 AI Native 方案", "start": 307.408, "dur": 17.66, "cues": [{"t": 0.0, "s": "答案就是Flux。", "e": 1.872}, {"t": 2.692, "s": "一套定制级的AINative方案。", "e": 5.428}, {"t": 5.798, "s": "目标一句话：", "e": 7.502}, {"t": 7.872, "s": "让AI渗透到业务的基准线。", "e": 10.584}, {"t": 10.954, "s": "不是做几个炫酷的演示，", "e": 13.33}, {"t": 13.7, "s": "而是让AI变成业务每天都离不开的底层能力。", "e": 17.54}]}, {"n": 12, "title": "方法：Flux 的三种职能", "start": 325.518, "dur": 43.732, "cues": [{"t": 0.0, "s": "Flux怎么落地？", "e": 1.824}, {"t": 2.194, "s": "靠三种职能。", "e": 4.066}, {"t": 4.436, "s": "第一，渗透剂：从细分业务切入，", "e": 7.676}, {"t": 8.046, "s": "把方法渗进一线每天的动作里，", "e": 10.926}, {"t": 11.296, "s": "让个人经验蒸馏成组织资产。", "e": 14.344}, {"t": 14.714, "s": "第二，催化剂：用AI啃透一个业务，", "e": 18.218}, {"t": 18.588, "s": "把成功案例凝成模板，", "e": 20.892}, {"t": 21.262, "s": "再逐个复制，", "e": 23.086}, {"t": 23.456, "s": "让交付周期持续缩短。", "e": 25.904}, {"t": 26.274, "s": "第三，离析剂：全员拉齐AI基线，", "e": 29.754}, {"t": 30.124, "s": "用「使用量乘业务产出」双维度看数据，", "e": 33.388}, {"t": 33.758, "s": "最终标定出——谁该上、谁该下。", "e": 36.686}, {"t": 37.506, "s": "渗透、催化、离析，", "e": 40.05}, {"t": 40.42, "s": "三步走完，业务就变成了AINative。", "e": 43.612}]}, {"n": 13, "title": "前瞻：AI 时代的人才结构", "start": 369.7, "dur": 35.71, "cues": [{"t": 0.0, "s": "顺着离析剂再往深看一层：", "e": 2.856}, {"t": 3.226, "s": "AI时代的人才结构会怎么变？", "e": 6.106}, {"t": 6.476, "s": "世界经济论坛的判断是，", "e": 8.996}, {"t": 9.366, "s": "人的价值会集中到四个动作上：", "e": 12.414}, {"t": 12.784, "s": "定义问题、设定约束、评估结果、做最终决策。", "e": 17.176}, {"t": 17.996, "s": "也就是说，", "e": 19.532}, {"t": 19.902, "s": "中段那些重复的、执行性的任务，", "e": 23.334}, {"t": 23.704, "s": "会被AI吃掉；", "e": 25.576}, {"t": 25.946, "s": "人的时间，要往两端搬。", "e": 28.538}, {"t": 28.908, "s": "所以Flux要做的不是筛人，", "e": 31.428}, {"t": 31.798, "s": "而是把同一个人的时间，从中段搬到两端。", "e": 35.59}]}, {"n": 14, "title": "种子：第一个战场，海外销售端", "start": 405.86, "dur": 44.034, "cues": [{"t": 0.0, "s": "方法有了，第一仗打在哪？", "e": 2.592}, {"t": 2.962, "s": "Flux的第一个种子，", "e": 4.954}, {"t": 5.324, "s": "选在海外销售端。", "e": 7.508}, {"t": 7.878, "s": "三个理由。", "e": 9.342}, {"t": 9.712, "s": "第一，痛点最痛：全球跨语言、跨时区、跨渠道，", "e": 14.248}, {"t": 14.618, "s": "报价、会议、资料同步大量靠人肉搬运。", "e": 18.53}, {"t": 18.9, "s": "第二，价值可验证：销售端最接近用户，", "e": 22.74}, {"t": 23.11, "s": "AI的产出直接换算成订单、转化率、响应时间，", "e": 27.238}, {"t": 27.608, "s": "当天就看得见。", "e": 29.408}, {"t": 29.778, "s": "第三，闭环可复制：现场洞察反哺产品，", "e": 33.57}, {"t": 33.94, "s": "能力沿着营销、渠道、交付、风控、售后流向相邻环节。", "e": 39.316}, {"t": 40.136, "s": "跑通一个点，", "e": 41.744}, {"t": 42.114, "s": "复制一张网。", "e": 43.914}]}, {"n": 15, "title": "总结：Floe → Flood → Flux", "start": 450.344, "dur": 36.958, "cues": [{"t": 0.0, "s": "总结一下整条线：", "e": 2.016}, {"t": 2.386, "s": "从浮冰，", "e": 3.826}, {"t": 4.196, "s": "到洪水，", "e": 5.612}, {"t": 5.982, "s": "到Flux。", "e": 7.374}, {"t": 8.194, "s": "这个计划最终交付四个改变：", "e": 10.93}, {"t": 11.3, "s": "业务提效——AI介入前后，数据可度量、可归因；", "e": 15.524}, {"t": 15.894, "s": "人才标定——谁能管理AI，谁可以被替代，标签从模糊变精准；", "e": 21.102}, {"t": 21.472, "s": "资产沉淀——经验沉淀为公司资产，人来人走，业务质量不变；", "e": 26.992}, {"t": 27.362, "s": "流程清晰——含糊拖慢的业务流，被重新梳理得高效清晰。", "e": 32.066}, {"t": 32.436, "s": "这，", "e": 33.684}, {"t": 34.054, "s": "就是Flux企业AI落地计划。", "e": 36.838}]}, {"n": 16, "title": "结尾：让 AI 在业务里真正产出价值", "start": 487.752, "dur": 22.504, "cues": [{"t": 0.0, "s": "一句话收尾：", "e": 1.8}, {"t": 2.17, "s": "让AI在业务里真正产出价值。", "e": 5.29}, {"t": 6.11, "s": "今天的分享就到这里，", "e": 8.462}, {"t": 8.832, "s": "哪一页希望展开讨论，我们随时可以深聊。", "e": 12.528}, {"t": 12.898, "s": "接下来的时间，", "e": 14.698}, {"t": 15.068, "s": "请允许我用几页，", "e": 17.228}, {"t": 17.598, "s": "介绍一下我自己——", "e": 19.542}, {"t": 19.912, "s": "为什么是我，来做Flux。", "e": 22.384}]}, {"n": 17, "title": "章节：The Role", "start": 510.706, "dur": 21.006, "cues": [{"t": 0.0, "s": "先说我对自己角色的理解。", "e": 2.64}, {"t": 3.01, "s": "有一句话很准：", "e": 4.786}, {"t": 5.156, "s": "我们不挖河，", "e": 7.028}, {"t": 7.398, "s": "只是在它已流过的地方，把它拓宽。", "e": 10.542}, {"t": 11.362, "s": "Flux不是凭空造一条河，", "e": 13.834}, {"t": 14.204, "s": "而是找到业务里已经在流动的部分，", "e": 17.204}, {"t": 17.574, "s": "让AI顺着它，流得更宽、更快。", "e": 20.886}]}, {"n": 18, "title": "定位：三类角色中的 Echo", "start": 532.162, "dur": 33.55, "cues": [{"t": 0.0, "s": "在落地工程的三类角色里，", "e": 2.64}, {"t": 3.01, "s": "我最匹配的是Echo。", "e": 5.17}, {"t": 5.54, "s": "帕兰提尔的第二号工程师鲍勃·麦格鲁说过：", "e": 9.308}, {"t": 9.678, "s": "Echo应该招自你所服务领域的领域专家，", "e": 12.846}, {"t": 13.216, "s": "关键特质是革新者、异类——", "e": 16.024}, {"t": 16.394, "s": "因为一个对现状完全满意的人，", "e": 19.202}, {"t": 19.572, "s": "永远找不出阶跃式的变化。", "e": 22.068}, {"t": 22.888, "s": "对业务本质的理解无法通用化，", "e": 25.912}, {"t": 26.282, "s": "只能按行业沉淀。", "e": 28.394}, {"t": 28.764, "s": "而我沉淀的行业，", "e": 30.876}, {"t": 31.246, "s": "是汽车和用户体验。", "e": 33.43}]}, {"n": 19, "title": "印证：用户体验的内核就是 Echo", "start": 566.162, "dur": 35.072, "cues": [{"t": 0.0, "s": "为什么这么说？", "e": 1.68}, {"t": 2.05, "s": "看我做了二十多年的方法论就明白了。", "e": 5.098}, {"t": 5.468, "s": "设计的五步：察、定、构、验、达；", "e": 9.5}, {"t": 9.87, "s": "Echo的五步：听、判、拆、锚、推。", "e": 13.734}, {"t": 14.104, "s": "两者共享同一个内核——", "e": 16.528}, {"t": 16.898, "s": "都不接受问题被给定的样子。", "e": 19.466}, {"t": 20.286, "s": "Echo的官方定义，是识别真正的问题；", "e": 23.454}, {"t": 23.824, "s": "设计思维的Define阶段，", "e": 26.32}, {"t": 26.69, "s": "做的是同一件事。", "e": 28.706}, {"t": 29.076, "s": "一句话：", "e": 30.564}, {"t": 30.934, "s": "用户体验的本质，", "e": 32.926}, {"t": 33.296, "s": "就是Echo。", "e": 34.952}]}, {"n": 20, "title": "履历：懂车机，是懂一台车的全部约束", "start": 601.684, "dur": 36.838, "cues": [{"t": 0.0, "s": "再看行业履历。", "e": 1.944}, {"t": 2.314, "s": "在比亚迪，", "e": 3.898}, {"t": 4.268, "s": "我负责仰望U8、汉、唐、方程豹、海豚，", "e": 8.66}, {"t": 9.03, "s": "和DiLink五点一、六点零、七点零的体验设计；", "e": 12.87}, {"t": 13.24, "s": "在吉利和极氪，", "e": 15.184}, {"t": 15.554, "s": "做HMI质量管理；", "e": 17.714}, {"t": 18.084, "s": "在拜腾，从UI/UX经理做到部门负责人；", "e": 21.684}, {"t": 22.054, "s": "再往前，是斑马智行的GUI设计负责人，", "e": 25.75}, {"t": 26.12, "s": "做过中国最早一批互联网车机的量产。", "e": 29.48}, {"t": 30.3, "s": "懂车机不是懂界面，", "e": 32.508}, {"t": 32.878, "s": "是懂一台车从概念到量产，有多少道约束。", "e": 36.718}]}, {"n": 21, "title": "实证：三个已经落地的 AI 项目", "start": 638.972, "dur": 45.478, "cues": [{"t": 0.0, "s": "更重要的是，Flux要走的这条路，", "e": 3.144}, {"t": 3.514, "s": "我已经走过一遍。", "e": 5.458}, {"t": 5.828, "s": "第一个项目：把品牌IP训练成可控的生成式资产，", "e": 10.028}, {"t": 10.398, "s": "建立了视觉一致性标准——这是资产化的最小验证。", "e": 14.886}, {"t": 15.256, "s": "第二个项目：搭了一条AINative创意产线，", "e": 18.736}, {"t": 19.106, "s": "多智能体协作，从策划到打包交付——这是工序抽取的预演。", "e": 24.098}, {"t": 24.468, "s": "第三个项目：车机AI壁纸生成，", "e": 27.612}, {"t": 27.982, "s": "从概念、提示词体系到量产，全程负责——", "e": 31.918}, {"t": 32.288, "s": "这是唯一一个真正走完从概念到量产的AI项目。", "e": 36.656}, {"t": 37.476, "s": "三个例子都有明确的谁在用、什么时候用、怎么验收。", "e": 41.988}, {"t": 42.358, "s": "这，也是我对Flux的验收标准。", "e": 45.358}]}, {"n": 22, "title": "视野：全球足迹", "start": 684.9, "dur": 29.556, "cues": [{"t": 0.0, "s": "最后一页关于我。", "e": 2.088}, {"t": 2.458, "s": "德国、中国、美国——", "e": 4.906}, {"t": 5.276, "s": "我在这三个地方，", "e": 7.244}, {"t": 7.614, "s": "都居住过、工作过、生活过。", "e": 10.518}, {"t": 11.338, "s": "服务过横跨三大洲、四十多个国家的一千六百多名专业人才。", "e": 16.306}, {"t": 16.676, "s": "优越的全球视野背景，", "e": 18.884}, {"t": 19.254, "s": "来自三种文化里的真实生活。", "e": 22.182}, {"t": 22.552, "s": "这也是为什么，", "e": 24.352}, {"t": 24.722, "s": "Flux的第一个种子，", "e": 26.714}, {"t": 27.084, "s": "我敢选在海外销售端。", "e": 29.436}]}, {"n": 23, "title": "Q&A", "start": 714.906, "dur": 20.2, "cues": [{"t": 0.0, "s": "以上就是Flux企业AI落地计划，", "e": 3.24}, {"t": 3.61, "s": "和我为什么是做这件事的人。", "e": 6.202}, {"t": 7.022, "s": "从危机，到趋势，到方法，到种子，", "e": 10.646}, {"t": 11.016, "s": "再到人。", "e": 12.408}, {"t": 12.778, "s": "逻辑已经完整，", "e": 14.602}, {"t": 14.972, "s": "接下来，", "e": 16.292}, {"t": 16.662, "s": "听各位的问题。", "e": 18.414}, {"t": 18.784, "s": "谢谢。", "e": 20.08}]}], "cues": [{"t": 0.0, "s": "各位好。", "e": 1.368, "p": 1}, {"t": 2.188, "s": "今天我要讲的，不是又一个AI概念，", "e": 5.644, "p": 1}, {"t": 6.014, "s": "而是一个落地计划——Flux企业AI落地计划。", "e": 9.854, "p": 1}, {"t": 10.224, "s": "Flux，就是渗透的意思。", "e": 12.816, "p": 1}, {"t": 13.186, "s": "这个计划只做一件事：让AI从演示厅里走出来，", "e": 17.578, "p": 1}, {"t": 17.948, "s": "渗进企业的真实业务里。", "e": 20.396, "p": 1}, {"t": 20.966, "s": "先看一组扎心的数据。", "e": 23.222, "p": 2}, {"t": 23.592, "s": "MIT的调研显示：已经有近40%的组织部署了通用大模型工具；", "e": 29.112, "p": 2}, {"t": 29.482, "s": "但真正进入生产阶段的企业级定制AI系统，", "e": 33.466, "p": 2}, {"t": 33.836, "s": "只有5%。", "e": 35.636, "p": 2}, {"t": 36.456, "s": "通用工具人人都在用，", "e": 38.904, "p": 2}, {"t": 39.274, "s": "可一碰到企业自己的业务，", "e": 41.914, "p": 2}, {"t": 42.284, "s": "几乎全军覆没。", "e": 44.3, "p": 2}, {"t": 44.67, "s": "更要命的是，AI的能力按季度翻倍，", "e": 48.174, "p": 2}, {"t": 48.544, "s": "企业的采用曲线却几乎走平。", "e": 51.448, "p": 2}, {"t": 51.818, "s": "这个缺口，不会自己合上。", "e": 54.578, "p": 2}, {"t": 55.148, "s": "那跑通AI的大厂，做对了什么？", "e": 58.196, "p": 3}, {"t": 58.566, "s": "答案出奇一致：它们都设了同一个角色。", "e": 62.118, "p": 3}, {"t": 62.488, "s": "这个角色在大厂AI化组织里已是标配，", "e": 66.184, "p": 3}, {"t": 66.554, "s": "近一年还在持续扩张。", "e": 68.978, "p": 3}, {"t": 69.348, "s": "因为当AI已经能替代大量开发工作时，", "e": 72.684, "p": 3}, {"t": 73.054, "s": "企业缺的不是技术，", "e": 75.07, "p": 3}, {"t": 75.44, "s": "而是一个帮企业完成AI化改造的人。", "e": 78.848, "p": 3}, {"t": 79.668, "s": "竞对在跑、大厂在跑——这已经不是要不要做的问题，", "e": 84.084, "p": 3}, {"t": 84.454, "s": "而是多快做对的问题。", "e": 86.71, "p": 3}, {"t": 87.28, "s": "二零二六年五月四日，", "e": 89.488, "p": 4}, {"t": 89.858, "s": "发生了标志性的一幕：", "e": 92.162, "p": 4}, {"t": 92.532, "s": "OpenAI和Anthropic，", "e": 94.692, "p": 4}, {"t": 95.062, "s": "在同一天，押注了同一件事——帮AI进入企业。", "e": 99.166, "p": 4}, {"t": 99.536, "s": "OpenAI成立DeploymentCompany，募资四十亿、估值一百亿美元；", "e": 103.808, "p": 4}, {"t": 104.178, "s": "Anthropic联合黑石、高盛，做了十五亿美元的企业AI合资公司。", "e": 109.314, "p": 4}, {"t": 109.684, "s": "而支撑这套打法的驻场工程师岗位，", "e": 112.948, "p": 4}, {"t": 113.318, "s": "去年前九个月招聘量暴涨超过800%。", "e": 117.134, "p": 4}, {"t": 117.954, "s": "资本已经投票了：", "e": 119.946, "p": 4}, {"t": 120.316, "s": "AI的下半场，", "e": 122.044, "p": 4}, {"t": 122.414, "s": "拼的是落地。", "e": 124.022, "p": 4}, {"t": 124.592, "s": "那企业自己要怎么落地？", "e": 127.04, "p": 5}, {"t": 127.41, "s": "目前被验证最有效的，是两条腿：", "e": 130.626, "p": 5}, {"t": 130.996, "s": "第一，定制出合用的AI工具——不是采购现成品，", "e": 134.956, "p": 5}, {"t": 135.326, "s": "而是贴着业务定制工作流；", "e": 137.774, "p": 5}, {"t": 138.144, "s": "第二，推行全员使用——不是发账号就完事，", "e": 141.768, "p": 5}, {"t": 142.138, "s": "而是排除障碍、教会全员、用数据度量。", "e": 145.93, "p": 5}, {"t": 146.75, "s": "但这两条腿之间，", "e": 148.862, "p": 5}, {"t": 149.232, "s": "隔着一条沟。", "e": 150.888, "p": 5}, {"t": 151.258, "s": "沟的两岸，是懂业务的人，和AI的能力。", "e": 154.93, "p": 5}, {"t": 155.3, "s": "这中间，需要一座桥。", "e": 157.7, "p": 5}, {"t": 158.27, "s": "这座桥一旦架起来，", "e": 160.43, "p": 6}, {"t": 160.8, "s": "接下来的就不是细水长流，", "e": 163.536, "p": 6}, {"t": 163.906, "s": "而是一场浪潮。", "e": 165.634, "p": 6}, {"t": 166.454, "s": "全球大厂在一年半前已经开始布局AI化。", "e": 170.15, "p": 6}, {"t": 170.52, "s": "这股洪水正在冲向每一家企业。", "e": 173.568, "p": 6}, {"t": 173.938, "s": "问题只剩下一个：", "e": 175.978, "p": 6}, {"t": 176.348, "s": "我们，要怎么准备？", "e": 178.508, "p": 6}, {"t": 179.078, "s": "先看别人已经跑通的样子。", "e": 181.718, "p": 7}, {"t": 182.088, "s": "营销端，三星把单向广告变成AI对话推荐，", "e": 186.456, "p": 7}, {"t": 186.826, "s": "互动成本降了54%，获客成本降了73%，广告回报翻了三倍。", "e": 192.586, "p": 7}, {"t": 192.956, "s": "零售端，Zara用RFID加AI实时调度库存，", "e": 197.276, "p": 7}, {"t": 197.646, "s": "季末库存压到0.6%，", "e": 200.454, "p": 7}, {"t": 200.824, "s": "而行业还在百分之十到二十。", "e": 203.656, "p": 7}, {"t": 204.026, "s": "售后端，Target给店员配了AI助手，", "e": 207.506, "p": 7}, {"t": 207.876, "s": "上线三周，被问了五万多次。", "e": 210.828, "p": 7}, {"t": 211.648, "s": "三个行业，三个模块，", "e": 214.168, "p": 7}, {"t": 214.538, "s": "全是先跑通一个种子案例，", "e": 217.01, "p": 7}, {"t": 217.38, "s": "再复制。", "e": 218.772, "p": 7}, {"t": 219.142, "s": "这，就是浪潮已经上岸的证据。", "e": 222.31, "p": 7}, {"t": 222.88, "s": "看完案例再回头看这张图，", "e": 225.688, "p": 8}, {"t": 226.058, "s": "逻辑就非常清楚了。", "e": 228.218, "p": 8}, {"t": 228.588, "s": "三星、Zara、Target，", "e": 231.084, "p": 8}, {"t": 231.454, "s": "没有一家是靠买工具买出来的，", "e": 234.358, "p": 8}, {"t": 234.728, "s": "全都是定制工具加全员推行，两条腿一起走。", "e": 238.832, "p": 8}, {"t": 239.202, "s": "而连接这两条腿的桥，", "e": 241.482, "p": 8}, {"t": 241.852, "s": "就是一套落地的操作方法。", "e": 244.396, "p": 8}, {"t": 244.766, "s": "这套方法，", "e": 246.326, "p": 8}, {"t": 246.696, "s": "就是我们今天要讲的Flux计划的内核。", "e": 250.104, "p": 8}, {"t": 250.674, "s": "再回头看巨头的动作。", "e": 253.098, "p": 9}, {"t": 253.468, "s": "四十亿美元和十五亿美元，", "e": 256.276, "p": 9}, {"t": 256.646, "s": "买的不是模型，", "e": 258.422, "p": 9}, {"t": 258.792, "s": "而是把AI送进企业的能力。", "e": 261.432, "p": 9}, {"t": 261.802, "s": "OpenAI一次收购就引入约一百五十名落地工程师。", "e": 265.69, "p": 9}, {"t": 266.06, "s": "这说明什么？", "e": 267.74, "p": 9}, {"t": 268.11, "s": "说明这套「驻场、贴业务、交付结果」的打法，", "e": 272.046, "p": 9}, {"t": 272.416, "s": "已经被最顶级的玩家用钱验证过了。", "e": 275.8, "p": 9}, {"t": 276.17, "s": "我们要做的，", "e": 277.946, "p": 9}, {"t": 278.316, "s": "是把它变成自己的计划。", "e": 280.716, "p": 9}, {"t": 281.286, "s": "所以这三张标签，", "e": 283.494, "p": 10}, {"t": 283.864, "s": "现在可以读得更直白：", "e": 286.264, "p": 10}, {"t": 286.634, "s": "已被验证，是大厂组织架构里的标配；", "e": 290.234, "p": 10}, {"t": 290.604, "s": "正在扩张，是招聘数据里的八百个百分点；", "e": 294.276, "p": 10}, {"t": 294.646, "s": "时代共识，是两大巨头同一天的下注。", "e": 298.294, "p": 10}, {"t": 299.114, "s": "桥的价值已经被证明。", "e": 301.562, "p": 10}, {"t": 301.932, "s": "接下来的问题变成了：", "e": 304.188, "p": 10}, {"t": 304.558, "s": "这座桥，我们怎么造？", "e": 306.838, "p": 10}, {"t": 307.408, "s": "答案就是Flux。", "e": 309.28, "p": 11}, {"t": 310.1, "s": "一套定制级的AINative方案。", "e": 312.836, "p": 11}, {"t": 313.206, "s": "目标一句话：", "e": 314.91, "p": 11}, {"t": 315.28, "s": "让AI渗透到业务的基准线。", "e": 317.992, "p": 11}, {"t": 318.362, "s": "不是做几个炫酷的演示，", "e": 320.738, "p": 11}, {"t": 321.108, "s": "而是让AI变成业务每天都离不开的底层能力。", "e": 324.948, "p": 11}, {"t": 325.518, "s": "Flux怎么落地？", "e": 327.342, "p": 12}, {"t": 327.712, "s": "靠三种职能。", "e": 329.584, "p": 12}, {"t": 329.954, "s": "第一，渗透剂：从细分业务切入，", "e": 333.194, "p": 12}, {"t": 333.564, "s": "把方法渗进一线每天的动作里，", "e": 336.444, "p": 12}, {"t": 336.814, "s": "让个人经验蒸馏成组织资产。", "e": 339.862, "p": 12}, {"t": 340.232, "s": "第二，催化剂：用AI啃透一个业务，", "e": 343.736, "p": 12}, {"t": 344.106, "s": "把成功案例凝成模板，", "e": 346.41, "p": 12}, {"t": 346.78, "s": "再逐个复制，", "e": 348.604, "p": 12}, {"t": 348.974, "s": "让交付周期持续缩短。", "e": 351.422, "p": 12}, {"t": 351.792, "s": "第三，离析剂：全员拉齐AI基线，", "e": 355.272, "p": 12}, {"t": 355.642, "s": "用「使用量乘业务产出」双维度看数据，", "e": 358.906, "p": 12}, {"t": 359.276, "s": "最终标定出——谁该上、谁该下。", "e": 362.204, "p": 12}, {"t": 363.024, "s": "渗透、催化、离析，", "e": 365.568, "p": 12}, {"t": 365.938, "s": "三步走完，业务就变成了AINative。", "e": 369.13, "p": 12}, {"t": 369.7, "s": "顺着离析剂再往深看一层：", "e": 372.556, "p": 13}, {"t": 372.926, "s": "AI时代的人才结构会怎么变？", "e": 375.806, "p": 13}, {"t": 376.176, "s": "世界经济论坛的判断是，", "e": 378.696, "p": 13}, {"t": 379.066, "s": "人的价值会集中到四个动作上：", "e": 382.114, "p": 13}, {"t": 382.484, "s": "定义问题、设定约束、评估结果、做最终决策。", "e": 386.876, "p": 13}, {"t": 387.696, "s": "也就是说，", "e": 389.232, "p": 13}, {"t": 389.602, "s": "中段那些重复的、执行性的任务，", "e": 393.034, "p": 13}, {"t": 393.404, "s": "会被AI吃掉；", "e": 395.276, "p": 13}, {"t": 395.646, "s": "人的时间，要往两端搬。", "e": 398.238, "p": 13}, {"t": 398.608, "s": "所以Flux要做的不是筛人，", "e": 401.128, "p": 13}, {"t": 401.498, "s": "而是把同一个人的时间，从中段搬到两端。", "e": 405.29, "p": 13}, {"t": 405.86, "s": "方法有了，第一仗打在哪？", "e": 408.452, "p": 14}, {"t": 408.822, "s": "Flux的第一个种子，", "e": 410.814, "p": 14}, {"t": 411.184, "s": "选在海外销售端。", "e": 413.368, "p": 14}, {"t": 413.738, "s": "三个理由。", "e": 415.202, "p": 14}, {"t": 415.572, "s": "第一，痛点最痛：全球跨语言、跨时区、跨渠道，", "e": 420.108, "p": 14}, {"t": 420.478, "s": "报价、会议、资料同步大量靠人肉搬运。", "e": 424.39, "p": 14}, {"t": 424.76, "s": "第二，价值可验证：销售端最接近用户，", "e": 428.6, "p": 14}, {"t": 428.97, "s": "AI的产出直接换算成订单、转化率、响应时间，", "e": 433.098, "p": 14}, {"t": 433.468, "s": "当天就看得见。", "e": 435.268, "p": 14}, {"t": 435.638, "s": "第三，闭环可复制：现场洞察反哺产品，", "e": 439.43, "p": 14}, {"t": 439.8, "s": "能力沿着营销、渠道、交付、风控、售后流向相邻环节。", "e": 445.176, "p": 14}, {"t": 445.996, "s": "跑通一个点，", "e": 447.604, "p": 14}, {"t": 447.974, "s": "复制一张网。", "e": 449.774, "p": 14}, {"t": 450.344, "s": "总结一下整条线：", "e": 452.36, "p": 15}, {"t": 452.73, "s": "从浮冰，", "e": 454.17, "p": 15}, {"t": 454.54, "s": "到洪水，", "e": 455.956, "p": 15}, {"t": 456.326, "s": "到Flux。", "e": 457.718, "p": 15}, {"t": 458.538, "s": "这个计划最终交付四个改变：", "e": 461.274, "p": 15}, {"t": 461.644, "s": "业务提效——AI介入前后，数据可度量、可归因；", "e": 465.868, "p": 15}, {"t": 466.238, "s": "人才标定——谁能管理AI，谁可以被替代，标签从模糊变精准；", "e": 471.446, "p": 15}, {"t": 471.816, "s": "资产沉淀——经验沉淀为公司资产，人来人走，业务质量不变；", "e": 477.336, "p": 15}, {"t": 477.706, "s": "流程清晰——含糊拖慢的业务流，被重新梳理得高效清晰。", "e": 482.41, "p": 15}, {"t": 482.78, "s": "这，", "e": 484.028, "p": 15}, {"t": 484.398, "s": "就是Flux企业AI落地计划。", "e": 487.182, "p": 15}, {"t": 487.752, "s": "一句话收尾：", "e": 489.552, "p": 16}, {"t": 489.922, "s": "让AI在业务里真正产出价值。", "e": 493.042, "p": 16}, {"t": 493.862, "s": "今天的分享就到这里，", "e": 496.214, "p": 16}, {"t": 496.584, "s": "哪一页希望展开讨论，我们随时可以深聊。", "e": 500.28, "p": 16}, {"t": 500.65, "s": "接下来的时间，", "e": 502.45, "p": 16}, {"t": 502.82, "s": "请允许我用几页，", "e": 504.98, "p": 16}, {"t": 505.35, "s": "介绍一下我自己——", "e": 507.294, "p": 16}, {"t": 507.664, "s": "为什么是我，来做Flux。", "e": 510.136, "p": 16}, {"t": 510.706, "s": "先说我对自己角色的理解。", "e": 513.346, "p": 17}, {"t": 513.716, "s": "有一句话很准：", "e": 515.492, "p": 17}, {"t": 515.862, "s": "我们不挖河，", "e": 517.734, "p": 17}, {"t": 518.104, "s": "只是在它已流过的地方，把它拓宽。", "e": 521.248, "p": 17}, {"t": 522.068, "s": "Flux不是凭空造一条河，", "e": 524.54, "p": 17}, {"t": 524.91, "s": "而是找到业务里已经在流动的部分，", "e": 527.91, "p": 17}, {"t": 528.28, "s": "让AI顺着它，流得更宽、更快。", "e": 531.592, "p": 17}, {"t": 532.162, "s": "在落地工程的三类角色里，", "e": 534.802, "p": 18}, {"t": 535.172, "s": "我最匹配的是Echo。", "e": 537.332, "p": 18}, {"t": 537.702, "s": "帕兰提尔的第二号工程师鲍勃·麦格鲁说过：", "e": 541.47, "p": 18}, {"t": 541.84, "s": "Echo应该招自你所服务领域的领域专家，", "e": 545.008, "p": 18}, {"t": 545.378, "s": "关键特质是革新者、异类——", "e": 548.186, "p": 18}, {"t": 548.556, "s": "因为一个对现状完全满意的人，", "e": 551.364, "p": 18}, {"t": 551.734, "s": "永远找不出阶跃式的变化。", "e": 554.23, "p": 18}, {"t": 555.05, "s": "对业务本质的理解无法通用化，", "e": 558.074, "p": 18}, {"t": 558.444, "s": "只能按行业沉淀。", "e": 560.556, "p": 18}, {"t": 560.926, "s": "而我沉淀的行业，", "e": 563.038, "p": 18}, {"t": 563.408, "s": "是汽车和用户体验。", "e": 565.592, "p": 18}, {"t": 566.162, "s": "为什么这么说？", "e": 567.842, "p": 19}, {"t": 568.212, "s": "看我做了二十多年的方法论就明白了。", "e": 571.26, "p": 19}, {"t": 571.63, "s": "设计的五步：察、定、构、验、达；", "e": 575.662, "p": 19}, {"t": 576.032, "s": "Echo的五步：听、判、拆、锚、推。", "e": 579.896, "p": 19}, {"t": 580.266, "s": "两者共享同一个内核——", "e": 582.69, "p": 19}, {"t": 583.06, "s": "都不接受问题被给定的样子。", "e": 585.628, "p": 19}, {"t": 586.448, "s": "Echo的官方定义，是识别真正的问题；", "e": 589.616, "p": 19}, {"t": 589.986, "s": "设计思维的Define阶段，", "e": 592.482, "p": 19}, {"t": 592.852, "s": "做的是同一件事。", "e": 594.868, "p": 19}, {"t": 595.238, "s": "一句话：", "e": 596.726, "p": 19}, {"t": 597.096, "s": "用户体验的本质，", "e": 599.088, "p": 19}, {"t": 599.458, "s": "就是Echo。", "e": 601.114, "p": 19}, {"t": 601.684, "s": "再看行业履历。", "e": 603.628, "p": 20}, {"t": 603.998, "s": "在比亚迪，", "e": 605.582, "p": 20}, {"t": 605.952, "s": "我负责仰望U8、汉、唐、方程豹、海豚，", "e": 610.344, "p": 20}, {"t": 610.714, "s": "和DiLink五点一、六点零、七点零的体验设计；", "e": 614.554, "p": 20}, {"t": 614.924, "s": "在吉利和极氪，", "e": 616.868, "p": 20}, {"t": 617.238, "s": "做HMI质量管理；", "e": 619.398, "p": 20}, {"t": 619.768, "s": "在拜腾，从UI/UX经理做到部门负责人；", "e": 623.368, "p": 20}, {"t": 623.738, "s": "再往前，是斑马智行的GUI设计负责人，", "e": 627.434, "p": 20}, {"t": 627.804, "s": "做过中国最早一批互联网车机的量产。", "e": 631.164, "p": 20}, {"t": 631.984, "s": "懂车机不是懂界面，", "e": 634.192, "p": 20}, {"t": 634.562, "s": "是懂一台车从概念到量产，有多少道约束。", "e": 638.402, "p": 20}, {"t": 638.972, "s": "更重要的是，Flux要走的这条路，", "e": 642.116, "p": 21}, {"t": 642.486, "s": "我已经走过一遍。", "e": 644.43, "p": 21}, {"t": 644.8, "s": "第一个项目：把品牌IP训练成可控的生成式资产，", "e": 649.0, "p": 21}, {"t": 649.37, "s": "建立了视觉一致性标准——这是资产化的最小验证。", "e": 653.858, "p": 21}, {"t": 654.228, "s": "第二个项目：搭了一条AINative创意产线，", "e": 657.708, "p": 21}, {"t": 658.078, "s": "多智能体协作，从策划到打包交付——这是工序抽取的预演。", "e": 663.07, "p": 21}, {"t": 663.44, "s": "第三个项目：车机AI壁纸生成，", "e": 666.584, "p": 21}, {"t": 666.954, "s": "从概念、提示词体系到量产，全程负责——", "e": 670.89, "p": 21}, {"t": 671.26, "s": "这是唯一一个真正走完从概念到量产的AI项目。", "e": 675.628, "p": 21}, {"t": 676.448, "s": "三个例子都有明确的谁在用、什么时候用、怎么验收。", "e": 680.96, "p": 21}, {"t": 681.33, "s": "这，也是我对Flux的验收标准。", "e": 684.33, "p": 21}, {"t": 684.9, "s": "最后一页关于我。", "e": 686.988, "p": 22}, {"t": 687.358, "s": "德国、中国、美国——", "e": 689.806, "p": 22}, {"t": 690.176, "s": "我在这三个地方，", "e": 692.144, "p": 22}, {"t": 692.514, "s": "都居住过、工作过、生活过。", "e": 695.418, "p": 22}, {"t": 696.238, "s": "服务过横跨三大洲、四十多个国家的一千六百多名专业人才。", "e": 701.206, "p": 22}, {"t": 701.576, "s": "优越的全球视野背景，", "e": 703.784, "p": 22}, {"t": 704.154, "s": "来自三种文化里的真实生活。", "e": 707.082, "p": 22}, {"t": 707.452, "s": "这也是为什么，", "e": 709.252, "p": 22}, {"t": 709.622, "s": "Flux的第一个种子，", "e": 711.614, "p": 22}, {"t": 711.984, "s": "我敢选在海外销售端。", "e": 714.336, "p": 22}, {"t": 714.906, "s": "以上就是Flux企业AI落地计划，", "e": 718.146, "p": 23}, {"t": 718.516, "s": "和我为什么是做这件事的人。", "e": 721.108, "p": 23}, {"t": 721.928, "s": "从危机，到趋势，到方法，到种子，", "e": 725.552, "p": 23}, {"t": 725.922, "s": "再到人。", "e": 727.314, "p": 23}, {"t": 727.684, "s": "逻辑已经完整，", "e": 729.508, "p": 23}, {"t": 729.878, "s": "接下来，", "e": 731.198, "p": 23}, {"t": 731.568, "s": "听各位的问题。", "e": 733.32, "p": 23}, {"t": 733.69, "s": "谢谢。", "e": 734.986, "p": 23}], "total": 735.556}</script>
+<script id="cuedata" type="application/json">{"pages": [{"n": 1,"title": "封面：Flux","start": 0.0,"dur": 22.043,"cues": [{"t": 0.0,"s": "各位好。","e": 0.583},{"t": 1.403,"s": "Flux渗透式AI落地计划——为迎接AI世代做好准备。","e": 4.938},{"t": 5.308,"s": "AI时代，已经不是将来时。","e": 6.896},{"t": 7.266,"s": "等它，","e": 7.804},{"t": 8.174,"s": "不如准备它。","e": 9.003},{"t": 9.373,"s": "Flux，就是用渗透的方式，","e": 11.017},{"t": 11.387,"s": "把业务养成AINative——","e": 12.716},{"t": 13.086,"s": "不靠一次采购，","e": 14.041},{"t": 14.411,"s": "不靠一场培训，","e": 15.343},{"t": 15.713,"s": "而是让AI一点一点，","e": 16.862},{"t": 17.232,"s": "渗进业务的每一天。","e": 18.504},{"t": 19.324,"s": "这就是今天，","e": 20.323},{"t": 20.693,"s": "我为各位带来的提案。","e": 21.923}]},{"n": 2,"title": "危机：一半企业还站在岸上","start": 22.493,"dur": 21.085,"cues": [{"t": 0.0,"s": "先看第一个数。","e": 0.908},{"t": 1.278,"s": "40%。","e": 2.12},{"t": 2.49,"s": "近四成的组织，已经部署了通用大模型工具。","e": 5.26},{"t": 5.63,"s": "再看第二个数。","e": 6.553},{"t": 6.923,"s": "5%。","e": 7.681},{"t": 8.051,"s": "真正跑进生产的定制企业级AI，只有百分之五。","e": 10.875},{"t": 11.695,"s": "一边是人人在用，","e": 12.82},{"t": 13.19,"s": "一边是几乎没人跑通。","e": 14.558},{"t": 14.928,"s": "AI的能力在按季度翻倍，","e": 16.51},{"t": 16.88,"s": "企业的采用曲线却几乎走平。","e": 18.798},{"t": 19.168,"s": "这道缺口，不会自己合上。","e": 20.965}]},{"n": 3,"title": "趋势：跑通的大厂都有同一个角色","start": 44.029,"dur": 20.198,"cues": [{"t": 0.0,"s": "那跑通的人，做对了什么？","e": 1.737},{"t": 2.107,"s": "答案只有一句：","e": 3.08},{"t": 3.45,"s": "他们都有一个专门负责落地的人。","e": 5.204},{"t": 5.574,"s": "这个角色，在大厂的AI组织里已经是标配，","e": 8.307},{"t": 8.677,"s": "而且还在扩张。","e": 9.611},{"t": 9.981,"s": "因为在AI已经能写代码的今天，","e": 11.867},{"t": 12.237,"s": "企业缺的从来不是技术，","e": 13.624},{"t": 13.994,"s": "是那个把技术变成业务结果的人。","e": 15.946},{"t": 16.766,"s": "所以这不是要不要做的问题，","e": 18.455},{"t": 18.825,"s": "是多快做对的问题。","e": 20.078}]},{"n": 4,"title": "信号：两大巨头同一天押注","start": 64.676,"dur": 23.315,"cues": [{"t": 0.0,"s": "二零二六年五月四日，","e": 1.303},{"t": 1.673,"s": "两件事，同一天。","e": 2.946},{"t": 3.316,"s": "OpenAI成立DeploymentCompany，","e": 4.782},{"t": 5.152,"s": "四十亿美元募资，一百亿美元估值；","e": 7.437},{"t": 7.807,"s": "Anthropic联合黑石、高盛，","e": 9.511},{"t": 9.881,"s": "十五亿美元的企业AI合资公司。","e": 11.81},{"t": 12.63,"s": "同一个方向，","e": 13.515},{"t": 13.885,"s": "同一件事——把AI送进企业。","e": 15.722},{"t": 16.092,"s": "而撑起这件事的驻场工程师岗位，","e": 18.183},{"t": 18.553,"s": "九个月招聘量暴涨800%。","e": 20.417},{"t": 20.787,"s": "资本已经投票：下半场，拼的是落地。","e": 23.195}]},{"n": 5,"title": "跛局：两条腿走路，需要一座桥","start": 88.441,"dur": 19.546,"cues": [{"t": 0.0,"s": "落到我们自己身上，","e": 1.209},{"t": 1.579,"s": "被验证有效的打法，只有两条腿：","e": 3.583},{"t": 3.954,"s": "一，定制合用的AI工具——贴着业务做工作流；","e": 6.819},{"t": 7.189,"s": "二，推动全员使用——排除障碍、教会全员、用数据说话。","e": 11.046},{"t": 11.866,"s": "但两条腿之间，","e": 12.996},{"t": 13.366,"s": "隔着一条沟：","e": 14.21},{"t": 14.58,"s": "一边是懂业务的人，","e": 15.791},{"t": 16.161,"s": "一边是AI的能力。","e": 17.217},{"t": 17.587,"s": "沟上架什么？","e": 18.419},{"t": 18.789,"s": "一座桥。","e": 19.426}]},{"n": 6,"title": "章节：Flood 浪潮","start": 108.437,"dur": 12.12,"cues": [{"t": 0.0,"s": "桥一旦架起来，","e": 1.036},{"t": 1.406,"s": "来的就不是细水，","e": 2.416},{"t": 2.786,"s": "是一场浪潮。","e": 3.605},{"t": 4.425,"s": "大厂一年半前就开始布局，","e": 6.043},{"t": 6.413,"s": "洪水正在冲向每一家企业。","e": 8.111},{"t": 8.481,"s": "而我们始终要回答的，只有一句：","e": 10.659},{"t": 11.029,"s": "准备好了没有？","e": 12.0}]},{"n": 7,"title": "验证：三个行业已经跑通","start": 121.008,"dur": 27.724,"cues": [{"t": 0.0,"s": "先看已经上岸的人。","e": 1.263},{"t": 1.633,"s": "营销——三星把广告变成AI对话推荐，","e": 4.352},{"t": 4.722,"s": "互动成本降54%，获客成本降73%，回报翻三倍。","e": 8.669},{"t": 9.039,"s": "零售——Zara用RFID加AI实时调度库存，","e": 12.051},{"t": 12.421,"s": "季末库存压到0.6%，","e": 14.264},{"t": 14.634,"s": "而行业还在百分之十到二十。","e": 16.474},{"t": 16.844,"s": "售后——Target给店员配AI助手，","e": 18.823},{"t": 19.193,"s": "上线三周，被问了五万多次。","e": 21.162},{"t": 21.982,"s": "三个行业，一个套路：","e": 23.384},{"t": 23.754,"s": "先跑通一个点，","e": 24.746},{"t": 25.116,"s": "再复制。","e": 25.726},{"t": 26.096,"s": "这就是浪潮上岸的证据。","e": 27.604}]},{"n": 8,"title": "回扣：桥，就是落地方法论","start": 149.182,"dur": 15.813,"cues": [{"t": 0.0,"s": "回头看这张图，","e": 1.123},{"t": 1.493,"s": "逻辑就清楚了。","e": 2.483},{"t": 2.853,"s": "三星、Zara、Target，","e": 4.435},{"t": 4.805,"s": "没有一家是买工具买出来的，","e": 6.415},{"t": 6.785,"s": "都是定制加推行，两条腿一起走。","e": 8.987},{"t": 9.357,"s": "而连接两条腿的那座桥，","e": 10.89},{"t": 11.26,"s": "就是一套可复制的落地方法。","e": 12.969},{"t": 13.339,"s": "这套方法，","e": 14.072},{"t": 14.442,"s": "就是Flux的内核。","e": 15.693}]},{"n": 9,"title": "回扣：巨头的钱流向同一个方向","start": 165.444,"dur": 38.921,"cues": [{"t": 0.0,"s": "再回头看那两笔钱。","e": 1.35},{"t": 1.72,"s": "四十亿，十五亿——","e": 2.934},{"t": 3.304,"s": "买的不是模型，","e": 4.256},{"t": 4.626,"s": "是把AI送进企业的能力。","e": 6.23},{"t": 6.6,"s": "一次收购，就带进来一百五十名落地工程师。","e": 9.156},{"t": 9.976,"s": "这说明什么？","e": 10.814},{"t": 11.184,"s": "说明「驻场、贴业务、交结果」这套打法，","e": 13.741},{"t": 14.111,"s": "已经被最顶级的玩家，","e": 15.522},{"t": 15.892,"s": "用真金白银验证过了。","e": 17.395},{"t": 17.765,"s": "我们要做的，","e": 18.673},{"t": 19.043,"s": "是把它变成自己的。","e": 20.283},{"t": 20.853,"s": "所以那三张标签，","e": 22.106},{"t": 22.476,"s": "现在可以读得更直白：","e": 23.969},{"t": 24.339,"s": "已被验证——是大厂组织架构里的标配；","e": 26.851},{"t": 27.221,"s": "正在扩张——是招聘数据里的八百个百分点；","e": 29.793},{"t": 30.163,"s": "时代共识——是两大巨头同一天的下注。","e": 32.726},{"t": 33.546,"s": "桥的价值，已经被证明。","e": 35.223},{"t": 35.593,"s": "接下来的问题，只剩一个：","e": 37.252},{"t": 37.622,"s": "这座桥，怎么造？","e": 38.801}]},{"n": 11,"title": "章节：Flux 定制级 AI Native 方案","start": 204.815,"dur": 18.93,"cues": [{"t": 0.0,"s": "答案就是Flux。","e": 1.046},{"t": 1.866,"s": "一套定制级的AINative方案。","e": 3.641},{"t": 4.011,"s": "Flux，","e": 4.531},{"t": 4.901,"s": "就是这份定制计划的名字——","e": 6.579},{"t": 6.949,"s": "为比亚迪海外销售，","e": 8.18},{"t": 8.55,"s": "把AI真正做进业务里去。","e": 10.303},{"t": 11.123,"s": "目标一句话：","e": 12.014},{"t": 12.384,"s": "让AI渗到业务的基准线。","e": 13.912},{"t": 14.282,"s": "不是做几个炫酷的演示，","e": 15.733},{"t": 16.103,"s": "而是让AI变成业务每天都离不开的底层能力。","e": 18.81}]},{"n": 12,"title": "方法：Flux 的三种职能","start": 224.195,"dur": 29.765,"cues": [{"t": 0.0,"s": "Flux怎么落地？","e": 0.957},{"t": 1.327,"s": "靠三种职能。","e": 2.373},{"t": 2.743,"s": "渗透剂——从细分业务切进去，","e": 4.631},{"t": 5.001,"s": "把方法渗进一线每天的动作，","e": 6.84},{"t": 7.21,"s": "让个人经验蒸馏成组织资产。","e": 9.242},{"t": 9.611,"s": "催化剂——用AI啃透一个业务，","e": 11.66},{"t": 12.03,"s": "把成功案例凝成模板，","e": 13.429},{"t": 13.799,"s": "再一个个复制出去，","e": 15.093},{"t": 15.463,"s": "让交付周期持续缩短。","e": 16.99},{"t": 17.36,"s": "离析剂——全员拉齐AI基线，","e": 19.226},{"t": 19.596,"s": "用「使用量×业务产出」两个维度看数据，","e": 21.892},{"t": 22.262,"s": "最终标定出：谁该上，谁该下。","e": 24.299},{"t": 25.119,"s": "渗透、催化、离析，","e": 26.755},{"t": 27.125,"s": "三步走完，","e": 27.952},{"t": 28.322,"s": "业务就变成AINative。","e": 29.645}]},{"n": 13,"title": "前瞻：AI 时代的人才结构","start": 254.41,"dur": 21.18,"cues": [{"t": 0.0,"s": "再往深看一层。","e": 1.138},{"t": 1.508,"s": "AI时代，人的价值往哪走？","e": 3.291},{"t": 3.661,"s": "世界经济论坛的判断，是四个动作：","e": 5.978},{"t": 6.348,"s": "定义问题、设定约束、评估结果、做最终决策。","e": 9.541},{"t": 10.361,"s": "中间那些重复的、执行性的活，","e": 12.716},{"t": 13.086,"s": "会被AI吃掉。","e": 14.074},{"t": 14.444,"s": "人的时间，要往两端搬。","e": 16.095},{"t": 16.465,"s": "所以Flux要做的不是筛人，","e": 18.055},{"t": 18.425,"s": "是把同一个人的时间，从中段搬到两端。","e": 21.06}]},{"n": 14,"title": "种子：第一个战场，海外销售端","start": 276.04,"dur": 28.888,"cues": [{"t": 0.0,"s": "方法有了，第一仗打在哪？","e": 1.599},{"t": 1.969,"s": "海外销售端。","e": 2.897},{"t": 3.267,"s": "三个理由。","e": 3.961},{"t": 4.331,"s": "一，痛点最痛——跨语言、跨时区、跨渠道，","e": 7.342},{"t": 7.712,"s": "报价、会议、资料同步，全靠人肉搬运。","e": 10.54},{"t": 10.91,"s": "二，价值可验证——销售端离用户最近，","e": 13.562},{"t": 13.932,"s": "AI的产出直接换成订单、转化率、响应时间，","e": 16.761},{"t": 17.131,"s": "当天就看得见。","e": 18.083},{"t": 18.453,"s": "三，闭环可复制——现场洞察反哺产品，","e": 21.008},{"t": 21.378,"s": "能力沿着营销、渠道、交付、风控、售后，","e": 24.379},{"t": 24.749,"s": "流向相邻环节。","e": 25.846},{"t": 26.666,"s": "跑通一个点，","e": 27.452},{"t": 27.822,"s": "复制一张网。","e": 28.768}]},{"n": 15,"title": "总结：Floe → Flood → Flux","start": 305.378,"dur": 29.063,"cues": [{"t": 0.0,"s": "把整条线收一下：","e": 1.123},{"t": 1.493,"s": "从浮冰，","e": 2.154},{"t": 2.524,"s": "到洪水，","e": 3.155},{"t": 3.525,"s": "到Flux。","e": 4.144},{"t": 4.964,"s": "它最终交付四个改变：","e": 6.351},{"t": 6.721,"s": "业务提效——AI介入前后，数据可度量、可归因；","e": 9.773},{"t": 10.143,"s": "人才标定——谁能管理AI，谁会被替代，标签从模糊变精准；","e": 14.053},{"t": 14.423,"s": "资产沉淀——经验沉淀为公司资产，人来人走，业务质量不变；","e": 18.571},{"t": 18.941,"s": "流程清晰——含糊拖慢的流程，被重新梳理得高效、清楚。","e": 22.621},{"t": 22.991,"s": "这，","e": 23.481},{"t": 23.851,"s": "就是Flux渗透式AI落地计划——","e": 26.078},{"t": 26.448,"s": "我们为迎接AI世代，","e": 27.746},{"t": 28.116,"s": "交出的准备。","e": 28.943}]},{"n": 16,"title": "结尾：让 AI 在业务里真正产出价值","start": 334.891,"dur": 13.915,"cues": [{"t": 0.0,"s": "一句话收尾：","e": 0.971},{"t": 1.341,"s": "迎接AI世代，最好的准备，","e": 3.12},{"t": 3.49,"s": "就是让AI在业务里真正产出价值。","e": 5.725},{"t": 6.545,"s": "方案讲到这里。","e": 7.518},{"t": 7.888,"s": "接下来的时间，","e": 8.862},{"t": 9.232,"s": "请允许我用几页，","e": 10.497},{"t": 10.867,"s": "回答另一个问题——","e": 11.879},{"t": 12.249,"s": "为什么是我，来做Flux。","e": 13.795}]},{"n": 17,"title": "章节：The Role","start": 349.256,"dur": 14.721,"cues": [{"t": 0.0,"s": "先说我怎么理解自己的角色。","e": 1.619},{"t": 1.989,"s": "有一句话很准：","e": 2.933},{"t": 3.303,"s": "我们不挖河，","e": 4.313},{"t": 4.683,"s": "只是在它已流过的地方，把它拓宽。","e": 6.811},{"t": 7.631,"s": "Flux不是凭空造一条河，","e": 9.181},{"t": 9.551,"s": "而是找到业务里已经在流动的部分，","e": 11.52},{"t": 11.89,"s": "让AI顺着它，","e": 12.983},{"t": 13.353,"s": "流得更宽、更快。","e": 14.601}]},{"n": 18,"title": "定位：三类角色中的 Echo","start": 364.427,"dur": 25.282,"cues": [{"t": 0.0,"s": "三大岗职，Dev、Delta、Echo——","e": 2.25},{"t": 2.62,"s": "我最匹配的，","e": 3.527},{"t": 3.897,"s": "就是其中的Echo。","e": 5.041},{"t": 5.861,"s": "帕兰提尔的第二号工程师鲍勃·麦格鲁说过：","e": 8.495},{"t": 8.865,"s": "Echo应该来自你所服务领域的领域专家，","e": 11.009},{"t": 11.379,"s": "关键特质是革新者、是异类——","e": 13.345},{"t": 13.715,"s": "因为对现状完全满意的人，","e": 15.316},{"t": 15.686,"s": "永远找不出阶跃式的变化。","e": 17.234},{"t": 18.054,"s": "对业务本质的理解，无法通用化，","e": 20.163},{"t": 20.533,"s": "只能按行业沉淀。","e": 21.766},{"t": 22.136,"s": "而我沉淀的行业，","e": 23.336},{"t": 23.706,"s": "是汽车，是用户体验。","e": 25.162}]},{"n": 19,"title": "印证：用户体验的内核就是 Echo","start": 390.159,"dur": 24.165,"cues": [{"t": 0.0,"s": "为什么敢这么说？","e": 0.981},{"t": 1.351,"s": "看我做了二十多年的方法论就明白了。","e": 3.371},{"t": 3.741,"s": "设计的五步：察、定、构、验、达；","e": 6.643},{"t": 7.013,"s": "Echo的五步：听、判、拆、锚、推。","e": 9.788},{"t": 10.158,"s": "两条链子，同一个内核——","e": 11.892},{"t": 12.262,"s": "都不接受问题被给定的样子。","e": 13.885},{"t": 14.705,"s": "Echo的官方定义，是识别真正的问题；","e": 16.858},{"t": 17.228,"s": "设计思维里的Define，","e": 18.632},{"t": 19.002,"s": "做的是同一件事。","e": 20.149},{"t": 20.519,"s": "所以一句话：","e": 21.359},{"t": 21.729,"s": "用户体验的本质，","e": 22.856},{"t": 23.226,"s": "就是Echo。","e": 24.045}]},{"n": 20,"title": "履历：懂车机，是懂一台车的全部约束","start": 414.773,"dur": 26.103,"cues": [{"t": 0.0,"s": "再看行业履历。","e": 1.086},{"t": 1.456,"s": "在比亚迪，","e": 2.255},{"t": 2.625,"s": "我负责仰望U8、汉、唐、方程豹、海豚，","e": 5.81},{"t": 6.18,"s": "以及DiLink五点一、六点零、七点零的体验设计；","e": 9.075},{"t": 9.445,"s": "在吉利和极氪，","e": 10.538},{"t": 10.908,"s": "做HMI质量管理；","e": 12.181},{"t": 12.551,"s": "在拜腾，从UI/UX经理做到部门负责人；","e": 15.056},{"t": 15.426,"s": "再往前，是斑马智行的GUI设计负责人，","e": 18.041},{"t": 18.411,"s": "做过中国最早一批互联网车机的量产。","e": 20.699},{"t": 21.519,"s": "懂车机，不是懂界面，","e": 22.877},{"t": 23.247,"s": "是懂一台车从概念到量产，有多少道约束。","e": 25.983}]},{"n": 21,"title": "实证：三个已经落地的 AI 项目","start": 441.326,"dur": 32.793,"cues": [{"t": 0.0,"s": "更重要的是，","e": 0.901},{"t": 1.271,"s": "这条路我已经走过一遍。","e": 2.675},{"t": 3.045,"s": "第一个项目：把品牌IP训练成可控的生成式资产，","e": 6.074},{"t": 6.444,"s": "建立视觉一致性标准——这是资产化的最小验证。","e": 9.669},{"t": 10.039,"s": "第二个项目：搭了一条AINative创意产线，","e": 12.44},{"t": 12.81,"s": "多智能体协作，从策划到打包交付——这是工序抽取的预演。","e": 16.517},{"t": 16.887,"s": "第三个项目：车机AI壁纸生成，","e": 19.015},{"t": 19.385,"s": "从概念、提示词体系到量产，全程负责——","e": 22.185},{"t": 22.555,"s": "这是唯一真正走完从概念到量产的AI项目。","e": 25.357},{"t": 26.177,"s": "三个项目都有明确的三件事：","e": 28.025},{"t": 28.395,"s": "谁在用、什么时候用、怎么验收。","e": 30.589},{"t": 30.959,"s": "这也是我对Flux的验收标准。","e": 32.673}]},{"n": 22,"title": "视野：全球足迹","start": 474.569,"dur": 25.489,"cues": [{"t": 0.0,"s": "最后一页，关于我。","e": 1.37},{"t": 1.74,"s": "德国、中国、美国——","e": 3.306},{"t": 3.676,"s": "我在三个地方，","e": 4.599},{"t": 4.969,"s": "都居住过、工作过、生活过。","e": 6.89},{"t": 7.71,"s": "服务过横跨三大洲、四十多个国家的一千六百多名专业人才。","e": 11.373},{"t": 11.743,"s": "优越的全球视野背景，","e": 13.05},{"t": 13.42,"s": "来自三种文化里的真实生活。","e": 15.339},{"t": 15.709,"s": "这也是为什么，","e": 16.661},{"t": 17.031,"s": "Flux的第一个种子，","e": 18.134},{"t": 18.504,"s": "我敢选在海外销售端。","e": 19.925},{"t": 20.745,"s": "为海外销售，","e": 21.707},{"t": 22.077,"s": "做定制AI——","e": 23.152},{"t": 23.522,"s": "本来就是Flux这个名字的意思。","e": 25.369}]},{"n": 23,"title": "Q&A","start": 500.508,"dur": 18.367,"cues": [{"t": 0.0,"s": "Flux渗透式AI落地计划——为迎接AI世代做好准备。","e": 3.535},{"t": 4.355,"s": "还记得开场那句吗：","e": 5.609},{"t": 5.979,"s": "等它，不如准备它。","e": 7.307},{"t": 7.677,"s": "从危机，","e": 8.363},{"t": 8.733,"s": "到方法，","e": 9.333},{"t": 9.703,"s": "到种子，","e": 10.406},{"t": 10.776,"s": "到人——","e": 11.311},{"t": 11.681,"s": "这就是我们准备的完整路径。","e": 13.313},{"t": 14.133,"s": "接下来，","e": 14.702},{"t": 15.072,"s": "欢迎大家自由提问和讨论，感谢聆听。","e": 17.35},{"t": 17.72,"s": "谢谢。","e": 18.247}]}],"cues": [{"t": 0.0,"s": "各位好。","e": 0.583,"p": 1},{"t": 1.403,"s": "Flux渗透式AI落地计划——为迎接AI世代做好准备。","e": 4.938,"p": 1},{"t": 5.308,"s": "AI时代，已经不是将来时。","e": 6.896,"p": 1},{"t": 7.266,"s": "等它，","e": 7.804,"p": 1},{"t": 8.174,"s": "不如准备它。","e": 9.003,"p": 1},{"t": 9.373,"s": "Flux，就是用渗透的方式，","e": 11.017,"p": 1},{"t": 11.387,"s": "把业务养成AINative——","e": 12.716,"p": 1},{"t": 13.086,"s": "不靠一次采购，","e": 14.041,"p": 1},{"t": 14.411,"s": "不靠一场培训，","e": 15.343,"p": 1},{"t": 15.713,"s": "而是让AI一点一点，","e": 16.862,"p": 1},{"t": 17.232,"s": "渗进业务的每一天。","e": 18.504,"p": 1},{"t": 19.324,"s": "这就是今天，","e": 20.323,"p": 1},{"t": 20.693,"s": "我为各位带来的提案。","e": 21.923,"p": 1},{"t": 22.493,"s": "先看第一个数。","e": 23.401,"p": 2},{"t": 23.771,"s": "40%。","e": 24.613,"p": 2},{"t": 24.983,"s": "近四成的组织，已经部署了通用大模型工具。","e": 27.753,"p": 2},{"t": 28.123,"s": "再看第二个数。","e": 29.046,"p": 2},{"t": 29.416,"s": "5%。","e": 30.174,"p": 2},{"t": 30.544,"s": "真正跑进生产的定制企业级AI，只有百分之五。","e": 33.368,"p": 2},{"t": 34.188,"s": "一边是人人在用，","e": 35.313,"p": 2},{"t": 35.683,"s": "一边是几乎没人跑通。","e": 37.051,"p": 2},{"t": 37.421,"s": "AI的能力在按季度翻倍，","e": 39.003,"p": 2},{"t": 39.373,"s": "企业的采用曲线却几乎走平。","e": 41.291,"p": 2},{"t": 41.661,"s": "这道缺口，不会自己合上。","e": 43.458,"p": 2},{"t": 44.029,"s": "那跑通的人，做对了什么？","e": 45.766,"p": 3},{"t": 46.136,"s": "答案只有一句：","e": 47.109,"p": 3},{"t": 47.479,"s": "他们都有一个专门负责落地的人。","e": 49.233,"p": 3},{"t": 49.603,"s": "这个角色，在大厂的AI组织里已经是标配，","e": 52.336,"p": 3},{"t": 52.706,"s": "而且还在扩张。","e": 53.64,"p": 3},{"t": 54.01,"s": "因为在AI已经能写代码的今天，","e": 55.896,"p": 3},{"t": 56.266,"s": "企业缺的从来不是技术，","e": 57.653,"p": 3},{"t": 58.023,"s": "是那个把技术变成业务结果的人。","e": 59.975,"p": 3},{"t": 60.795,"s": "所以这不是要不要做的问题，","e": 62.484,"p": 3},{"t": 62.854,"s": "是多快做对的问题。","e": 64.107,"p": 3},{"t": 64.676,"s": "二零二六年五月四日，","e": 65.979,"p": 4},{"t": 66.349,"s": "两件事，同一天。","e": 67.622,"p": 4},{"t": 67.992,"s": "OpenAI成立DeploymentCompany，","e": 69.458,"p": 4},{"t": 69.828,"s": "四十亿美元募资，一百亿美元估值；","e": 72.113,"p": 4},{"t": 72.483,"s": "Anthropic联合黑石、高盛，","e": 74.187,"p": 4},{"t": 74.557,"s": "十五亿美元的企业AI合资公司。","e": 76.486,"p": 4},{"t": 77.306,"s": "同一个方向，","e": 78.191,"p": 4},{"t": 78.561,"s": "同一件事——把AI送进企业。","e": 80.398,"p": 4},{"t": 80.768,"s": "而撑起这件事的驻场工程师岗位，","e": 82.859,"p": 4},{"t": 83.229,"s": "九个月招聘量暴涨800%。","e": 85.093,"p": 4},{"t": 85.463,"s": "资本已经投票：下半场，拼的是落地。","e": 87.871,"p": 4},{"t": 88.441,"s": "落到我们自己身上，","e": 89.65,"p": 5},{"t": 90.02,"s": "被验证有效的打法，只有两条腿：","e": 92.024,"p": 5},{"t": 92.395,"s": "一，定制合用的AI工具——贴着业务做工作流；","e": 95.26,"p": 5},{"t": 95.63,"s": "二，推动全员使用——排除障碍、教会全员、用数据说话。","e": 99.487,"p": 5},{"t": 100.307,"s": "但两条腿之间，","e": 101.437,"p": 5},{"t": 101.807,"s": "隔着一条沟：","e": 102.651,"p": 5},{"t": 103.021,"s": "一边是懂业务的人，","e": 104.232,"p": 5},{"t": 104.602,"s": "一边是AI的能力。","e": 105.658,"p": 5},{"t": 106.028,"s": "沟上架什么？","e": 106.86,"p": 5},{"t": 107.23,"s": "一座桥。","e": 107.867,"p": 5},{"t": 108.437,"s": "桥一旦架起来，","e": 109.473,"p": 6},{"t": 109.843,"s": "来的就不是细水，","e": 110.853,"p": 6},{"t": 111.223,"s": "是一场浪潮。","e": 112.042,"p": 6},{"t": 112.862,"s": "大厂一年半前就开始布局，","e": 114.48,"p": 6},{"t": 114.85,"s": "洪水正在冲向每一家企业。","e": 116.548,"p": 6},{"t": 116.918,"s": "而我们始终要回答的，只有一句：","e": 119.096,"p": 6},{"t": 119.466,"s": "准备好了没有？","e": 120.437,"p": 6},{"t": 121.008,"s": "先看已经上岸的人。","e": 122.271,"p": 7},{"t": 122.641,"s": "营销——三星把广告变成AI对话推荐，","e": 125.36,"p": 7},{"t": 125.73,"s": "互动成本降54%，获客成本降73%，回报翻三倍。","e": 129.677,"p": 7},{"t": 130.047,"s": "零售——Zara用RFID加AI实时调度库存，","e": 133.059,"p": 7},{"t": 133.429,"s": "季末库存压到0.6%，","e": 135.272,"p": 7},{"t": 135.642,"s": "而行业还在百分之十到二十。","e": 137.482,"p": 7},{"t": 137.852,"s": "售后——Target给店员配AI助手，","e": 139.831,"p": 7},{"t": 140.201,"s": "上线三周，被问了五万多次。","e": 142.17,"p": 7},{"t": 142.99,"s": "三个行业，一个套路：","e": 144.392,"p": 7},{"t": 144.762,"s": "先跑通一个点，","e": 145.754,"p": 7},{"t": 146.124,"s": "再复制。","e": 146.734,"p": 7},{"t": 147.104,"s": "这就是浪潮上岸的证据。","e": 148.612,"p": 7},{"t": 149.182,"s": "回头看这张图，","e": 150.305,"p": 8},{"t": 150.675,"s": "逻辑就清楚了。","e": 151.665,"p": 8},{"t": 152.035,"s": "三星、Zara、Target，","e": 153.617,"p": 8},{"t": 153.987,"s": "没有一家是买工具买出来的，","e": 155.597,"p": 8},{"t": 155.967,"s": "都是定制加推行，两条腿一起走。","e": 158.169,"p": 8},{"t": 158.539,"s": "而连接两条腿的那座桥，","e": 160.072,"p": 8},{"t": 160.442,"s": "就是一套可复制的落地方法。","e": 162.151,"p": 8},{"t": 162.521,"s": "这套方法，","e": 163.254,"p": 8},{"t": 163.624,"s": "就是Flux的内核。","e": 164.875,"p": 8},{"t": 165.444,"s": "再回头看那两笔钱。","e": 166.794,"p": 9},{"t": 167.164,"s": "四十亿，十五亿——","e": 168.378,"p": 9},{"t": 168.748,"s": "买的不是模型，","e": 169.7,"p": 9},{"t": 170.07,"s": "是把AI送进企业的能力。","e": 171.674,"p": 9},{"t": 172.044,"s": "一次收购，就带进来一百五十名落地工程师。","e": 174.6,"p": 9},{"t": 175.42,"s": "这说明什么？","e": 176.258,"p": 9},{"t": 176.628,"s": "说明「驻场、贴业务、交结果」这套打法，","e": 179.185,"p": 9},{"t": 179.555,"s": "已经被最顶级的玩家，","e": 180.966,"p": 9},{"t": 181.336,"s": "用真金白银验证过了。","e": 182.839,"p": 9},{"t": 183.209,"s": "我们要做的，","e": 184.117,"p": 9},{"t": 184.487,"s": "是把它变成自己的。","e": 185.727,"p": 9},{"t": 186.298,"s": "所以那三张标签，","e": 187.551,"p": 10},{"t": 187.921,"s": "现在可以读得更直白：","e": 189.414,"p": 10},{"t": 189.784,"s": "已被验证——是大厂组织架构里的标配；","e": 192.296,"p": 10},{"t": 192.666,"s": "正在扩张——是招聘数据里的八百个百分点；","e": 195.238,"p": 10},{"t": 195.608,"s": "时代共识——是两大巨头同一天的下注。","e": 198.171,"p": 10},{"t": 198.991,"s": "桥的价值，已经被证明。","e": 200.668,"p": 10},{"t": 201.038,"s": "接下来的问题，只剩一个：","e": 202.697,"p": 10},{"t": 203.067,"s": "这座桥，怎么造？","e": 204.246,"p": 10},{"t": 204.815,"s": "答案就是Flux。","e": 205.861,"p": 11},{"t": 206.681,"s": "一套定制级的AINative方案。","e": 208.456,"p": 11},{"t": 208.826,"s": "Flux，","e": 209.346,"p": 11},{"t": 209.716,"s": "就是这份定制计划的名字——","e": 211.394,"p": 11},{"t": 211.764,"s": "为比亚迪海外销售，","e": 212.995,"p": 11},{"t": 213.365,"s": "把AI真正做进业务里去。","e": 215.118,"p": 11},{"t": 215.938,"s": "目标一句话：","e": 216.829,"p": 11},{"t": 217.199,"s": "让AI渗到业务的基准线。","e": 218.727,"p": 11},{"t": 219.097,"s": "不是做几个炫酷的演示，","e": 220.548,"p": 11},{"t": 220.918,"s": "而是让AI变成业务每天都离不开的底层能力。","e": 223.625,"p": 11},{"t": 224.195,"s": "Flux怎么落地？","e": 225.152,"p": 12},{"t": 225.522,"s": "靠三种职能。","e": 226.568,"p": 12},{"t": 226.938,"s": "渗透剂——从细分业务切进去，","e": 228.826,"p": 12},{"t": 229.196,"s": "把方法渗进一线每天的动作，","e": 231.035,"p": 12},{"t": 231.405,"s": "让个人经验蒸馏成组织资产。","e": 233.437,"p": 12},{"t": 233.806,"s": "催化剂——用AI啃透一个业务，","e": 235.855,"p": 12},{"t": 236.225,"s": "把成功案例凝成模板，","e": 237.624,"p": 12},{"t": 237.994,"s": "再一个个复制出去，","e": 239.288,"p": 12},{"t": 239.658,"s": "让交付周期持续缩短。","e": 241.185,"p": 12},{"t": 241.555,"s": "离析剂——全员拉齐AI基线，","e": 243.421,"p": 12},{"t": 243.791,"s": "用「使用量×业务产出」两个维度看数据，","e": 246.087,"p": 12},{"t": 246.457,"s": "最终标定出：谁该上，谁该下。","e": 248.494,"p": 12},{"t": 249.314,"s": "渗透、催化、离析，","e": 250.95,"p": 12},{"t": 251.32,"s": "三步走完，","e": 252.147,"p": 12},{"t": 252.517,"s": "业务就变成AINative。","e": 253.84,"p": 12},{"t": 254.41,"s": "再往深看一层。","e": 255.548,"p": 13},{"t": 255.918,"s": "AI时代，人的价值往哪走？","e": 257.701,"p": 13},{"t": 258.071,"s": "世界经济论坛的判断，是四个动作：","e": 260.388,"p": 13},{"t": 260.758,"s": "定义问题、设定约束、评估结果、做最终决策。","e": 263.951,"p": 13},{"t": 264.771,"s": "中间那些重复的、执行性的活，","e": 267.126,"p": 13},{"t": 267.496,"s": "会被AI吃掉。","e": 268.484,"p": 13},{"t": 268.854,"s": "人的时间，要往两端搬。","e": 270.505,"p": 13},{"t": 270.875,"s": "所以Flux要做的不是筛人，","e": 272.465,"p": 13},{"t": 272.835,"s": "是把同一个人的时间，从中段搬到两端。","e": 275.47,"p": 13},{"t": 276.04,"s": "方法有了，第一仗打在哪？","e": 277.639,"p": 14},{"t": 278.009,"s": "海外销售端。","e": 278.937,"p": 14},{"t": 279.307,"s": "三个理由。","e": 280.001,"p": 14},{"t": 280.371,"s": "一，痛点最痛——跨语言、跨时区、跨渠道，","e": 283.382,"p": 14},{"t": 283.752,"s": "报价、会议、资料同步，全靠人肉搬运。","e": 286.58,"p": 14},{"t": 286.95,"s": "二，价值可验证——销售端离用户最近，","e": 289.602,"p": 14},{"t": 289.972,"s": "AI的产出直接换成订单、转化率、响应时间，","e": 292.801,"p": 14},{"t": 293.171,"s": "当天就看得见。","e": 294.123,"p": 14},{"t": 294.493,"s": "三，闭环可复制——现场洞察反哺产品，","e": 297.048,"p": 14},{"t": 297.418,"s": "能力沿着营销、渠道、交付、风控、售后，","e": 300.419,"p": 14},{"t": 300.789,"s": "流向相邻环节。","e": 301.886,"p": 14},{"t": 302.706,"s": "跑通一个点，","e": 303.492,"p": 14},{"t": 303.862,"s": "复制一张网。","e": 304.808,"p": 14},{"t": 305.378,"s": "把整条线收一下：","e": 306.501,"p": 15},{"t": 306.871,"s": "从浮冰，","e": 307.532,"p": 15},{"t": 307.902,"s": "到洪水，","e": 308.533,"p": 15},{"t": 308.903,"s": "到Flux。","e": 309.522,"p": 15},{"t": 310.342,"s": "它最终交付四个改变：","e": 311.729,"p": 15},{"t": 312.099,"s": "业务提效——AI介入前后，数据可度量、可归因；","e": 315.151,"p": 15},{"t": 315.521,"s": "人才标定——谁能管理AI，谁会被替代，标签从模糊变精准；","e": 319.431,"p": 15},{"t": 319.801,"s": "资产沉淀——经验沉淀为公司资产，人来人走，业务质量不变；","e": 323.949,"p": 15},{"t": 324.319,"s": "流程清晰——含糊拖慢的流程，被重新梳理得高效、清楚。","e": 327.999,"p": 15},{"t": 328.369,"s": "这，","e": 328.859,"p": 15},{"t": 329.229,"s": "就是Flux渗透式AI落地计划——","e": 331.456,"p": 15},{"t": 331.826,"s": "我们为迎接AI世代，","e": 333.124,"p": 15},{"t": 333.494,"s": "交出的准备。","e": 334.321,"p": 15},{"t": 334.891,"s": "一句话收尾：","e": 335.862,"p": 16},{"t": 336.232,"s": "迎接AI世代，最好的准备，","e": 338.011,"p": 16},{"t": 338.381,"s": "就是让AI在业务里真正产出价值。","e": 340.616,"p": 16},{"t": 341.436,"s": "方案讲到这里。","e": 342.409,"p": 16},{"t": 342.779,"s": "接下来的时间，","e": 343.753,"p": 16},{"t": 344.123,"s": "请允许我用几页，","e": 345.388,"p": 16},{"t": 345.758,"s": "回答另一个问题——","e": 346.77,"p": 16},{"t": 347.14,"s": "为什么是我，来做Flux。","e": 348.686,"p": 16},{"t": 349.256,"s": "先说我怎么理解自己的角色。","e": 350.875,"p": 17},{"t": 351.245,"s": "有一句话很准：","e": 352.189,"p": 17},{"t": 352.559,"s": "我们不挖河，","e": 353.569,"p": 17},{"t": 353.939,"s": "只是在它已流过的地方，把它拓宽。","e": 356.067,"p": 17},{"t": 356.887,"s": "Flux不是凭空造一条河，","e": 358.437,"p": 17},{"t": 358.807,"s": "而是找到业务里已经在流动的部分，","e": 360.776,"p": 17},{"t": 361.146,"s": "让AI顺着它，","e": 362.239,"p": 17},{"t": 362.609,"s": "流得更宽、更快。","e": 363.857,"p": 17},{"t": 364.427,"s": "三大岗职，Dev、Delta、Echo——","e": 366.677,"p": 18},{"t": 367.047,"s": "我最匹配的，","e": 367.954,"p": 18},{"t": 368.324,"s": "就是其中的Echo。","e": 369.468,"p": 18},{"t": 370.288,"s": "帕兰提尔的第二号工程师鲍勃·麦格鲁说过：","e": 372.922,"p": 18},{"t": 373.292,"s": "Echo应该来自你所服务领域的领域专家，","e": 375.436,"p": 18},{"t": 375.806,"s": "关键特质是革新者、是异类——","e": 377.772,"p": 18},{"t": 378.142,"s": "因为对现状完全满意的人，","e": 379.743,"p": 18},{"t": 380.113,"s": "永远找不出阶跃式的变化。","e": 381.661,"p": 18},{"t": 382.481,"s": "对业务本质的理解，无法通用化，","e": 384.59,"p": 18},{"t": 384.96,"s": "只能按行业沉淀。","e": 386.193,"p": 18},{"t": 386.563,"s": "而我沉淀的行业，","e": 387.763,"p": 18},{"t": 388.133,"s": "是汽车，是用户体验。","e": 389.589,"p": 18},{"t": 390.159,"s": "为什么敢这么说？","e": 391.14,"p": 19},{"t": 391.51,"s": "看我做了二十多年的方法论就明白了。","e": 393.53,"p": 19},{"t": 393.9,"s": "设计的五步：察、定、构、验、达；","e": 396.802,"p": 19},{"t": 397.172,"s": "Echo的五步：听、判、拆、锚、推。","e": 399.947,"p": 19},{"t": 400.317,"s": "两条链子，同一个内核——","e": 402.051,"p": 19},{"t": 402.421,"s": "都不接受问题被给定的样子。","e": 404.044,"p": 19},{"t": 404.864,"s": "Echo的官方定义，是识别真正的问题；","e": 407.017,"p": 19},{"t": 407.387,"s": "设计思维里的Define，","e": 408.791,"p": 19},{"t": 409.161,"s": "做的是同一件事。","e": 410.308,"p": 19},{"t": 410.678,"s": "所以一句话：","e": 411.518,"p": 19},{"t": 411.888,"s": "用户体验的本质，","e": 413.015,"p": 19},{"t": 413.385,"s": "就是Echo。","e": 414.204,"p": 19},{"t": 414.773,"s": "再看行业履历。","e": 415.859,"p": 20},{"t": 416.229,"s": "在比亚迪，","e": 417.028,"p": 20},{"t": 417.398,"s": "我负责仰望U8、汉、唐、方程豹、海豚，","e": 420.583,"p": 20},{"t": 420.953,"s": "以及DiLink五点一、六点零、七点零的体验设计；","e": 423.848,"p": 20},{"t": 424.218,"s": "在吉利和极氪，","e": 425.311,"p": 20},{"t": 425.681,"s": "做HMI质量管理；","e": 426.954,"p": 20},{"t": 427.324,"s": "在拜腾，从UI/UX经理做到部门负责人；","e": 429.829,"p": 20},{"t": 430.199,"s": "再往前，是斑马智行的GUI设计负责人，","e": 432.814,"p": 20},{"t": 433.184,"s": "做过中国最早一批互联网车机的量产。","e": 435.472,"p": 20},{"t": 436.292,"s": "懂车机，不是懂界面，","e": 437.65,"p": 20},{"t": 438.02,"s": "是懂一台车从概念到量产，有多少道约束。","e": 440.756,"p": 20},{"t": 441.326,"s": "更重要的是，","e": 442.227,"p": 21},{"t": 442.597,"s": "这条路我已经走过一遍。","e": 444.001,"p": 21},{"t": 444.371,"s": "第一个项目：把品牌IP训练成可控的生成式资产，","e": 447.4,"p": 21},{"t": 447.77,"s": "建立视觉一致性标准——这是资产化的最小验证。","e": 450.995,"p": 21},{"t": 451.365,"s": "第二个项目：搭了一条AINative创意产线，","e": 453.766,"p": 21},{"t": 454.136,"s": "多智能体协作，从策划到打包交付——这是工序抽取的预演。","e": 457.843,"p": 21},{"t": 458.213,"s": "第三个项目：车机AI壁纸生成，","e": 460.341,"p": 21},{"t": 460.711,"s": "从概念、提示词体系到量产，全程负责——","e": 463.511,"p": 21},{"t": 463.881,"s": "这是唯一真正走完从概念到量产的AI项目。","e": 466.683,"p": 21},{"t": 467.503,"s": "三个项目都有明确的三件事：","e": 469.351,"p": 21},{"t": 469.721,"s": "谁在用、什么时候用、怎么验收。","e": 471.915,"p": 21},{"t": 472.285,"s": "这也是我对Flux的验收标准。","e": 473.999,"p": 21},{"t": 474.569,"s": "最后一页，关于我。","e": 475.939,"p": 22},{"t": 476.309,"s": "德国、中国、美国——","e": 477.875,"p": 22},{"t": 478.245,"s": "我在三个地方，","e": 479.168,"p": 22},{"t": 479.538,"s": "都居住过、工作过、生活过。","e": 481.459,"p": 22},{"t": 482.279,"s": "服务过横跨三大洲、四十多个国家的一千六百多名专业人才。","e": 485.942,"p": 22},{"t": 486.312,"s": "优越的全球视野背景，","e": 487.619,"p": 22},{"t": 487.989,"s": "来自三种文化里的真实生活。","e": 489.908,"p": 22},{"t": 490.278,"s": "这也是为什么，","e": 491.23,"p": 22},{"t": 491.6,"s": "Flux的第一个种子，","e": 492.703,"p": 22},{"t": 493.073,"s": "我敢选在海外销售端。","e": 494.494,"p": 22},{"t": 495.314,"s": "为海外销售，","e": 496.276,"p": 22},{"t": 496.646,"s": "做定制AI——","e": 497.721,"p": 22},{"t": 498.091,"s": "本来就是Flux这个名字的意思。","e": 499.938,"p": 22},{"t": 500.508,"s": "Flux渗透式AI落地计划——为迎接AI世代做好准备。","e": 504.043,"p": 23},{"t": 504.863,"s": "还记得开场那句吗：","e": 506.117,"p": 23},{"t": 506.487,"s": "等它，不如准备它。","e": 507.815,"p": 23},{"t": 508.185,"s": "从危机，","e": 508.871,"p": 23},{"t": 509.241,"s": "到方法，","e": 509.841,"p": 23},{"t": 510.211,"s": "到种子，","e": 510.914,"p": 23},{"t": 511.284,"s": "到人——","e": 511.819,"p": 23},{"t": 512.189,"s": "这就是我们准备的完整路径。","e": 513.821,"p": 23},{"t": 514.641,"s": "接下来，","e": 515.21,"p": 23},{"t": 515.58,"s": "欢迎大家自由提问和讨论，感谢聆听。","e": 517.858,"p": 23},{"t": 518.228,"s": "谢谢。","e": 518.755,"p": 23}],"total": 519.324}</script>
 <script>
 const CUEDATA = JSON.parse(document.getElementById('cuedata').textContent);
 const N = CUEDATA.pages.length;
@@ -350,8 +426,8 @@ const PAGES = [
   <div class="scrim-b scrim-light"></div>
   <div class="chapter-text on-light">
     <div class="kick">AI Implementation Proposal</div>
-    <h1>Flux 企业AI落地计划</h1>
-    <div class="sub">让 AI 从演示厅，流进企业的真实业务</div>
+    <h1>Flux 渗透式AI落地计划</h1>
+    <div class="sub">为更好的迎接AI世代做好准备</div>
   </div>
 </section>`,
 /* P2 危机（曲线上弯、AI 标签离线） */
@@ -368,12 +444,12 @@ const PAGES = [
         <svg viewBox="0 0 400 200" style="flex:1;width:100%" preserveAspectRatio="none">
           <line x1="30" y1="10" x2="30" y2="180" stroke="#DDE3EA" stroke-width="1"/>
           <line x1="30" y1="180" x2="390" y2="180" stroke="#DDE3EA" stroke-width="1"/>
-          <text x="8" y="16" font-size="9" fill="#8A96A3">能力</text>
-          <text x="368" y="196" font-size="9" fill="#8A96A3">时间</text>
+          <text x="8" y="16" font-size="13" fill="#8A96A3">能力</text>
+          <text x="368" y="196" font-size="13" fill="#8A96A3">时间</text>
           <path d="M30,176 C150,174 280,158 385,14" fill="none" stroke="#C99A5B" stroke-width="2.5"/>
           <path d="M30,172 C140,168 260,163 385,158" fill="none" stroke="#44546A" stroke-width="2" stroke-dasharray="5 4"/>
-          <text x="305" y="32" font-size="12" fill="#C99A5B" font-weight="700">AI</text>
-          <text x="330" y="150" font-size="11" fill="#44546A" font-weight="700">企业</text>
+          <text x="305" y="32" font-size="17" fill="#C99A5B" font-weight="700">AI</text>
+          <text x="330" y="150" font-size="16" fill="#44546A" font-weight="700">企业</text>
           <path d="M280,158 L280,166" stroke="#E3B87C" stroke-width="1" stroke-dasharray="3 3"/>
         </svg>
       </div>
@@ -394,18 +470,18 @@ const PAGES = [
   </div>
 </section>`,
 /* P4 巨头押注 */
-`<section class="page">
+`<section class="page" data-p="4">
   <div class="content">
     ${HEAD('02 · 信号','2026.05.04 两大巨头同一天押注：帮 AI 进入企业','从「能用」走向「上岗」，从「展示能力」走向「交付结果」')}
     <div class="cards">
       <div class="card"><div class="tag">OpenAI</div><h3>The Deployment Company</h3>
         <p>TPG、贝恩、Brookfield、高盛等 19 家机构入局。<br><b>募资 40 亿 · 估值 100 亿美元。</b><br>5 月 11 日收购 Tomoro，一次引入约 150 名落地工程师。</p>
-        <p style="margin-top:auto;padding-top:8px;color:#8A96A3">「客户需要帮助，从概念验证走向大规模落地。」—— OpenAI COO Brad Lightcap</p></div>
+        <p class="quote-s" style="margin-top:auto;padding-top:8px;color:#8A96A3">「客户需要帮助，从概念验证走向大规模落地。」—— OpenAI COO Brad Lightcap</p></div>
       <div class="card" style="flex:0 0 18%;align-items:center;justify-content:center;text-align:center">
         <div class="bignum bronze">+800%</div><p style="margin-top:10px">2025 年 1–9 月<br>落地工程师岗位<br>招聘量暴涨</p></div>
       <div class="card"><div class="tag">Anthropic</div><h3>企业 AI 合资公司</h3>
         <p>黑石、Hellman &amp; Friedman、高盛锚定，红杉等跟投。<br><b>总规模 15 亿美元。</b></p>
-        <p style="margin-top:auto;padding-top:8px;color:#8A96A3">「拥有模型本身，不会改变你的工作流程或运营方式。」—— 高盛资管 Marc Nachmann</p></div>
+        <p class="quote-s" style="margin-top:auto;padding-top:8px;color:#8A96A3">「拥有模型本身，不会改变你的工作流程或运营方式。」—— 高盛资管 Marc Nachmann</p></div>
     </div>
     <div class="foot-note"><b>共同模式：</b>Palantir 发明的驻场打法被两大巨头同时看中 —— 工程师像洪水一样涌进企业，把 AI 冲进真实业务。</div>
     <div class="src">Source: TechCrunch / WSJ / Bloomberg 2026.05.04；中信证券研报 2026.05；Indeed &amp; FT</div>
@@ -422,28 +498,28 @@ const PAGES = [
     <div class="bridge-wrap">
       <svg class="bridge-h" viewBox="0 0 800 170" style="width:78%;height:100%">
         <rect x="20" y="55" width="180" height="60" rx="10" fill="#FFFFFF" stroke="#DDE3EA"/>
-        <text x="110" y="80" text-anchor="middle" font-size="15" font-weight="700" fill="#061F32">懂业务的人</text>
-        <text x="110" y="100" text-anchor="middle" font-size="9" letter-spacing="2" fill="#8A96A3">BUSINESS</text>
+        <text x="110" y="80" text-anchor="middle" font-size="20" font-weight="700" fill="#061F32">懂业务的人</text>
+        <text x="110" y="100" text-anchor="middle" font-size="13" letter-spacing="2" fill="#8A96A3">BUSINESS</text>
         <rect x="600" y="55" width="180" height="60" rx="10" fill="#FFFFFF" stroke="#DDE3EA"/>
-        <text x="690" y="80" text-anchor="middle" font-size="15" font-weight="700" fill="#061F32">AI 工具与能力</text>
-        <text x="690" y="100" text-anchor="middle" font-size="9" letter-spacing="2" fill="#8A96A3">AI CAPABILITY</text>
+        <text x="690" y="80" text-anchor="middle" font-size="20" font-weight="700" fill="#061F32">AI 工具与能力</text>
+        <text x="690" y="100" text-anchor="middle" font-size="13" letter-spacing="2" fill="#8A96A3">AI CAPABILITY</text>
         <path d="M200,115 C320,60 480,60 600,115" fill="none" stroke="#C99A5B" stroke-width="3"/>
         <path d="M200,115 C320,60 480,60 600,115" fill="none" stroke="#E3B87C" stroke-width="9" opacity="0.25"/>
         <rect x="330" y="54" width="140" height="38" rx="19" fill="#061F32"/>
-        <text x="400" y="78" text-anchor="middle" font-size="14" font-weight="700" fill="#E3B87C">Flux · AI 赋能</text>
+        <text x="400" y="78" text-anchor="middle" font-size="18.5" font-weight="700" fill="#E3B87C">Flux · AI 赋能</text>
         <line x1="30" y1="160" x2="770" y2="160" stroke="#DDE3EA" stroke-width="1" stroke-dasharray="4 4"/>
       </svg>
       <svg class="bridge-v" viewBox="0 0 400 300" style="height:100%">
         <rect x="100" y="8" width="200" height="58" rx="10" fill="#FFFFFF" stroke="#DDE3EA"/>
-        <text x="200" y="34" text-anchor="middle" font-size="17" font-weight="700" fill="#061F32">懂业务的人</text>
-        <text x="200" y="54" text-anchor="middle" font-size="10" letter-spacing="2" fill="#8A96A3">BUSINESS</text>
+        <text x="200" y="34" text-anchor="middle" font-size="21.5" font-weight="700" fill="#061F32">懂业务的人</text>
+        <text x="200" y="54" text-anchor="middle" font-size="14.5" letter-spacing="2" fill="#8A96A3">BUSINESS</text>
         <path d="M200,66 C140,120 140,180 200,234" fill="none" stroke="#C99A5B" stroke-width="3"/>
         <path d="M200,66 C140,120 140,180 200,234" fill="none" stroke="#E3B87C" stroke-width="9" opacity="0.25"/>
         <rect x="130" y="131" width="140" height="38" rx="19" fill="#061F32"/>
-        <text x="200" y="155" text-anchor="middle" font-size="15" font-weight="700" fill="#E3B87C">Flux · AI 赋能</text>
+        <text x="200" y="155" text-anchor="middle" font-size="20" font-weight="700" fill="#E3B87C">Flux · AI 赋能</text>
         <rect x="100" y="234" width="200" height="58" rx="10" fill="#FFFFFF" stroke="#DDE3EA"/>
-        <text x="200" y="260" text-anchor="middle" font-size="17" font-weight="700" fill="#061F32">AI 工具与能力</text>
-        <text x="200" y="280" text-anchor="middle" font-size="10" letter-spacing="2" fill="#8A96A3">AI CAPABILITY</text>
+        <text x="200" y="260" text-anchor="middle" font-size="21.5" font-weight="700" fill="#061F32">AI 工具与能力</text>
+        <text x="200" y="280" text-anchor="middle" font-size="14.5" letter-spacing="2" fill="#8A96A3">AI CAPABILITY</text>
       </svg>
     </div>
   </div>
@@ -459,7 +535,7 @@ const PAGES = [
   </div>
 </section>`,
 /* P7 案例（黑底绿高亮 + Target logo） */
-`<section class="page sec-g">
+`<section class="page sec-g" data-p="7">
   <div class="content">
     ${HEAD('04 · 验证','AI 化案例 · 三大模块 AI 前 vs AI 后','营销获客 · 运营零售 · 售后服务 —— 各挑一个先跑通再复用的种子案例')}
     <div class="cards">
@@ -498,33 +574,33 @@ const PAGES = [
     <div class="bridge-wrap">
       <svg class="bridge-h" viewBox="0 0 800 150" style="width:72%;height:100%">
         <rect x="20" y="45" width="180" height="60" rx="10" fill="#0B1210" stroke="#1F2E26"/>
-        <text x="110" y="72" text-anchor="middle" font-size="15" font-weight="700" fill="#F2F6F3">懂业务的人</text>
-        <text x="110" y="92" text-anchor="middle" font-size="9" letter-spacing="2" fill="#64796E">BUSINESS</text>
+        <text x="110" y="72" text-anchor="middle" font-size="20" font-weight="700" fill="#F2F6F3">懂业务的人</text>
+        <text x="110" y="92" text-anchor="middle" font-size="13" letter-spacing="2" fill="#64796E">BUSINESS</text>
         <rect x="600" y="45" width="180" height="60" rx="10" fill="#0B1210" stroke="#1F2E26"/>
-        <text x="690" y="72" text-anchor="middle" font-size="15" font-weight="700" fill="#F2F6F3">AI 工具与能力</text>
-        <text x="690" y="92" text-anchor="middle" font-size="9" letter-spacing="2" fill="#64796E">AI CAPABILITY</text>
+        <text x="690" y="72" text-anchor="middle" font-size="20" font-weight="700" fill="#F2F6F3">AI 工具与能力</text>
+        <text x="690" y="92" text-anchor="middle" font-size="13" letter-spacing="2" fill="#64796E">AI CAPABILITY</text>
         <path d="M200,102 C320,52 480,52 600,102" fill="none" stroke="#9BD65B" stroke-width="3"/>
         <path d="M200,102 C320,52 480,52 600,102" fill="none" stroke="#C6F24E" stroke-width="9" opacity="0.18"/>
         <rect x="330" y="46" width="140" height="38" rx="19" fill="#0B1210" stroke="#9BD65B"/>
-        <text x="400" y="70" text-anchor="middle" font-size="14" font-weight="700" fill="#C6F24E">Flux · AI 赋能</text>
+        <text x="400" y="70" text-anchor="middle" font-size="18.5" font-weight="700" fill="#C6F24E">Flux · AI 赋能</text>
       </svg>
       <svg class="bridge-v" viewBox="0 0 400 300" style="height:100%">
         <rect x="100" y="8" width="200" height="58" rx="10" fill="#0B1210" stroke="#1F2E26"/>
-        <text x="200" y="34" text-anchor="middle" font-size="17" font-weight="700" fill="#F2F6F3">懂业务的人</text>
-        <text x="200" y="54" text-anchor="middle" font-size="10" letter-spacing="2" fill="#64796E">BUSINESS</text>
+        <text x="200" y="34" text-anchor="middle" font-size="21.5" font-weight="700" fill="#F2F6F3">懂业务的人</text>
+        <text x="200" y="54" text-anchor="middle" font-size="14.5" letter-spacing="2" fill="#64796E">BUSINESS</text>
         <path d="M200,66 C140,120 140,180 200,234" fill="none" stroke="#9BD65B" stroke-width="3"/>
         <path d="M200,66 C140,120 140,180 200,234" fill="none" stroke="#C6F24E" stroke-width="9" opacity="0.18"/>
         <rect x="130" y="131" width="140" height="38" rx="19" fill="#0B1210" stroke="#9BD65B"/>
-        <text x="200" y="155" text-anchor="middle" font-size="15" font-weight="700" fill="#C6F24E">Flux · AI 赋能</text>
+        <text x="200" y="155" text-anchor="middle" font-size="20" font-weight="700" fill="#C6F24E">Flux · AI 赋能</text>
         <rect x="100" y="234" width="200" height="58" rx="10" fill="#0B1210" stroke="#1F2E26"/>
-        <text x="200" y="260" text-anchor="middle" font-size="17" font-weight="700" fill="#F2F6F3">AI 工具与能力</text>
-        <text x="200" y="280" text-anchor="middle" font-size="10" letter-spacing="2" fill="#64796E">AI CAPABILITY</text>
+        <text x="200" y="260" text-anchor="middle" font-size="21.5" font-weight="700" fill="#F2F6F3">AI 工具与能力</text>
+        <text x="200" y="280" text-anchor="middle" font-size="14.5" letter-spacing="2" fill="#64796E">AI CAPABILITY</text>
       </svg>
     </div>
   </div>
 </section>`,
 /* P9 合并页：巨头的钱 + 时代共识（黑底绿高亮） */
-`<section class="page sec-g">
+`<section class="page sec-g" data-p="9">
   <div class="content">
     ${HEAD('04 · 回扣','巨头的钱，流向同一个方向','买的不是模型，而是把 AI 送进企业的能力')}
     <div class="cards">
@@ -550,7 +626,7 @@ const PAGES = [
   </div>
 </section>`,
 /* P11 三职能（黑底橙高亮 + PPT 原版式图形） */
-`<section class="page sec-o">
+`<section class="page sec-o" data-p="11">
   <div class="content">
     ${HEAD('05 · 方法','Flux 计划 · 业务变成 AI Native 的三种职能','渗透 → 催化 → 离析，三步走完，业务变成 AI Native')}
     <div class="cards">
@@ -562,12 +638,12 @@ const PAGES = [
           <line x1="163" y1="128" x2="77" y2="212" stroke="#4A3A22" stroke-width="1"/>
           <line x1="163" y1="128" x2="46" y2="90" stroke="#4A3A22" stroke-width="1"/>
           <circle cx="163" cy="128" r="42" fill="#120F0B" stroke="#F08C2E" stroke-width="1.5"/>
-          <text x="163" y="133" text-anchor="middle" font-size="13" font-weight="700" fill="#F5A95C">本体价值</text>
-          <text x="163" y="28" text-anchor="middle" font-size="12" fill="#D8CDBE">营销</text>
-          <text x="287" y="94" text-anchor="middle" font-size="12" fill="#D8CDBE">产品管理</text>
-          <text x="256" y="228" text-anchor="middle" font-size="12" fill="#D8CDBE">运营交付</text>
-          <text x="69" y="228" text-anchor="middle" font-size="12" fill="#D8CDBE">市场品牌</text>
-          <text x="38" y="94" text-anchor="middle" font-size="12" fill="#D8CDBE">售后服务</text>
+          <text x="163" y="133" text-anchor="middle" font-size="18" font-weight="700" fill="#F5A95C">本体价值</text>
+          <text x="163" y="28" text-anchor="middle" font-size="17" fill="#D8CDBE">营销</text>
+          <text x="287" y="94" text-anchor="middle" font-size="17" fill="#D8CDBE">产品管理</text>
+          <text x="256" y="228" text-anchor="middle" font-size="17" fill="#D8CDBE">运营交付</text>
+          <text x="69" y="228" text-anchor="middle" font-size="17" fill="#D8CDBE">市场品牌</text>
+          <text x="38" y="94" text-anchor="middle" font-size="17" fill="#D8CDBE">售后服务</text>
         </svg></div>
       <div class="card"><div class="tag">职能二</div><h3>催化剂</h3><p>用 AI 啃透一个业务，把成功案例凝成模板，再逐个复制到其他业务，让交付周期持续缩短。</p>
         <svg viewBox="0 0 335 290" style="width:100%;flex:1;min-height:0;margin-top:4%">
@@ -577,22 +653,22 @@ const PAGES = [
           <polygon points="102.9,82.9 98.6,95.6 90.2,87.2" fill="#F08C2E"/>
           <polygon points="233.1,82.9 220.4,78.6 228.8,70.2" fill="#F08C2E"/>
           <circle cx="168" cy="148" r="38" fill="#120F0B" stroke="#F08C2E" stroke-width="1.5"/>
-          <text x="168" y="153" text-anchor="middle" font-size="13" font-weight="700" fill="#F5A95C">种子选手</text>
-          <text x="168" y="28" text-anchor="middle" font-size="12" fill="#D8CDBE">选一个小板块</text>
-          <text x="294" y="152" text-anchor="middle" font-size="12" fill="#D8CDBE">成功落地</text>
-          <text x="168" y="276" text-anchor="middle" font-size="12" fill="#D8CDBE">提炼模板</text>
-          <text x="42" y="152" text-anchor="middle" font-size="12" fill="#D8CDBE">复制再应用</text>
+          <text x="168" y="153" text-anchor="middle" font-size="18" font-weight="700" fill="#F5A95C">种子选手</text>
+          <text x="168" y="28" text-anchor="middle" font-size="17" fill="#D8CDBE">选一个小板块</text>
+          <text x="294" y="152" text-anchor="middle" font-size="17" fill="#D8CDBE">成功落地</text>
+          <text x="168" y="276" text-anchor="middle" font-size="17" fill="#D8CDBE">提炼模板</text>
+          <text x="42" y="152" text-anchor="middle" font-size="17" fill="#D8CDBE">复制再应用</text>
         </svg></div>
       <div class="card"><div class="tag">职能三</div><h3>离析剂</h3><p>通过全员 AI 拉齐建立统一基线，以「使用量 × 业务产出」双维度进行数据观察，最终实现人才的离析标定。</p>
         <svg viewBox="0 0 363 250" style="width:100%;flex:1;min-height:0;margin-top:4%">
           <rect x="0" y="8" width="363" height="46" rx="6" fill="#120F0B" stroke="#4A3A22"/>
-          <text x="181" y="36" text-anchor="middle" font-size="12.5" fill="#D8CDBE">拉基线：全员用起来，同步采使用量</text>
+          <text x="181" y="36" text-anchor="middle" font-size="17.5" fill="#D8CDBE">拉基线：全员用起来，同步采使用量</text>
           <polygon points="175,60 187,60 181,70" fill="#F08C2E"/>
           <rect x="0" y="80" width="363" height="46" rx="6" fill="#120F0B" stroke="#4A3A22"/>
-          <text x="181" y="108" text-anchor="middle" font-size="12.5" fill="#D8CDBE">看数据：使用量 × 业务产出交叉验证</text>
+          <text x="181" y="108" text-anchor="middle" font-size="17.5" fill="#D8CDBE">看数据：使用量 × 业务产出交叉验证</text>
           <polygon points="175,132 187,132 181,142" fill="#F08C2E"/>
           <rect x="32" y="152" width="299" height="46" rx="6" fill="#120F0B" stroke="#F08C2E"/>
-          <text x="181" y="180" text-anchor="middle" font-size="12.5" font-weight="700" fill="#F5A95C">定去留：谁转、谁去、谁留</text>
+          <text x="181" y="180" text-anchor="middle" font-size="17.5" font-weight="700" fill="#F5A95C">定去留：谁转、谁去、谁留</text>
         </svg></div>
     </div>
   </div>
@@ -606,7 +682,7 @@ const PAGES = [
         <div class="org-pill">前置 - 留</div>
         <div class="org-box keep">定义者 / 发起者</div>
       </div>
-      <div class="org-arrow"><span class="zh">转</span><span class="ln"></span></div>
+      <div class="org-arrow rev"><span class="zh">转</span><span class="ln"></span></div>
       <div class="org-col mid">
         <div class="org-pill" style="color:#B9AA97">中层 - 去</div>
         <div class="org-box">拥抱 AI 的执行者</div>
@@ -685,7 +761,7 @@ const PAGES = [
   </div>
 </section>`,
 /* P18 双链（深灰古铜） */
-`<section class="page sec-b">
+`<section class="page sec-b" data-p="18">
   <div class="content">
     ${HEAD('08 · 印证','用户体验的内核，就是 Echo','Observe → Frame → Structure → Prototype → Advocate')}
     <div class="chain">
@@ -722,7 +798,7 @@ const PAGES = [
   </div>
 </section>`,
 /* P20 三个项目（深灰古铜，去图重排） */
-`<section class="page sec-b">
+`<section class="page sec-b" data-p="20">
   <div class="content">
     ${HEAD('09 · 实证','三个已经落地的 AI 项目','谁在用、什么时候用、怎么验收 —— 也是我对 Flux 的验收标准')}
     <div class="cards">
@@ -743,8 +819,8 @@ const PAGES = [
   </div>
   <div class="map-chips">
     <div class="map-chip"><b>Germany · 德国</b><span>Work for Concept and Design 概念与设计工作<br>Munich 慕尼黑 · Vehicle Concept and Design Studio 整车概念设计工作室</span></div>
-    <div class="map-chip"><b>China · 中国</b><span>Born, UX Work, Living 出生、UX 工作与居住<br>深圳 Shenzhen · 中国香港 Hong Kong, China · 上海 Shanghai · 南京 Nanjing</span></div>
-    <div class="map-chip"><b>United States · 美国</b><span>Work for Future Innovation 未来创新工作<br>Silicon Valley R&amp;D Center 硅谷研发中心</span></div>
+    <div class="map-chip"><b>China · 中国</b><span>Born, UX Work, Family. 出生、UX工作与家庭<br>深圳 Shenzhen · 中国香港 Hong Kong, China · 上海 Shanghai · 南京 Nanjing</span></div>
+    <div class="map-chip"><b>United States · 美国</b><span>Innovation Work, Bachelor+Master Degree, Origin-family. 创新工作，本硕学位，原生家庭<br>Silicon Valley R&amp;D Center 硅谷研发中心</span></div>
   </div>
 </section>`,
 /* P22 Q&A（深灰古铜） */
@@ -753,7 +829,7 @@ const PAGES = [
     <div class="big">Q&amp;A</div>
     <div class="line"></div>
     <div class="en">Flux AI Implementation Proposal</div>
-    <div class="cn">Flux 企业AI落地计划 · 谢谢聆听</div>
+    <div class="cn">Flux 渗透式AI落地计划 · 为更好的迎接AI世代做好准备 · 谢谢聆听</div>
   </div>
 </section>`
 ];
@@ -766,7 +842,7 @@ const menu = $('#menu');
 CUEDATA.pages.forEach((p,i)=>{
   const mi=document.createElement('div'); mi.className='mi';
   mi.innerHTML=`<b>P${i+1}</b><span>${p.title}</span>`;
-  mi.onclick=()=>{ menu.classList.remove('open'); goTo(i,true); };
+  mi.onclick=()=>{ menu.classList.remove('open'); follow=true; goTo(i,true); };
   menu.appendChild(mi);
 });
 
@@ -774,10 +850,11 @@ const vo = $('#vo'), sub = $('#subtitle'), subTxt = $('#subtitle span');
 const ICON_PLAY = '<svg width="9" height="10" viewBox="0 0 9 10"><path d="M0,0 L9,5 L0,10 Z" fill="currentColor"/></svg>';
 const ICON_PAUSE = '<svg width="9" height="10" viewBox="0 0 9 10"><rect x="0" y="0" width="3" height="10" fill="currentColor"/><rect x="6" y="0" width="3" height="10" fill="currentColor"/></svg>';
 function setPlayUI(playing){
-  document.querySelector('#btn-play .ic').innerHTML = playing ? ICON_PAUSE : ICON_PLAY;
+  $('#progress').classList.toggle('playing', playing);
+  document.querySelector('#btn-play .ic').innerHTML = playing ? ICON_PLAY : ICON_PAUSE;
   document.querySelector('#btn-play .tx').textContent = playing ? 'Playing' : 'Paused';
 }
-let cur=-1, subOn=true, shotMode=false;
+let cur=-1, subOn=true, shotMode=false, follow=true;
 
 function setVideo(i,on){
   const v = pageEls[i].querySelector('video');
@@ -791,6 +868,15 @@ function show(i){
   $('#pageind').textContent = `P${i+1} / ${N}`;
   $('#ptitle').textContent = CUEDATA.pages[i].title;
 }
+function audioPageAt(t){
+  const ps=CUEDATA.pages;
+  const i=ps.findIndex(p=>t>=p.start && t<p.start+p.dur+0.45);
+  return i<0?0:i;
+}
+function viewPage(i){
+  i=Math.max(0,Math.min(N-1,i));
+  show(i);
+}
 function goTo(i,play){
   i=Math.max(0,Math.min(N-1,i));
   if(shotMode){ show(i); return; }
@@ -798,31 +884,81 @@ function goTo(i,play){
   show(i);
   if(play){ vo.play(); }
 }
-vo.addEventListener('timeupdate',()=>{
+/* 同步刷新：timeupdate 只有约 4Hz，会让字幕/翻页比语音晚约 0.17s；
+   改为播放中逐帧（rAF，约 60Hz）驱动，暂停/跳播时仍由事件兜底。 */
+let subCache='';
+function syncFrame(){
   const t=vo.currentTime;
-  const ps=CUEDATA.pages;
-  let pi=ps.findIndex(p=>t>=p.start && t<p.start+p.dur+0.45);
-  if(pi>=0 && pi!==cur) show(pi);
+  $('#playind').textContent='\u25B6 P'+(audioPageAt(t)+1);
   $('#progress').style.width=(t/CUEDATA.total*100)+'%';
+  /* 跟随模式：点了播放且用户未手动翻页时，页面自动跟随口播翻页 */
+  if(follow && !vo.paused){
+    const ai=audioPageAt(t);
+    if(ai!==cur) show(ai);
+  }
   if(subOn){
     const c=CUEDATA.cues.find(c=>t>=c.t && t<c.e);
-    if(c){ subTxt.textContent=c.s; sub.classList.add('on'); }
+    if(c){ if(subCache!==c.s){ subCache=c.s; subTxt.textContent=c.s; } sub.classList.add('on'); }
     else sub.classList.remove('on');
   }
-});
-vo.addEventListener('play',()=>setPlayUI(true));
-vo.addEventListener('pause',()=>setPlayUI(false));
+}
+let rafId=0;
+function rafLoop(){ syncFrame(); if(!vo.paused) rafId=requestAnimationFrame(rafLoop); }
+vo.addEventListener('play',()=>{ setPlayUI(true); cancelAnimationFrame(rafId); rafId=requestAnimationFrame(rafLoop); });
+vo.addEventListener('pause',()=>{ setPlayUI(false); cancelAnimationFrame(rafId); syncFrame(); });
+vo.addEventListener('seeked',()=>{ if(follow){ const ai=audioPageAt(vo.currentTime); if(ai!==cur) show(ai); } syncFrame(); });
+vo.addEventListener('loadedmetadata',syncFrame);
+vo.addEventListener('timeupdate',()=>{ if(vo.paused) syncFrame(); });
 
-$('#btn-play').onclick=()=>{ if(shotMode) return; vo.paused?vo.play():vo.pause(); };
-$('#btn-prev').onclick=()=>goTo(cur-1,!vo.paused);
-$('#btn-next').onclick=()=>goTo(cur+1,!vo.paused);
+$('#btn-play').onclick=()=>{
+  if(shotMode) return;
+  if(vo.paused){ follow=true; show(audioPageAt(vo.currentTime)); vo.play(); }
+  else vo.pause();
+};
+$('#btn-prev').onclick=()=>{ follow=false; viewPage(cur-1); };
+$('#btn-next').onclick=()=>{ follow=false; viewPage(cur+1); };
 $('#btn-sub').onclick=e=>{ subOn=!subOn; e.currentTarget.classList.toggle('off',!subOn); if(!subOn) sub.classList.remove('on'); };
 $('#btn-menu').onclick=()=>menu.classList.toggle('open');
 document.addEventListener('keydown',e=>{
-  if(e.key==='ArrowLeft') goTo(cur-1,!vo.paused);
-  else if(e.key==='ArrowRight'||e.key===' '){ e.preventDefault(); e.key===' '? (vo.paused?vo.play():vo.pause()) : goTo(cur+1,!vo.paused); }
+  if(e.key==='ArrowLeft'){ follow=false; viewPage(cur-1); }
+  else if(e.key==='ArrowRight'){ follow=false; viewPage(cur+1); }
+  else if(e.key===' '){ e.preventDefault(); $('#btn-play').click(); }
   else if(e.key==='s'||e.key==='S') $('#btn-sub').click();
   else if(e.key==='g'||e.key==='G') menu.classList.toggle('open');
+  else if(e.key==='Escape') $('#svgzoom').classList.remove('on');
+});
+
+/* 触摸滑动翻页（与播放器脱勾，仅切换视图） */
+let tx0=0, ty0=0;
+const stageEl=$('#stage');
+stageEl.addEventListener('touchstart',e=>{ tx0=e.touches[0].clientX; ty0=e.touches[0].clientY; },{passive:true});
+stageEl.addEventListener('touchend',e=>{
+  const dx=e.changedTouches[0].clientX-tx0, dy=e.changedTouches[0].clientY-ty0;
+  if(Math.abs(dx)>60 && Math.abs(dx)>Math.abs(dy)*1.5){ follow=false; viewPage(cur+(dx<0?1:-1)); }
+},{passive:true});
+
+/* 顶部进度条可点：跳转音频进度并同步页面（明确跟随动作） */
+$('#progtrack').addEventListener('click',e=>{
+  if(shotMode) return;
+  const r=e.currentTarget.getBoundingClientRect();
+  const ratio=Math.min(1,Math.max(0,(e.clientX-r.left)/r.width));
+  const t=ratio*CUEDATA.total;
+  vo.currentTime=Math.min(t+0.01,CUEDATA.total-0.05);
+  follow=true;
+  show(audioPageAt(t));
+});
+
+/* P11 三张图：点击放大查看（竖屏小图可读性问题的解法） */
+const zoom=$('#svgzoom');
+stageEl.addEventListener('click',e=>{
+  const svg=e.target.closest('[data-p="11"] .card svg');
+  if(svg && !zoom.classList.contains('on')){
+    zoom.innerHTML='';
+    zoom.appendChild(svg.cloneNode(true));
+    zoom.classList.add('on');
+  } else if(zoom.classList.contains('on') && e.target.closest('#svgzoom')){
+    zoom.classList.remove('on');
+  }
 });
 
 const mShot=location.search.match(/shot=P(\d+)/i);
