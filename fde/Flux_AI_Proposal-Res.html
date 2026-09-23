@@ -198,7 +198,7 @@ html,body{height:100%;background:#0B1118;font-family:"PingFang SC","Microsoft Ya
 #hud button{background:none;border:1px solid rgba(199,210,220,.3);color:#C7D2DC;border-radius:.6vh;padding:.3em 1em;font-size:inherit;cursor:pointer;letter-spacing:.08em;display:inline-flex;align-items:center;gap:.5em}
 #hud button:hover{border-color:var(--bronze2);color:var(--bronze2)}
 #subtitle{position:absolute;left:8%;right:8%;bottom:7%;text-align:center;z-index:15;pointer-events:none}
-#subtitle span{display:inline-block;background:rgba(8,14,21,.72);color:#F4F7FA;padding:.5em 1.2em;border-radius:2em;font-size:clamp(12px,1.3vw,20px);letter-spacing:.04em;line-height:1.5;opacity:0;transition:opacity .25s}
+#subtitle span{display:inline-block;background:rgba(8,14,21,.45);color:#F4F7FA;padding:.5em 1.2em;border-radius:2em;font-size:clamp(12px,1.3vw,20px);letter-spacing:.04em;line-height:1.5;opacity:0;transition:opacity .25s}
 #subtitle.on span{opacity:1}
 #progress{position:absolute;top:0;left:0;height:3px;background:linear-gradient(90deg,var(--bronze),var(--bronze2));width:0%;z-index:21;transition:width .3s linear}
 #pageind{margin-left:auto;letter-spacing:.15em;color:var(--mut)}
@@ -295,6 +295,24 @@ html,body{height:100%;background:#0B1118;font-family:"PingFang SC","Microsoft Ya
   .sec-g .card:hover,.sec-o .card:hover,.sec-b .card:hover{transform:translateY(-4px)}
 }
 @media (prefers-reduced-motion:reduce){.page{transition:none}#progress{transition:none}*,*::before,*::after{animation:none!important}}
+
+/* 底部安全区 + 图标化播放栏（2026-09-23） */
+.content{padding-bottom:13%!important}
+.src{bottom:calc(4.84% + 10px)!important}
+.chapter-text{bottom:17%!important}
+.map-chips{bottom:18%!important}
+.quote-block{bottom:18%!important}
+.career{bottom:calc(4.84% + 60px)!important}
+#ptitle{display:none!important}
+#hud button{display:inline-flex;align-items:center;justify-content:center;gap:.45em}
+#hud button.off{opacity:.45}
+@media (max-aspect-ratio: 3/4){
+  .content{padding-bottom:170px!important}
+  .career{bottom:170px!important}
+  .map-chips{bottom:170px!important}
+  .chapter-text{bottom:120px!important}
+  .quote-block{bottom:140px!important}
+}
 </style>
 </head>
 <body>
@@ -305,10 +323,10 @@ html,body{height:100%;background:#0B1118;font-family:"PingFang SC","Microsoft Ya
     <div id="subtitle"><span></span></div>
     <div id="hud">
       <button id="btn-play"><span class="ic"><svg width="9" height="10" viewBox="0 0 9 10"><path d="M0,0 L9,5 L0,10 Z" fill="currentColor"/></svg></span><span class="tx">Paused</span></button>
-      <button id="btn-prev">上一页</button>
-      <button id="btn-next">下一页</button>
-      <button id="btn-sub">字幕 开</button>
-      <button id="btn-menu">目录</button>
+      <button id="btn-prev" aria-label="Previous"><svg width="14" height="14" viewBox="0 0 14 14"><path d="M9,2 L4,7 L9,12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+      <button id="btn-next" aria-label="Next"><svg width="14" height="14" viewBox="0 0 14 14"><path d="M5,2 L10,7 L5,12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+      <button id="btn-sub" aria-label="Subtitles"><svg width="16" height="14" viewBox="0 0 16 14"><rect x="1" y="1.5" width="14" height="11" rx="2.5" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M6.8,5.1 C5.2,5.1 4.2,6 4.2,7 C4.2,8 5.2,8.9 6.8,8.9 M12.4,5.1 C10.8,5.1 9.8,6 9.8,7 C9.8,8 10.8,8.9 12.4,8.9" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg></button>
+      <button id="btn-menu" aria-label="Menu"><svg width="14" height="14" viewBox="0 0 14 14"><path d="M2,3.5 L12,3.5 M2,7 L12,7 M2,10.5 L12,10.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button>
       <span id="ptitle"></span>
       <span id="pageind"></span>
     </div>
@@ -798,7 +816,7 @@ vo.addEventListener('pause',()=>setPlayUI(false));
 $('#btn-play').onclick=()=>{ if(shotMode) return; vo.paused?vo.play():vo.pause(); };
 $('#btn-prev').onclick=()=>goTo(cur-1,!vo.paused);
 $('#btn-next').onclick=()=>goTo(cur+1,!vo.paused);
-$('#btn-sub').onclick=e=>{ subOn=!subOn; e.target.textContent='字幕 '+(subOn?'开':'关'); if(!subOn) sub.classList.remove('on'); };
+$('#btn-sub').onclick=e=>{ subOn=!subOn; e.currentTarget.classList.toggle('off',!subOn); if(!subOn) sub.classList.remove('on'); };
 $('#btn-menu').onclick=()=>menu.classList.toggle('open');
 document.addEventListener('keydown',e=>{
   if(e.key==='ArrowLeft') goTo(cur-1,!vo.paused);
