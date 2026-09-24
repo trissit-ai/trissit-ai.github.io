@@ -64,7 +64,8 @@ body{
   padding:calc(20px + var(--safe-top)) 22px calc(150px + var(--safe-bottom));}
 /* ============ 封面 / 结尾 视频页 ============ */
 .page.video{justify-content:flex-end;align-items:center;text-align:center;padding-left:18px;padding-right:18px}
-.page.video video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
+.page.video video,.page.video img.vbg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
+.page.video img.vbg{object-position:center 42%}
 .page.video .scrim{position:absolute;inset:0;z-index:1;pointer-events:none}
 #P1 .scrim{background:linear-gradient(to bottom,rgba(16,19,21,.15) 30%,rgba(16,19,21,.55) 70%,rgba(16,19,21,.85) 100%)}
 #P7 .scrim{background:linear-gradient(to bottom,rgba(16,19,21,.15) 30%,rgba(16,19,21,.55) 70%,rgba(16,19,21,.85) 100%)}
@@ -405,6 +406,9 @@ h1.title{font-size:clamp(25px,6.9vw,38px);font-weight:800;letter-spacing:.02em;l
 
 /* P4 英文副标一行放下 */
 #P4 .phead .en{font-size:9.5px;letter-spacing:.1em}
+
+/* ===== 自适应缩放：内容超过可视区时整体等比缩小，保证任何机型都完整显示 ===== */
+.fitwrap{width:100%;transform-origin:top center;transform:scale(var(--fk,1)) !important}
 </style>
 </head>
 <body data-theme="light">
@@ -415,7 +419,7 @@ h1.title{font-size:clamp(25px,6.9vw,38px);font-weight:800;letter-spacing:.02em;l
 
   <!-- P1 封面：视频大字 Flux 居中，文字居中置于其下 -->
   <section class="page video" id="P1" data-theme="light">
-    <video src="media/media2.mp4" poster="media/image3.jpg" muted loop playsinline autoplay></video>
+    <img class="vbg" src="media/image3.jpg" alt="" fetchpriority="high" decoding="async">
     <div class="scrim"></div>
     <div class="vbody">
       <div class="kicker">AI Implementation Proposal</div>
@@ -595,7 +599,7 @@ h1.title{font-size:clamp(25px,6.9vw,38px);font-weight:800;letter-spacing:.02em;l
 
   <!-- P7 结尾：视频大字 Flux 居中，结语居中置于其下 -->
   <section class="page video" id="P7" data-theme="dark">
-    <video src="media/media2.mp4" poster="media/image3.jpg" muted loop playsinline autoplay></video>
+    <img class="vbg" src="media/image3.jpg" alt="" decoding="async">
     <div class="scrim"></div>
     <div class="vbody">
       <div class="kicker">NEXT STEP · 邀请</div>
@@ -1702,6 +1706,33 @@ const vo = $("#vo"), deck = $("#deck"), pbar = $("#pbar"), sub = $("#subtitle");
 const pages = $$(".page");
 const pageIds = pages.map(p => p.id);
 const SHOT = new URLSearchParams(location.search).get("shot");
+
+
+/* ---------- 自适应：按可视高度等比缩放每页内容 ---------- */
+function fitPages(){
+  pages.forEach(function(pg){
+    if(pg.classList.contains("video")) return;           // 视频页本身居中，不缩放
+    var w = pg.querySelector(":scope > .fitwrap");
+    if(!w){
+      w = document.createElement("div");
+      w.className = "fitwrap";
+      while(pg.firstChild) w.appendChild(pg.firstChild);
+      pg.appendChild(w);
+    }
+    w.style.setProperty("--fk", "1");
+    var contentH = w.offsetHeight;
+    var cs = getComputedStyle(pg);
+    var padT = parseFloat(cs.paddingTop) || 0;
+    var padB = Math.max(parseFloat(cs.paddingBottom) || 0, 150); /* 至少为字幕+播放器预留 150 */
+    var avail = pg.clientHeight - padT - padB;           // 底部 padding 已为字幕+播放器预留
+    var k = (avail > 40 && contentH > avail) ? avail / contentH : 1;
+    w.style.setProperty("--fk", k.toFixed(3));
+    w.dataset.k = k.toFixed(3);
+  });
+}
+window.addEventListener("load", function(){ setTimeout(fitPages, 60); });
+window.addEventListener("resize", fitPages);
+window.addEventListener("orientationchange", function(){ setTimeout(fitPages, 260); });
 
 /* ---------- 主题随页切换 ---------- */
 function setTheme(t){ if(document.body.dataset.theme !== t) document.body.dataset.theme = t; }
